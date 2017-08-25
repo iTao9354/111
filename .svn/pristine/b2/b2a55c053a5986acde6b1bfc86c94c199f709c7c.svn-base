@@ -1,0 +1,102 @@
+var tab1 = {
+	init:function(){
+		
+	}
+};
+
+var myChart = {
+	init:function(){
+		var option = {
+		    color:['#bea6f2','#04d88c'],
+		    tooltip: {
+		        trigger: 'axis'
+		    },
+		    legend: {
+		        data:['本月','上月'],
+		        bottom:0
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '4%',
+		        top:'2%',
+		        bottom: '8%',
+		        containLabel: true
+		    },
+		    xAxis: {
+		        type: 'category',
+		        boundaryGap: false,
+		        axisLabel:{
+		            color:'#777'
+		        },
+		        axisLine:{
+		            lineStyle:{
+		                color:'#cccccc'
+		            }
+		        },
+		        data: ['01日','02日','03日','04日','5日','06日','07日']
+		    },
+		    yAxis: {
+		        type: 'value',
+		        axisLabel:{
+		            color:'#757d8a'
+		        },
+		        axisLine:{
+		            lineStyle:{
+		                color:'#cccccc'
+		            }
+		        },
+		        splitLine:{
+		            lineStyle:{
+		                color:'#e1e1e1'
+		            }
+		        }
+		    },
+		    series: [
+		        {
+		            name:'本月',
+		            type:'line',
+		            data:[120, 132, 101, 134, 90, 230, 210]
+		        },
+		         {
+		            name:'上月',
+		            type:'line',
+		            data:[10, 12, 30, 34, 60, 60, 20]
+		        }
+		    ]
+		};
+		var myChart = echarts.init(document.getElementById('chart1'));
+		// 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+	}
+};
+
+var tbl2 = {
+	init:function(){
+		
+	}
+};
+
+//美化滚动条
+function addNiceScroll(){
+	//$('body').niceScroll({cursorcolor:"#ddd",cursorwidth: "5px",cursorborder:"none"});
+}
+
+//绑定tab切换事件
+function bindPanelChange(){
+	$('.nav-tabs a').click(function (e) {
+	  e.preventDefault();
+	  $(this).tab('show');
+	  var thisDom = $(this);
+	  var idx = thisDom.attr('aria-controls');
+	  
+	});
+}
+
+$(function(){
+	common.initCommonSelect();
+	tab1.init();
+	myChart.init();
+	tbl2.init();
+	addNiceScroll();
+	bindPanelChange();
+});

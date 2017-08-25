@@ -1,0 +1,65 @@
+;(function(window){
+	window.common = _common = {};
+	//自定义下拉框初始化
+	function initCommonSelect() {
+		$('.common-select').each(function() {
+			var _this = $(this),
+				selectInp = _this.children('.cm-select-form'),
+				selectBtn = _this.children('.cm-select-btn'),
+				selectBoxWrap = _this.children('.cm-selectBox-Wrap');
+			selectInp.val(selectBoxWrap.children('li:first-child').text());
+			$(document).click(function() {
+				selectBoxWrap.hide();
+				selectBtn.css('transform','rotate(0)');
+			});
+			
+			selectInp.off('click').on('click', function(e) {
+				preventEvent(e);
+				toggleRotate();
+			})
+			.next().off('click').on('click', function(e) {
+				preventEvent(e);
+				toggleRotate();			
+				selectInp.css({'border-color': '#d43f3a', 'background-color': '#fffdfd'});
+				$(this).css({'color': '#e15b52'});
+			});
+			
+			// 鼠标划入效果
+			_this.children('.cm-select-form, .cm-select-btn').hover(function() {
+				$(this).parent().css({'border-color': '#d43f3a'});
+				selectInp.css({'background-color': '#fcf4f4'});
+				selectBtn.css({'color': '#e15b52'});
+				// 添加title
+				selectInp.attr('title', $(this).val());
+			}, function() {
+				$(this).parent().css({'border-color': '#ccc'});
+				selectInp.css({'background-color': '#fff'});
+				selectBtn.css({'color': '#aaa'});
+			})
+			
+			// 下拉操作
+			selectBoxWrap.children('li').off('click').on('click', function() {
+				selectInp.val($(this).text());
+				selectBoxWrap.hide();
+				selectBtn.css('transform','rotate(0)');
+			})
+			
+			// 内容过多时出现滚动条
+			selectBoxWrap.niceScroll({cursorcolor: '#ccc'});		
+			
+			function toggleRotate() {
+				if(selectBoxWrap.is(':visible') == true) {
+					selectBoxWrap.hide();
+					selectBtn.css('transform','rotate(0)');
+				}else {
+					$('.cm-selectBox-Wrap').hide();
+					$('.cm-select-btn').css('transform','rotate(0)');
+					selectBoxWrap.show();
+					selectBtn.css('transform','rotate(180deg)');
+				}
+			}
+		})
+	}
+	_common.initCommonSelect = initCommonSelect;
+	
+})(window);

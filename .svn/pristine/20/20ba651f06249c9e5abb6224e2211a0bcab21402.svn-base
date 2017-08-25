@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>例子一</title>
+		<link rel="stylesheet" href="../dist/lib/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../dist/lib/layer/skin/layer.css" />
+		<link rel="stylesheet" href="../dist/lib/ztree/css/metroStyle/metroStyle.min.css" />
+		<link rel="stylesheet" href="../dist/lib/My97Date/My97DatePicker/skin/WdatePicker.css" />
+		<link rel="stylesheet" href="../dist/lib/webuploader-0.1.5/webuploader.css">
+		<link rel="stylesheet" href="../dist/css/layer-ext.css">
+		<link rel="stylesheet" href="../dist/lib/datatables/media/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="../dist/css/customzTree/customStyle.css">
+		<link rel="stylesheet" href="../dist/css/common.css">
+		<link rel="stylesheet" href="css/demoBasic.css">
+		<!--[if gt IE 8]><--!>
+			<link rel="stylesheet" href="../dist/css/notIE8.css">
+		<!--<![endif]-->
+		
+		<script src="../dist/lib/jquery/jquery-1.10.2.min.js"></script>
+		<script src="../dist/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../dist/lib/layer/layer.js"></script>
+		<script type="text/javascript">
+			//定义全局使用的layer样式
+			layer.config({
+			  skin: 'layui-layer-ext'
+			});
+		</script>
+		<script src="../dist/lib/My97Date/My97DatePicker/WdatePicker.js"></script>
+		<script src="../dist/lib/nicescroll/jquery.nicescroll.min.js"></script>
+		<script src="../dist/lib/ztree/js/jquery.ztree.all.min.js"></script>
+		<script src="../dist/lib/webuploader-0.1.5/webuploader.min.js"></script>
+		<script src="../dist/js/util.js"></script>
+		<script src="../demo/js/demoBasic.js"></script>
+	</head>
+	<body>
+		<div class="container-fluid">	
+		<div class="row">	
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="panel">
+					<h2 class="panel-heading">表单样式</h2>	
+					<div class="panel-body">
+						<form class="form-inline">			
+							<div>						
+								<h3 class="cm-form-title">
+									<span>基础表单</span>
+								</h3>
+								<ul class="cm-form-wrap">
+									<li>
+										<label for=""><i class="cm-sign">*</i> 输入框：</label>
+										<input type="text" class="form-control input-medium" />
+									</li>
+									<li>
+										<label for="">信息框：</label>
+										<textarea class="cm-form-area"></textarea>
+									</li>
+									<li>
+										<label for="">可被内容自动撑开的信息框：</label>
+										<div contenteditable="true" class="cm-form-editDiv"></div>
+									</li>
+								</ul>
+							</div>
+							<div>						
+								<h3 class="cm-form-title">
+									<span>单选、复选、下拉框</span>
+								</h3>
+								<ul class="cm-form-wrap">
+									<li>
+										<label for=""><i class="cm-sign">*</i> 单选框：</label>
+										<div>																	 
+											<label class="cm-radio">
+									        	<input type="radio" name="radio" checked="checked">
+									            <i></i>是
+									        </label>
+									        <label class="cm-radio">
+									            <input type="radio" name="radio">
+									            <i></i>否
+									        </label>
+										</div>
+									</li>
+									<li>
+										<label for=""><i class="cm-sign">*</i> 复选框：</label>
+										<div>
+											<label class="cm-checkbox">
+								            	<input type="checkbox" name="checkbox" checked="checked">
+								            	<i></i>选项一
+								           	</label>
+								          	<label class="cm-checkbox">
+								            	<input type="checkbox" name="checkbox">
+								            	<i></i>选项二
+								            </label>
+								          	<label class="cm-checkbox">
+								            	<input type="checkbox" name="checkbox">
+								            	<i></i>选项三
+								            </label>		
+										</div>
+									</li>
+									<li>
+										<label for=""><i class="cm-sign">*</i> 特殊单选框：</label>
+										<div>																	 
+											<label class="cm-radio cm-special-radio cm-forbid">
+									        	<input type="checkbox" name="checkbox" checked="checked">
+									            <i></i>
+									        </label>
+										</div>
+									</li>
+									<li>
+										<label for=""><i class="cm-sign">*</i> 特殊复选框：</label>
+										<div>
+											<label class="cm-checkbox cm-special-checkbox cm-forbid">
+								            	<input type="checkbox" name="checkbox" checked="checked">
+								            	<i></i>
+								           	</label>		
+										</div>
+									</li>
+									<li>
+										<label for=""><i class="cm-sign">*</i> 下拉框：</label>
+										<div class="common-select cm-select-wrap">
+											<input type="text" class="cm-form-select" readonly="true">
+											<i class="iconfont cm-select-btn">&#xe6a3;</i>
+											<ul class="cm-selectBox-Wrap">
+												<li>111</li>
+												<li>222</li>
+												<li>333</li>
+												<li>444</li>
+												<li>555</li>
+												<li>666</li>
+												<li>777</li>
+												<li>888</li>
+												<li>999</li>
+												<li>000</li>
+											</ul>
+										</div>
+									</li>
+									<li>
+										<label for="">带树状结构的下拉框：</label>
+										<div class="cm-select-wrap">
+											<input type="text" class="cm-form-select" id="formSel" onclick="showMenu(this);" readonly="true" />
+											<span id="menuBtn" class="iconfont cm-select-btn" onclick="showMenu(this); return false;">&#xe6a3;</span>							
+											<div id="menuContent" class="cm-menu-content">
+												<ul id="downTree" class="ztree"></ul>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</form>	
+					</div>		
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6">
+				<div class="panel panel-default">
+					<h2 class="panel-heading">按钮</h2>	
+					<div class="panel-body">
+						<div class="btnsWrap">
+							<button type="button" class="cm-redBtn cm-btn-i"><i class="iconfont" title="删除">&#xe614;</i><span>删除</span></button>
+						</div>
+						<br>
+						<div id="uploader" class="wu-example">
+							<!--用来存放文件信息-->
+						    <div id="thelist" class="uploader-list"></div>
+						    <div class="btns clearfix">
+						        <div id="picker" class="fl picker"><i class="iconfont">&#xe696;</i>选择文件</div>
+						        <button id="ctlBtn" class="cm-redBtn cm-btn-i fl">开始上传</button>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6">
+				<div class="panel panel-default">
+					<h2 class="panel-heading">弹出层</h2>	
+					<div class="panel-body">					
+						<div class="cm-layer">
+							<button type="button" class="cm-redBtn cm-btn-i" onclick="showLayer();"><span>普通弹出层</span></button>
+							<button type="button" class="cm-redBtn cm-btn-i" onclick="showHrefLayer();"><span>带子页面的弹出层</span></button>	
+							<i class="iconfont cm-tips" id="tips" onmouseover="showTipsLayer('这是提示信息！！！', 'tips');">&#xe6a8;</i>					
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-4 col-md-4">
+				<div class="panel panel-default">
+					<h2 class="panel-heading">默认图标的树</h2>	
+					<div class="panel-body">
+						<div id="default-tree">
+							<ul id="defaultTree" class="ztree"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-4 col-md-4">
+				<div class="panel panel-default">
+					<h2 class="panel-heading">修改图标的树（带右键菜单）</h2>	
+					<div class="panel-body">
+						<div id="idTreeContent" class="identity-tree">
+							<ul id="identityTree" class="ztree"></ul>
+						
+							<!-- 右键文件夹的菜单 -->
+							<div id="folderContextMenu" class="dropdown bootstrapMenu" style="z-index: 10000; position: absolute; display: none; height: 23px; width: 158px;">
+							      <ul class="dropdown-menu" style="position:static;display:block;font-size:0.9em;">
+							          <li>
+							              <a href="javascript:void(0);">
+							                 <i class="iconfont">&#xe667;</i> 
+							                 <span>添加文件夹</span>
+							              </a>
+							          </li>
+							          <li>
+							              <a href="javascript:void(0);">
+							                 <i class="iconfont">&#xe643;</i> 
+							                 <span>添加内链接</span>
+							              </a>
+							          </li>
+							          <li>
+							              <a href="javascript:void(0);">
+							                 <i class="iconfont">&#xe610;</i> 
+							                 <span>添加外链接</span>
+							              </a>
+							          </li>
+							          <li>
+							              <a href="javascript:void(0);">
+							                 <i class="iconfont">&#xe631;</i> 
+							                 <span>修改资源</span>
+							              </a>
+							          </li>
+							          <li>
+							              <a href="javascript:void(0);">
+							                 <i class="iconfont">&#xe614;</i> 
+							                 <span>删除资源</span>
+							              </a>
+							          </li>
+							      </ul>
+							</div>
+							<!-- 右键菜单 -->
+							<div id="linkContextMenu" class="dropdown bootstrapMenu" style="z-index: 10000; position: absolute; display: none; height: 23px; width: 158px;">
+						    	<ul class="dropdown-menu" style="position:static;display:block;font-size:0.9em;">
+						    	    <li>
+						    	        <a href="javascript:void(0);">
+						    	           <i class="iconfont">&#xe667;</i> 
+						    	           <span>添加文件夹</span>
+						    	        </a>
+						    	    </li>
+						    	    <li>
+						    	        <a href="javascript:void(0);">
+						    	           <i class="iconfont">&#xe643;</i> 
+						    	           <span>添加内链接</span>
+						    	        </a>
+						    	    </li>
+						    	    <li>
+						    	        <a href="javascript:void(0);">
+						    	           <i class="iconfont">&#xe610;</i> 
+						    	           <span>添加外链接</span>
+						    	        </a>
+						    	    </li>
+						    	</ul>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4">
+				<div class="panel panel-default">
+					<h2 class="panel-heading">日期控件例子</h2>	
+					<div class="panel-body">	
+						<div class="form-inline">
+							<div class="my97Date">
+								<p>my97日历插件：</p>
+								<input id="dStart" class="Wdate form-control input-medium" type="text" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'dEnd\')||\'2020-10-01\'}'})" placeholder="开始日期" /> 
+								<input id="dEnd" class="Wdate form-control input-medium" type="text" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'dStart\')}',maxDate:'2020-10-01'})" placeholder="结束日期" />
+							</div>
+						</div>										
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<div class="panel panel-default">
+					<h2 class="panel-heading">表格</h2>	
+					<div class="panel-body">					
+						<div>
+							<div class="cm-searchWrap">
+		                   		<form class="form-inline" id="userSearchForm">
+									<div class="form-group">
+											<label for="loginId">登录账号:</label>
+											<input type="text" class="form-control input-medium" name="loginId" id="loginId" />
+									</div>
+									<div class="form-group">
+											<label for="userName">用户姓名:</label>
+											<input type="text" class="form-control input-medium" name="userName" id="userName"/>
+									</div>
+									<div class="form-group">
+											<label for="orgName">所属组织:</label>
+											<input type="text" class="input-medium cm-form-readonly" name="orgName" id="orgName" readonly="readonly" />
+									</div>
+									<div class="form-group">
+										<button type="button" class="cm-redBtn cm-btn-i" id="searchBtn">
+											<i class="iconfont">&#xe67a;</i>查询
+										</button>
+										<button type="button" class="cm-redBtn cm-btn-i" id="resetBtn">
+											<i class="iconfont">&#xe647;</i>重置
+										</button>
+										<button type="button" class="cm-redBtn cm-btn-i" id="addUserBtn">
+											<i class="iconfont">&#xe635;</i>新建用户
+										</button>
+									</div>
+								</form>
+		              		</div>
+							<table id="userTable">  
+	                      		<thead>
+	          						<tr>
+	              						<th>用户姓名</th>
+	              						<th>登录账号</th>
+	              						<th>电子邮箱</th>
+	             						<th>手机号码</th>
+	              						<th>用户状态</th>
+	              						<th>锁定次数</th>
+	              						<th>注册时间</th>
+	              						<th>操作</th>
+	          						</tr>
+	      						</thead>
+	                  		</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<div class="panel panel-default">
+					<h2 class="panel-heading">插件API链接</h2>	
+					<div class="panel-body">
+						<div id="links">
+							<a href="//v3.bootcss.com/css/#grid" target="_blank">Bootstrap栅格化布局</a>
+							<a href="//www.datatables.net/reference/api/"  target="_blank">datatables API 官方网站</a>
+							<a href="//www.treejs.cn/v3/api.php"  target="_blank">zTree API</a>
+							<a href="//jqueryui.com/datepicker/"  target="_blank">JqueryUI datepicker官网</a>
+							<a href="//www.my97.net/index.asp"  target="_blank">my97官网</a>
+							<a href="//www.areaaperta.com/nicescroll/"  target="_blank">nicescroll官网</a>
+							<a href="//www.layui.com/doc/modules/layer.html"  target="_blank">layer官网</a>
+							<a href="//echarts.baidu.com/option.html#title"  target="_blank">echarts官网</a>
+							<a href="//www.iconfont.cn/"  target="_blank">iconfont（更新图标字体需要在原来的基础上加）</a>
+							<a href="//validator.niceue.com/docs/"  target="_blank">validator 官网</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

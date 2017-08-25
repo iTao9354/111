@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>表格例子</title>
+		<link rel="stylesheet" href="../dist/lib/jquery-easyui-1.5.1/themes/default/easyui.css">
+		<link rel="stylesheet" href="../dist/lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="../dist/css/peacock.css">
+		<link rel="stylesheet" type="text/css" href="css/easyuiTables.css" />
+		<script type="text/javascript" src="../dist/lib/jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/nicescroll/jquery.nicescroll.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../dist/lib/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/jquery-easyui-1.5.1/locale/easyui-lang-zh_CN.js" ></script>
+		<script src="../dist/lib/jquery-easyui-1.5.1/jquery.easyui.ext.js"></script>
+		<script type="text/javascript" src="../dist/js/peacock.js"></script>
+		<script type="text/javascript" src="js/easyuiTables.js"></script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12 col-md-12">
+					<div class="panel">
+						<h3><span>基本表格的使用</span></h3>
+						<div class="panel-body">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active">
+									<a href="#normalTable" aria-controls="normalTable" role="tab" data-toggle="tab">基础表格</a>
+								</li>
+								<li role="presentation">
+									<a href="#colRowTable" aria-controls="colRowTable" role="tab" data-toggle="tab">表格列、行合并</a>
+								</li>
+								<li role="presentation">
+									<a href="#childrenTable" aria-controls="childrenTable" role="tab" data-toggle="tab">下钻表格</a>
+								</li>
+								<li role="presentation">
+									<a href="#fixHeaderCol" aria-controls="fixHeaderCol" role="tab" data-toggle="tab">固定表头、固定列</a>
+								</li>
+							</ul>
+	
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" id="normalTable">
+									<table id="basicTbl1" class="cm-table"></table>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="colRowTable">
+									<table id="basicTbl2" class="cm-table"></table>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="childrenTable">
+									<table id="basicTbl3" class="cm-table"></table>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="fixHeaderCol">
+									<div class="fixHeight">
+										<table id="basicTbl4" class="cm-table"></table>
+									</div>
+									<table id="basicTbl5" class="cm-table"></table>
+								</div>
+							</div>
+	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

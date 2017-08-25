@@ -1,0 +1,7 @@
+.panel-header, .panel-body{
+	border: none;
+}
+body,html{
+	height: 100%;
+	overflow: hidden;
+}

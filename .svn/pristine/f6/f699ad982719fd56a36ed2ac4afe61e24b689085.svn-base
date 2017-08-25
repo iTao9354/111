@@ -1,0 +1,564 @@
+@CHARSET "UTF-8";
+body {
+	font-family: PingFangSC-Light, 'helvetica neue', 'hiragino sans gb', tahoma, 'microsoft yahei ui', 'microsoft yahei', simsun, sans-serif;
+	background: #E8ECF0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+
+h2 {
+	font-size: 16px;
+}
+
+h3 {
+	font-size: 14px;
+}
+
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+	margin: 0;
+	padding: 0;
+}
+
+
+/* 有时不生效，需要再次清除margin和padding */
+
+li,
+dt,
+dd {
+	list-style: none;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+
+a:focus {
+	outline: none;
+	color: #f64241;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	text-decoration: none;
+}
+
+a:hover {
+	color: #f64241;
+}
+
+
+/* IE下点击a标签去掉虚线边框 */
+
+img {
+	vertical-align: top;
+}
+
+input,
+button,
+textarea {
+	outline: none;
+}
+
+button {
+	border: none;
+	outline: none;
+}
+
+label,
+table> tbody> tr> th {
+	font-weight: normal;
+}
+
+i {
+	font-style: normal;
+}
+
+
+/* 浮动 */
+
+.cm-clearfix:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+
+.cm-fl {
+	float: left;
+}
+
+.cm-fr {
+	float: right;
+}
+
+
+/* 表单 */
+
+.cm-form-title {
+	width: 100%;
+	height: 34px;
+	border-bottom: 2px solid #eee;
+	margin-bottom: 20px;
+}
+
+.cm-form-title span {
+	font-size: 14px;
+	position: relative;
+	display: inline-block;
+	height: 100%;
+	line-height: 34px;
+}
+
+.cm-form-title span:before {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background-color: #e15b52;
+	position: absolute;
+	bottom: -2px;
+}
+
+.cm-input-readonly {
+	height: 26px;
+	color: #555;
+	padding: 3px 8px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.cm-form-area {
+	width: 420px;
+	height: 90px;
+	color: #555;
+	padding: 3px 8px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	resize: none;
+}
+
+.cm-form-editDiv {
+	width: 420px;
+	min-height: 90px;
+	color: #555;
+	padding: 3px 8px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	outline: none;
+}
+
+.cm-form-control:focus,
+.cm-form-area:focus,
+.cm-form-editDiv:focus {
+	border-color: #d43f3a;
+	background-color: #fffdfd;
+	box-shadow: none;
+}
+
+
+/* 仅适用于面板头部的搜索区 */
+
+.form-inline> .form-group {
+	display: inline-block;
+	margin-bottom: 10px;
+	vertical-align: middle;
+	margin-right: 20px;
+}
+
+.cm-table-wrap {
+	width: 100%;
+}
+
+.cm-table-wrap tbody> tr> th,
+.cm-table-wrap tbody> tr> td {
+	padding-bottom: 10px;
+}
+
+.cm-table-wrap tbody> tr> th {
+	width: 105px;
+	text-align: right;
+	padding-right: 5px;
+}
+
+
+/* 必填星号 */
+
+.cm-cSign {
+	color: #e15b52;
+	position: relative;
+	top: 2px;
+}
+
+
+/* 类似单选框 */
+
+.cm-special-radio {
+	display: inline-block;
+	position: relative;
+	top: 3px;
+	width: 16px;
+	height: 15px;
+	background: url(../img/commonSprites.png) -4px -3px;
+}
+
+.cm-special-radio.active {
+	background-position: -68px -52px;
+}
+
+
+/* 复选框 */
+
+.cm-special-checkbox {
+	display: inline-block;
+	position: relative;
+	top: 3px;
+	width: 13px;
+	height: 13px;
+	background: url(../images/commonSprites.png) -46px -3px;
+}
+
+.cm-special-checkbox.active {
+	background-position: -46px -26px;
+}
+
+
+/* 下拉框 */
+
+.cm-select-wrap {
+	position: relative;
+	display: inline-block;
+	width: 158px;
+	border: 1px solid #ccc;
+}
+
+.cm-select-wrap .cm-form-select {
+	width: 100%;
+	height: 26px;
+	color: #555;
+	padding: 3px 24px 3px 8px;
+	background-color: #fff;
+	border: none;
+	cursor: pointer;
+}
+
+.cm-select-btn {
+	font-size: 20px;
+	color: #aaa;
+	position: absolute;
+	right: 6px;
+	top: 50%;
+	margin-top: -9px;
+	cursor: pointer;
+	transition: 0.4s all ease;
+}
+
+.cm-selectBox-Wrap {
+	display: none;
+	position: absolute;
+	left: -1px;
+	top: 27px;
+	width: 158px;
+	max-height: 200px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-top: none;
+	z-index: 9;
+}
+
+.cm-selectBox-Wrap> li {
+	height: 30px;
+	line-height: 30px;
+	padding: 0 8px;
+	cursor: pointer;
+}
+
+.cm-selectBox-Wrap> li:hover {
+	background-color: #fce2e2;
+	color: #d43f3a;
+}
+
+
+/* 树状菜单 */
+
+.cm-menu-content {
+	display: none;
+	position: absolute;
+	left: -1px !important;
+	top: 26px !important;
+	max-height: 300px;
+	border: 1px solid #ccc;
+	background: #fff;
+	z-index: 9;
+}
+
+.cm-dialog-wrap {
+	padding: 20px;
+	padding-top: 15px;
+	display: none;
+}
+
+.cm-form-control {
+	display: inline-block;
+	width: 100%;
+	color: #555;
+	padding: 0px 12px;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+
+/*按钮公共样式*/
+
+
+/*红色背景深红边框的button*/
+
+.cm-b-redBtn {
+	background-color: #e15b52;
+	color: #fff;
+	padding: 4px 6px 4px 25px;
+	height: 26px;
+}
+
+.cm-b-redBtn:hover,
+.cm-b-redBtn:focus,
+.cm-b-redBtn:active {
+	background-color: #c73c37;
+}
+
+.cm-btn-i {
+	padding: 3px 6px;
+}
+
+.cm-btn-i> i {
+	margin-right: 4px;
+	font-size: 13px;
+}
+
+.cm-searchWrap {
+	float: left;
+	padding-left: 15px;
+	margin-bottom: 10px;
+}
+
+
+/*================================下面是定义插件的样式修改====================================*/
+
+
+/***重写bootstrap的样式*/
+
+.container-fluid {
+	margin-top: 10px;
+}
+
+.panel-default {
+	border-color: #fff;
+}
+
+.panel-heading {
+	background-color: #fff;
+	border-bottom-color: #ddd;
+}
+
+.panel {
+	border-radius: 0px;
+	height: 100%;
+}
+
+.panel-body {
+	min-height: 300px;
+}
+
+.form-inline .form-control {
+	height: 26px;
+	color: #555;
+	padding: 3px 8px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.form-inline .input-small {
+	width: 50px;
+}
+
+.form-inline .input-medium {
+	width: 200px;
+}
+
+.input-small {
+	height: 26px;
+	line-height: 125%;
+	width: 100%;
+}
+
+
+/* webuploader插件上传文件 */
+
+.picker {
+	margin-right: 10px;
+}
+
+.webuploader-container .webuploader-pick {
+	background-color: #e15b52;
+	color: #fff;
+	padding: 4px 6px;
+	height: 26px;
+	border-radius: 0;
+}
+
+.webuploader-pick .iconfont {
+	margin-right: 3px;
+}
+
+
+/* layer弹出层 */
+
+body .layui-layer-tips> .layui-layer-content {
+	color: #716f6d;
+}
+
+.layui-layer-setwin .layui-layer-close1 {
+	background-position: 1px -40px;
+}
+
+
+/* datatables样式改造 */
+
+.dataTables_wrapper .dataTable {
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+}
+
+.dataTables_wrapper .dataTable tr {
+	border: 1px solid #eceff8;
+	height: 40px;
+}
+
+.dataTables_wrapper .dataTable th,
+.dataTables_wrapper .dataTable td {
+	padding-left: 16px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.dataTables_wrapper .dataTable thead th,
+.dataTables_wrapper .dataTable thead td {
+	background-color: #f2f2f2;
+	border-bottom: none;
+	font-weight: normal;
+	border-right: 1px solid #fff;
+}
+
+.dataTables_wrapper .dataTable th:last-child,
+.dataTables_wrapper .dataTable td:last-child {
+	border-right: none;
+}
+
+table.dataTable tbody tr> th,
+table.dataTable tbody tr> td {
+	border-right: 1px solid #fff;
+}
+
+table.dataTable tbody tr:nth-child(even) {
+	background-color: #f9f9f9;
+}
+
+table.dataTable tbody tr:nth-child(even)> th,
+table.dataTable tbody tr:nth-child(even)> td {
+	border-right: 1px solid #f9f9f9;
+}
+
+.dataTables_wrapper .dataTable tbody> tr:hover {
+	background: #f5f5f5;
+}
+
+.dataTables_wrapper .dataTable tbody> tr:hover> th,
+.dataTables_wrapper .dataTable tbody> tr:hover> td {
+	border-right-color: #fff;
+}
+
+table.dataTable td> i.iconfont,
+table.dataTable td> a> i.iconfont {
+	color: #434343;
+}
+
+table.dataTable td> a> i.icon-auth {
+	font-size: 12px;
+	position: relative;
+	top: -2px;
+}
+
+.dataTable tr> td> a> i.iconfont:hover,
+.dataTable tr> td> a> i.iconfont:active,
+.dataTable tr> td> a> i.iconfont:focus {
+	color: #d9534f;
+}
+
+
+/* 分页 */
+
+.dataTables_wrapper .dataTables_paginate {
+	margin: 20px 0;
+}
+
+.panel-body .dataTables_wrapper .dataTables_paginate .paginate_button {
+	background: #f3f2f3;
+	border-radius: 0;
+	padding: .2em .7em;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+	background: #ed5b56;
+	border-color: transparent;
+	color: #fff !important;
+	box-shadow: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+	opacity: .6;
+	filter: alpha(opacity=60);
+	background: #f3f2f3;
+}
+
+
+/*ztree树的右键样式*/
+
+.dropdown-menu> li> a> i.glyphicon {
+	color: #f39800;
+	padding-right: 3px;
+}
+
+.dropdown-menu> li> a {
+	padding: 3px 16px 3px 12px;
+}
+
+.dropdown-menu {
+	min-width: 112px;
+}

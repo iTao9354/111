@@ -1,0 +1,57 @@
+@tblHeadBkColor:#ebebeb;
+@tblOddBkColor:#ffffff;
+@tblEvenBkColor:#f5f6f8;
+@tblHoverBkColor:#efefef;
+@tblHoverColor:#000000;
+/*easyui 表格样式修改*/
+.datagrid-row {
+    background: @tblOddBkColor;
+}
+.datagrid-row-alt {
+    background: @tblEvenBkColor;
+}
+.datagrid-row-over{
+  background: @tblHoverBkColor;
+  color: @tblHoverColor;
+}
+.datagrid-header td.datagrid-header-over{
+  background: @tblHeadBkColor;
+  color: @tblHoverColor;
+}
+.datagrid-header td, .datagrid-body td, .datagrid-footer td {
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+}
+.datagrid-header tr:first-child td:last-child, .datagrid-body tr td:last-child, .datagrid-footer tr td:last-child {
+    border: none;
+}
+.datagrid-header, .datagrid-toolbar, .datagrid-pager, .datagrid-footer-inner {
+    border-color: transparent;
+}
+.datagrid-header{
+    background: @tblHeadBkColor;
+}
+.datagrid-td-rownumber{
+    background: transparent;
+}
+.datagrid-toolbar, .datagrid-pager{
+    background: @tblHeadBkColor;
+}
+.datagrid-header-row, .datagrid-row {
+    height: 34px;
+}
+.pagination{
+    border-radius: 0;
+}
+.datagrid-sort .datagrid-sort-icon {
+    background: url(../../dist/img/easyui/tableSortBk.png) no-repeat left 1px;
+    margin-left: 7px;
+}
+.datagrid-sort-desc .datagrid-sort-icon {
+    background-position: -90px 1px;
+}
+.datagrid-sort-asc .datagrid-sort-icon {
+    background-position: -45px 1px;
+}
+/*easyui 表格样式结束*/

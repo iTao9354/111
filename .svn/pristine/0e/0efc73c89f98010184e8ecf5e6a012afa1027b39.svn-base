@@ -1,0 +1,9 @@
+@import '../../dist/css/common.less';
+body,html{
+      height: 100%;
+      overflow: hidden;
+}
+.fixHeight{
+    height: 400px;
+}
+@import '../../dist/css/easyui-ext.less';

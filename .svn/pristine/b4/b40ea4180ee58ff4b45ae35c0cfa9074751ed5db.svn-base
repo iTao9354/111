@@ -1,0 +1,28 @@
+var tab1 = {
+	init:function(){
+		
+	}
+};
+
+//美化滚动条
+function addNiceScroll(){
+	//$('body').niceScroll({cursorcolor:"#ddd",cursorwidth: "5px",cursorborder:"none"});
+}
+
+//绑定tab切换事件
+function bindPanelChange(){
+	$('.nav-tabs a').click(function (e) {
+	  e.preventDefault();
+	  $(this).tab('show');
+	  var thisDom = $(this);
+	  var idx = thisDom.attr('aria-controls');
+	  
+	});
+}
+
+$(function(){
+	common.initCommonSelect();
+	tab1.init();
+	addNiceScroll();
+	bindPanelChange();
+});

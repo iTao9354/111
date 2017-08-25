@@ -1,0 +1,14 @@
+.cm-radio .cm-radio-label,
+.cm-checkbox .cm-checkbox-label {
+  display: inline;
+  top: -2px;
+}
+.cm-radio .cm-radio-label input,
+.cm-checkbox .cm-checkbox-label input {
+  left: 0;
+  top: 1px;
+}
+.cm-radio .cm-radio-label i,
+.cm-checkbox .cm-checkbox-label i {
+  display: none;
+}

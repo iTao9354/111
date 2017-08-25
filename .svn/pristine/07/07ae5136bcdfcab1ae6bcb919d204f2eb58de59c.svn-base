@@ -1,0 +1,116 @@
+@CHARSET "UTF-8";
+/* 单选框/复选框 */
+ .cm-checkbox .cm-checkbox-label,
+ .cm-radio .cm-radio-label {
+	position: relative;
+  display: inline-block;
+  font-weight: 400;
+  margin-bottom: 4px;
+  margin-right: 10px;
+  padding-left: 20px;
+  line-height: 25px;
+  color: #0c4757;
+  cursor: pointer;
+  font-size: 13px;
+}
+ .cm-checkbox .cm-checkbox-label.state-disabled, 
+ .cm-radio .cm-radio-label.state-disabled {
+  cursor: default!important;
+  opacity: .6!important;
+}
+
+/*add*/
+ .cm-checkbox .cm-checkbox-label input,
+ .cm-radio .cm-radio-label input {
+  position: absolute;
+  left: -9999px;
+}
+
+ .cm-checkbox .cm-checkbox-label i,
+ .cm-radio .cm-radio-label i {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  display: block;
+  width: 15px;
+  height: 15px;
+  outline: 0;
+  border-width: 1px;
+  border-style: solid;
+  background: #fff;
+}
+
+ .cm-radio .cm-radio-label i {
+  border-radius: 50%;
+}
+
+ .cm-checkbox .cm-checkbox-label i,
+ .cm-radio .cm-radio-label i{
+  border-color: #acacac;
+  transition: border-color .3s;
+  -webkit-transition: border-color .3s;
+}
+
+ .cm-checkbox .cm-checkbox-label input:checked+i,
+ .cm-radio .cm-radio-label input:checked+i {
+  border-color: #e15b52;
+}
+
+ .cm-checkbox .cm-checkbox-label input+i:after, 
+ .cm-radio .cm-radio-label input+i:after {
+  position: absolute;
+  opacity: 0;
+  transition: opacity .1s;
+  -webkit-transition: opacity .1s;
+}
+
+ .cm-radio .cm-radio-label input+i:after {
+  content: '';
+  top: 2px;
+  left: 2px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #e15b52;
+}
+
+ .cm-checkbox .cm-checkbox-label input:checked+i:after,
+ .cm-radio .cm-radio-label input:checked+i:after {
+  opacity: 1;
+}
+
+ .cm-checkbox .cm-checkbox-label input+i:after {
+  content: '\e600';
+  top: -5px;
+  left: -1px;
+  font-family: 'iconfont';
+  font-size: 14px;
+  color: #e15b52;
+}
+
+/*特殊单选、复选框*/
+ .cm-checkbox .cm-special-checkbox i, 
+ .cm-radio .cm-special-radio i {
+	top: -3px;
+	transition: border-color 0;
+    -webkit-transition: border-color 0;
+}
+ .cm-checkbox .cm-special-checkbox input:checked+i, 
+ .cm-radio .cm-special-radio input:checked+i {
+	background-color: #e15b52;
+}
+ .cm-radio .cm-special-radio input+i:after {
+	content: '\e600';
+	top: -5px;
+	left: 0;
+	font-family: 'iconfont';
+	font-size: 13px;
+	color: #fff;
+	background-color: transparent;
+}
+ .cm-checkbox .cm-special-checkbox input+i:after {
+	top: -5px;
+    left: 0;
+    font-size: 14px;
+	color: #fff;
+}

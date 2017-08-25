@@ -1,0 +1,17 @@
+#tbl1 {
+  width: 100%;
+  height: 300px;
+}
+#chart1 {
+  width: 100%;
+  height: 330px;
+}
+#tbl2 {
+  height: 400px;
+}
+.excl {
+  color: #6eb57b;
+  font-size: 20px;
+  font-weight: normal;
+  cursor: pointer;
+}

@@ -1,0 +1,23 @@
+.pl(@l:0) {            // left -- 默认0
+    left: @l;
+}
+.pt(@t:0) {            // top -- 默认0
+    top: @t;
+}
+.dis(@dis:inline-block) {    // display -- 默认inline-block
+  display: @dis;
+}
+
+.cm-radio .cm-radio-label,
+.cm-checkbox .cm-checkbox-label {
+    .dis(inline);
+    .pt(-2px);
+    input {
+        .pl;
+        .pt(1px);
+    }
+    
+    i {
+        .dis(none);
+    }
+}

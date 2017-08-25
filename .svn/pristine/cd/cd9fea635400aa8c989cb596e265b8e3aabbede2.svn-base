@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1.0, user-scalable=yes"/>
+		<title>商机</title>
+		<link rel="stylesheet" href="../dist/lib/jquery-easyui-1.5.1/themes/default/easyui.css">
+		<link rel="stylesheet" href="../dist/lib/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../dist/lib/layer/skin/layer.css" />
+		<link rel="stylesheet" href="../dist/lib/ztree/css/metroStyle/metroStyle.min.css" />
+		<link rel="stylesheet" href="../dist/lib/My97Date/My97DatePicker/skin/WdatePicker.css" />
+		<link rel="stylesheet" href="../dist/lib/webuploader-0.1.5/webuploader.css">
+		<link rel="stylesheet" href="../dist/lib/validator/dist/jquery.validator.css">
+		<link rel="stylesheet" href="../dist/css/customzTree/customStyle.css">
+		<link rel="stylesheet" href="../dist/css/peacock.css">
+		
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="../dist/css/forIE8.css">
+			<script src="../dist/lib/forIE/html5shiv.min.js"></script>
+			<script src="../dist/lib/forIE/respond.min.js"></script>
+		<![endif]-->
+		<script src="../dist/lib/jquery/jquery-1.10.2.min.js"></script>
+		<script src="../dist/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../dist/lib/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/jquery-easyui-1.5.1/locale/easyui-lang-zh_CN.js" ></script>
+		<script src="../dist/lib/layer/layer.js"></script>
+		<script type="text/javascript">
+			//定义全局使用的layer样式
+			layer.config({
+			  skin: 'layui-layer-ext'
+			});
+		</script>
+		<script src="../dist/lib/My97Date/My97DatePicker/WdatePicker.js"></script>
+		<script src="../dist/lib/nicescroll/jquery.nicescroll.min.js"></script>
+		<script src="../dist/lib/ztree/js/jquery.ztree.all.min.js"></script>
+		<script src="../dist/lib/webuploader-0.1.5/webuploader.min.js"></script>
+		<script src="../dist/lib/validator/dist/jquery.validator.min.js"></script>
+		<script src="../dist/lib/validator/dist/local/zh-CN.js"></script>
+		<script src="../dist/js/peacock.js"></script>
+		<script src="../demo/js/businessOpportunity.js"></script>
+	</head>
+	<body>
+		<form id="demoForm" class="form-inline" data-validator-option="{theme:'yellow_right_effect',stopOnError:false}">			
+			<div class="container-fluid">	
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="panel">
+							<h3><span>审批流程</span></h3>
+							<div class="panel-body">								
+								<table id="basicTbl1" class="cm-table"></table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="panel">
+							<h3 class="panel-heading cm-clearfix"><span>信息录入</span>
+								<div class="cm-fr cm-saveBtn" onclick="submitForm();">
+									<i class="iconfont">&#xe611;</i>
+									<span>信息保存</span>
+								</div>
+							</h3>	
+							<div class="panel-body">
+								<div>						
+									<h4 class="cm-form-title">
+										<span>客户信息</span>
+									</h4>
+									<ul class="cm-form-wrap cm-form-lg cm-clearfix">
+										<li>
+											<label for=""><i class="cm-sign">*</i> 信息类别：</label>
+											<div class="common-select cm-select cm-select-md">
+												<input type="text" class="cm-select-form" readonly="true">
+												<i class="iconfont cm-select-btn">&#xe6a3;</i>
+												<ul class="cm-selectBox-Wrap cm-selectBox-md">
+													<!--<li>111</li>-->
+												</ul>
+											</div>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 客户类型：</label>
+											<input type="text" class="form-control input-md" name="usertype" data-rule="required;length(2~16)">
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 是否名单制：</label>
+											<div class="whether-select cm-select cm-select-xs">
+												<input type="text" class="cm-select-form" readonly="true">
+												<i class="iconfont cm-select-btn">&#xe6a3;</i>
+												<ul class="cm-selectBox-Wrap cm-selectBox-xs">
+													<!--<li>是</li>
+													<li>否</li>-->
+												</ul>
+											</div>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 客户名称：</label>
+											<input type="text" class="form-control input-md" name="username" data-rule="required;length(2~32)" />
+										</li>
+										<li>
+											<label for="">客户编码：</label>
+											<input type="text" class="form-control input-md" name="usercode" data-rule="required;length(2~16)" />
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 客户地址：</label>
+											<input type="text" class="form-control input-md" name="useraddress" data-rule="required;length(1~100)" />
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 一级行业：</label>
+											<div class="cm-select cm-select-md">
+												<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="请选择内容" />
+												<span class="iconfont cm-select-btn">&#xe6a3;</span>							
+												<div class="cm-menu-content">
+													<ul id="downTree" class="ztree"></ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 二级行业：</label>
+											<div class="cm-select cm-select-md">
+												<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="请选择内容" />
+												<span class="iconfont cm-select-btn">&#xe6a3;</span>							
+												<div class="cm-menu-content">
+													<ul id="downTree2" class="ztree"></ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 三级行业：</label>
+											<div class="cm-select cm-select-md">
+												<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="请选择内容" />
+												<span class="iconfont cm-select-btn">&#xe6a3;</span>							
+												<div class="cm-menu-content">
+													<ul id="downTree3" class="ztree"></ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 行业类型：</label>
+											<div class="common-select cm-select cm-select-md">
+												<input type="text" class="cm-select-form" readonly="true">
+												<i class="iconfont cm-select-btn">&#xe6a3;</i>
+												<ul class="cm-selectBox-Wrap cm-selectBox-md">
+													<!--<li>111</li>-->													
+												</ul>
+											</div>
+										</li>
+										<li>
+											<label for="">是否众筹：</label>
+											<div class="cm-checkbox">																	 
+												<label class="cm-checkbox-label">
+									        		<input type="checkbox" name="funding" checked="checked">
+									            	<i></i>是
+									        	</label>
+									        	<label class="cm-checkbox-label">
+									            	<input type="checkbox" name="funding">
+									            	<i></i>否
+									        	</label>
+											</div>
+										</li>
+										<li>
+											<label for="">是否抢单：</label>
+											<div class="cm-radio">																	 
+												<label class="cm-radio-label">
+									        		<input type="radio" name="grabList" checked="checked">
+									            	<i></i>是
+									        	</label>
+									        	<label class="cm-radio-label">
+									            	<input type="radio" name="grabList">
+									            	<i></i>否
+									        	</label>
+											</div>
+										</li>
+										<li>
+											<label for="">抢单人：</label>
+											<input type="text" class="form-control input-md" data-rule="required;" />
+										</li>										
+									</ul>
+								</div>
+								
+								<div>						
+									<h4 class="cm-form-title">
+										<span>需求信息</span>
+									</h4>
+									<ul class="cm-form-wrap cm-form-lg cm-clearfix">
+										<li>
+											<label for=""><i class="cm-sign">*</i> 名称：</label>
+											<input type="text" class="form-control input-md" data-rule="required;" />
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 省带动：</label>
+											<div class="whether-select cm-select cm-select-xs">
+												<input type="text" class="cm-select-form" readonly="true">
+												<i class="iconfont cm-select-btn">&#xe6a3;</i>
+												<ul class="cm-selectBox-Wrap cm-selectBox-xs">
+													<!--<li>是</li>
+													<li>否</li>-->
+												</ul>
+											</div>
+											<div class="common-select cm-select cm-select-sm">
+												<input type="text" class="cm-select-form" readonly="true">
+												<i class="iconfont cm-select-btn">&#xe6a3;</i>
+												<ul class="cm-selectBox-Wrap cm-selectBox-sm">
+													<!--<li>111</li>-->													
+												</ul>
+											</div>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 是否进入办事大厅：</label>
+											<div class="cm-radio">																	 
+												<label class="cm-radio-label">
+									        		<input type="radio" name="hall" checked="checked">
+									            	<i></i>是
+									        	</label>
+									        	<label class="cm-radio-label">
+									            	<input type="radio" name="hall">
+									            	<i></i>否
+									        	</label>
+											</div>
+											<i class="iconfont cm-tips" id="tips" onmouseover="peacock.showTipsLayer('这是提示信息！！！', 'tips');">&#xe6a8;</i>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 预计合同金额：</label>
+											<input type="text" class="form-control input-sm" data-rule="required;" /> （万元）
+										</li>
+										<li>
+											<label for="">预计年收益：</label>
+											<input type="text" class="form-control input-sm" data-rule="required;" /> （万元）
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 预计签约年限：</label>
+											<input type="text" class="form-control input-md" data-rule="required;" />
+										</li>
+										<li>
+											<label for="">预计投资金额：</label>
+											<input type="text" class="form-control input-sm" data-rule="required;" /> （万元）
+										</li>
+										<li>
+											<label for="">信息等级：</label>
+											<div class="common-select cm-select cm-select-md">
+												<input type="text" class="cm-select-form" readonly="true">
+												<i class="iconfont cm-select-btn">&#xe6a3;</i>
+												<ul class="cm-selectBox-Wrap cm-selectBox-md">
+													<!--<li>111</li>-->													
+												</ul>
+											</div>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 联名公司领导姓名（带项目）：</label>
+											<input type="text" class="form-control input-md" data-rule="required;" />
+										</li>
+										<li>
+											<label for="">联通公司领导职务：</label>
+											<div class="common-select cm-select cm-select-md">
+												<input type="text" class="cm-select-form" readonly="true">
+												<i class="iconfont cm-select-btn">&#xe6a3;</i>
+												<ul class="cm-selectBox-Wrap cm-selectBox-md">
+													<!--<li>111</li>-->													
+												</ul>
+											</div>
+										</li>
+										<li class="colspan3">
+											<label for=""><i class="cm-sign">*</i> 描述：</label>
+											<textarea class="cm-form-area" data-rule="length(0~1000);"></textarea>
+										</li>										
+										<li class="colspan3">
+											<label for="">备注：</label>
+											<textarea class="cm-form-area" data-rule="length(0~1000);"></textarea>
+										</li>								
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</form>
+	</body>
+</html>
