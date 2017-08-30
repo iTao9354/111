@@ -1,0 +1,30 @@
+/*.Wdate{
+	border:#999 1px solid;
+	height:20px;
+	background:#fff url(calander.png) no-repeat right;
+	background-position: 95% center;
+}
+.Wdate::-ms-clear{display:none;}*/
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}
+tr.MTitle >td>div:nth-child(1){
+	display: none;
+}
+.cm-datepicker {
+	display: inline-block;
+}
+.cm-datepicker .cm-input {
+	width: 120px;
+	height: 26px;
+	border: none;
+	text-align: center;
+	cursor: pointer;
+}
+.cm-datepicker .iconfont {
+	color: #ff6d5e;
+	font-weight: bold;
+	cursor: pointer;
+}
