@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>工单派发弹窗页面</title>
+		<!-- 必须引用的css -->
+		<link rel="stylesheet" href="../../dist/lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../dist/lib/layer/skin/layer.css" />
+		<link rel="stylesheet" href="../../dist/css/customzTree/customStyle.css">
+		<link rel="stylesheet" href="../../dist/css/peacock.css">
+		<!--  必须引用的js  -->
+		<script type="text/javascript" src="../../dist/lib/jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../../dist/lib/nicescroll/jquery.nicescroll.min.js"></script>
+		<script type="text/javascript" src="../../dist/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../../dist/lib/layer/layer.js"></script>
+		<script type="text/javascript">
+			//定义全局使用的layer样式
+			layer.config({
+			  skin: 'layui-layer-ext'
+			});
+		</script>
+		<script src="../../dist/lib/ztree/js/jquery.ztree.all.min.js"></script>
+		<script src="../../dist/js/peacock.js"></script>
+		<script src="../js/worksheet/worksheetDistribute.js"></script>
+		<style>
+			body{
+				background-color: #fff;
+			}
+			.redTopWrap{
+				border: 1px solid #d2ddef;
+				border-top:3px solid #ee5a5a;
+			}
+			.redTopWrap h4{
+				color:#ee5a5a;
+				padding: 10px 0;
+			}
+			.add,.remove {
+			    background: #eeeeee;
+			    border-radius: 5px;
+			    width: 18px;
+			    height: 27px;
+			    padding: 5px 0;
+			    text-align: center;
+			    cursor: pointer;
+			}
+			.optWrap {
+			    width: 18px;
+			    float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="redTopWrap threeWrap">
+					<h4>组织机构</h4>
+					<div id="orgTree"></div>
+				</div>
+				<div class="redTopWrap threeWrap">
+					<h4>所属人员</h4>
+					<div id="people"></div>
+				</div>
+				<div class="optWrap">
+					<div class="add"><span class="iconfont">&#xe605;</span></div>
+					<div class="remove"><span class="iconfont">&#xe8ca;</span></div>
+				</div>
+				<div class="threeWrap">
+					<div class="redTopWrap">
+						<h4>选择人员</h4>
+						<div id="choosed"></div>
+					</div>
+					<p><img alt="" src=""/><span>处理意见</span></p>
+					<textarea class="opinions"></textarea>
+					<button type="button" class="cm-wredBtn-big">确定</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

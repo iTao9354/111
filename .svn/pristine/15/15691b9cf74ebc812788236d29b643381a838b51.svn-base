@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>工单派发弹窗页面</title>
+		<!-- 必须引用的css -->
+		<link rel="stylesheet" href="../../dist/lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../dist/lib/layer/skin/layer.css" />
+		<link rel="stylesheet" href="../../dist/css/customzTree/customStyle.css">
+		<link rel="stylesheet" href="../../dist/css/peacock.css">
+		<!--  必须引用的js  -->
+		<script type="text/javascript" src="../../dist/lib/jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../../dist/lib/nicescroll/jquery.nicescroll.min.js"></script>
+		<script type="text/javascript" src="../../dist/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../../dist/lib/layer/layer.js"></script>
+		<script type="text/javascript">
+			//定义全局使用的layer样式
+			layer.config({
+			  skin: 'layui-layer-ext'
+			});
+		</script>
+		<script src="../../dist/lib/ztree/js/jquery.ztree.all.min.js"></script>
+		<script src="../../dist/js/peacock.js"></script>
+		<script src="../js/worksheet/worksheetDistribute.js"></script>
+		<style>
+			body{
+				background-color: #fff;
+			}
+			.threeWrap {
+				width: 32%;
+				width: -moz-calc((100% - 66px)/3);
+				width: -webkit-calc((100% - 66px)/3);
+			    width: calc((100% - 66px)/3);
+			    float: left;
+			    margin: 0 8px;
+			}
+			.redTopWrap{
+				border: 1px solid #d2ddef;
+				border-top:3px solid #ee5a5a;
+			}
+			.redTopWrap h4{
+				color:#ee5a5a;
+				padding: 10px 0;
+				margin: 0 10px;
+				border-bottom: 1px solid #ddd;
+			}
+			.add{
+				margin: 60px 0 22px;
+			}
+			.add,.remove {
+			    background: #eeeeee;
+			    border-radius: 5px;
+			    width: 18px;
+			    height: 27px;
+			    padding: 5px 0;
+			    text-align: center;
+			    cursor: pointer;
+			    color: #aaa;
+			}
+			.add:hover,.remove:hover {
+				color: #ee5a5a;
+			}
+			.optWrap {
+			    width: 18px;
+			    float: left;
+			}
+			#orgTree, #people {
+			    height: 450px;
+			}
+			#choosed {
+			    height: 230px;
+			}
+			.opinionTitle{
+				padding: 10px 5px;
+			}
+			.opinions {
+			    resize: none;
+			    width: 100%;
+			    height: 130px;
+			    border: 1px solid #d2ddef;
+			}
+			.btnWrap{
+				width: 100%;
+				text-align: center;
+				padding-top: 12px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="redTopWrap threeWrap">
+					<h4>组织机构</h4>
+					<div id="orgTree" class="ztree"></div>
+				</div>
+				<div class="redTopWrap threeWrap">
+					<h4>所属人员</h4>
+					<div id="people"></div>
+				</div>
+				<div class="optWrap">
+					<div class="add"><span class="iconfont">&#xe605;</span></div>
+					<div class="remove"><span class="iconfont">&#xe8ca;</span></div>
+				</div>
+				<div class="threeWrap">
+					<div class="redTopWrap">
+						<h4>选择人员</h4>
+						<div id="choosed"></div>
+					</div>
+					<p class="opinionTitle"><img alt="" src=""/><span>处理意见</span></p>
+					<textarea class="opinions"></textarea>
+					<div class="btnWrap">
+						<button type="button" class="cm-wredBtn-big">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

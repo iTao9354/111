@@ -1,0 +1,141 @@
+@charset "utf-8";
+.sheet-sprites {
+	
+}
+.panel {
+	margin-bottom: 10px;
+}
+.panel-body {
+	min-height: auto;
+}
+/* 局部几大块样式在peacock基础上重定义 */
+.cm-block > li {
+  width: 19%;
+}
+.cm-block > li > p > span {
+  margin-right: 10px;
+}
+
+.cm-form-wrap > li {
+	min-height: 20px;
+	width: 50%;
+}
+.cm-form-wrap > li > label {
+	margin-top: 0;
+	font-weight: bold;
+}
+
+/*流转日志*/
+.flowlog {
+	padding: 10px 50px;
+}
+.flow-tab-wrapper {
+	margin-bottom: 10px;
+}
+.flowlog-tab {
+	border-bottom: 2px solid #e0e0e0;
+}
+.log-btn-wrap {
+	width: 1000px;
+	margin: 0 auto;
+}
+.more-log {
+}
+.flowlog-btns {
+	width: 800px;
+	margin: 0 auto;
+}
+.flowlog-btns > li {
+	float: left;
+	width: 16.6%;
+	text-align: center;
+}
+.flowlog-btns > li > .iconfont {
+	font-size: 18px;
+	color: #C3C3C3;
+}
+.flowlog-btns > li.completed {
+	cursor: pointer;
+}
+.flowlog-btns > li.purple.completed > .iconfont {
+	color: #67739b;
+}
+.flowlog-btns > li.darkGreen.completed > .iconfont {
+	color: #6db085;
+}
+.flowlog-btns > li.darkBlue.completed > .iconfont {
+	color: #79a6ff;
+}
+.flowlog-btns > li.lightBlue.completed > .iconfont {
+	color: #97d6f9;
+}
+.flowlog-btns > li.red.completed > .iconfont {
+	color: #ff6d5f;
+}
+
+.flowlog-btns > li > p > span {
+	display: inline-block;
+	position: relative;
+	padding: 5px 8px;
+}
+.flowlog-btns > li.active > p > span:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	position: absolute;
+	left: 0;
+	bottom: -2px;	
+}
+.flowlog-btns > li.purple.active > p > span:after {
+	background: #67739b;
+}
+.flowlog-btns > li.darkGreen.active > p > span:after {
+	background: #6db085;
+}
+.flowlog-btns > li.darkBlue.active > p > span:after {
+	background: #79a6ff;
+}
+.flowlog-btns > li.lightBlue.active > p > span:after {
+	background: #97d6f9;
+}
+.flowlog-btns > li.red.active > p > span:after {
+	background: #ff6d5f;
+}
+.flowlog-btns > li.lightGreen.active > p > span:after {
+	background: #85d28e;
+}
+.flowlog-tbl > li,
+.all-flowlog-wrap {
+	display: none;
+}
+.flowlog-tbl > li.active {
+	display: block;
+}
+
+h5.panel-heading {
+	border-bottom: 2px solid #be7667;
+	line-height: 30px;
+}
+.evaluate-wrap .panel-body {
+	padding: 10px 0;	
+}
+.evaluate-content {
+	text-indent: 2em;
+	line-height: 24px;
+	width: 75%;
+}
+.score-list .iconfont {
+	color: #cfcfcf;
+}
+.score-list .iconfont.red {
+	color: #fa5f4b;
+}
+.score-name {
+	display: inline-block;
+	width: 50px;
+	text-align: right;
+}
+.final-score {
+	margin-left: 5px;
+	color: #b02230;
+}

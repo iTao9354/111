@@ -1,0 +1,21 @@
+@import '../../../dist/css/common.less';
+
+/* 局部几大块样式在peacock基础上重定义 */
+.cm {
+    &-block {
+        .bor;
+        > li {
+            width: calc(20% - 8px);
+            .bg(#f5f5f5);
+            
+            > p {
+                line-height: 22px;
+                .align;
+                
+                > span {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

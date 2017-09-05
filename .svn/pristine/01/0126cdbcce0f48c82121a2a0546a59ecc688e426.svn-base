@@ -1,0 +1,45 @@
+@charset "utf-8";
+.sheet-sprites {
+	
+}
+.panel {
+	margin-bottom: 10px;
+}
+.panel-body {
+	min-height: auto;
+}
+/* 局部几大块样式在peacock基础上重定义 */
+.cm-block > li {
+  width: calc(20% - 8px);
+}
+.cm-block > li > p > span {
+  margin-right: 10px;
+}
+
+.cm-form-wrap > li {
+	min-height: 20px;
+	width: 50%;
+}
+.cm-form-wrap > li > label {
+	margin-top: 0;
+	font-weight: bold;
+}
+
+/*流转日志*/
+.flowlog {
+	padding: 10px 50px;
+}
+.flowlog-tab {
+	/*border:1px solid red;*/
+}
+.log-btn-wrap {	
+	width: 1200px;
+	margin: 0 auto;
+}
+.flowlog-btns {
+	width: 800px;
+	/*border: 1px solid red;*/
+}
+.flowlog-btns > li {
+	
+}

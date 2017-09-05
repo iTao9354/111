@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>工单派发弹窗页面</title>
+		<!-- 必须引用的css -->
+		<link rel="stylesheet" href="../dist/lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="../dist/lib/layer/skin/layer.css" />
+		<link rel="stylesheet" href="../dist/css/customzTree/customStyle.css">
+		<link rel="stylesheet" href="../dist/css/peacock.css">
+		<!--  必须引用的js  -->
+		<script type="text/javascript" src="../dist/lib/jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/nicescroll/jquery.nicescroll.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../dist/lib/layer/layer.js"></script>
+		<script type="text/javascript">
+			//定义全局使用的layer样式
+			layer.config({
+			  skin: 'layui-layer-ext'
+			});
+		</script>
+		<script src="../dist/lib/ztree/js/jquery.ztree.all.min.js"></script>
+		<script src="../dist/js/peacock.js"></script>
+		<script src="../js/worksheet/worksheetDistribute.js"></script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div class="row">
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 redTopWrap">
+				<h4>组织机构</h4>
+				<div id="orgTree"></div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 redTopWrap">
+				<h4>所属人员</h4>
+				<div id="people"></div>
+			</div>
+			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+				<div class="add"><span class="iconfont">&#xe605;</span></div>
+				<div class="remove"><span class="iconfont">&#xe8ca;</span></div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				<div class="redTopWrap">
+					<h4>选择人员</h4>
+					<div id="choosed"></div>
+				</div>
+				<p><img alt="" src=""/><span>处理意见</span></p>
+				<textarea class="opinions"></textarea>
+			</div>
+		</div>
+	</body>
+</html>

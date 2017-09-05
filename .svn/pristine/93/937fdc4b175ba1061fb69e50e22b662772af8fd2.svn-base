@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>支撑工单</title>
+		<link rel="stylesheet" href="../../dist/lib/jquery-easyui-1.5.1/themes/default/easyui.css">
+		<link rel="stylesheet" href="../../dist/lib/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../dist/lib/layer/skin/layer.css" />
+		<link rel="stylesheet" href="../../dist/lib/ztree/css/metroStyle/metroStyle.min.css" />
+		<link rel="stylesheet" href="../../dist/lib/My97Date/My97DatePicker/skin/WdatePicker.css" />
+		<link rel="stylesheet" href="../../dist/lib/webuploader-0.1.5/webuploader.css">
+		<link rel="stylesheet" href="../../dist/lib/validator/dist/jquery.validator.css">
+		<link rel="stylesheet" href="../../dist/css/customzTree/customStyle.css">
+		<link rel="stylesheet" href="../../dist/css/peacock.css">	
+		<link rel="stylesheet" href="../css/worksheet/supportSheetDetail.css">
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="../../dist/css/forIE8.css">
+			<script src="../../dist/lib/forIE/html5shiv.min.js"></script>
+			<script src="../../dist/lib/forIE/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<form id="" class="form-inline" data-validator-option="{theme:'yellow_right_effect',stopOnError:false}">			
+			<div class="container-fluid">	
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="panel">
+							<h3 class="clearfix">
+								<span>支撑工单</span>
+								<a href="javascript:;" class="cm-fr back-last">返回上一级</a>
+							</h3>
+							<div class="panel-body">
+								<h4 class="panel-heading">起草人信息</h4>
+								<ul class="cm-block">
+									<li>
+										<p>
+											<span>地域</span>全国
+										</p>
+									</li>
+									<li>
+										<p>
+											<span>地域</span>全国
+										</p>
+									</li>
+									<li>
+										<p>
+											<span>地域</span>全国
+										</p>
+									</li>
+									<li>
+										<p>
+											<span>地域</span>全国
+										</p>
+									</li>
+									<li class="last-block-list">
+										<p>
+											<span>地域</span>全国
+										</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="panel">								
+							<div class="panel-body support-sheet">
+								<div>						
+									<h4 class="panel-heading">
+										<span>工单内容</span>
+									</h4>
+									<ul class="cm-form-wrap cm-form-lg cm-clearfix">
+										<li class="clearfix">
+											<label for="">工单编码：</label>
+											<span>tom.feng@dfengc.com</span>
+											<div class="cm-fr">
+												<label for="">工单性质：</label>
+												<div class="common-select cm-select cm-select-sm">
+													<input type="text" class="cm-select-form" readonly="true">
+													<i class="iconfont cm-select-btn">&#xe6a3;</i>
+													<ul class="cm-selectBox-Wrap cm-selectBox-sm">
+														<!--<li>111</li>-->													
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 期望完成时间：</label>
+											<input type="text" class="form-control input-md" name="completeTime" data-rule="required;length(2~16)">
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 工单标题：</label>
+											<input type="text" class="form-control input-lg" name="completeTime" data-rule="required;length(2~16)">
+										</li>
+										<li>
+											<label for="">主办单位：</label>
+											<input type="text" class="form-control input-lg" name="completeTime" data-rule="required;length(2~16)">
+										</li>
+										<li>
+											<label for="">抄送单位：</label>
+											<input type="text" class="form-control input-lg" name="completeTime" data-rule="required;length(2~16)">
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 工单内容：</label>
+											<textarea class="cm-form-area" data-rule="length(0~1000);"></textarea>
+										</li>
+									</ul>
+								</div>							
+							</div>
+						</div>
+					</div>
+				</div>			
+			</div>
+		</form>
+		
+		<script src="../../dist/lib/jquery/jquery-1.10.2.min.js"></script>
+		<script src="../../dist/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../../dist/lib/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../dist/lib/jquery-easyui-1.5.1/locale/easyui-lang-zh_CN.js" ></script>
+		<script src="../../dist/lib/layer/layer.js"></script>
+		<script type="text/javascript">
+			//定义全局使用的layer样式
+			layer.config({
+			  skin: 'layui-layer-ext'
+			});
+		</script>
+		<script src="../../dist/lib/My97Date/My97DatePicker/WdatePicker.js"></script>
+		<script src="../../dist/lib/nicescroll/jquery.nicescroll.min.js"></script>
+		<script src="../../dist/lib/ztree/js/jquery.ztree.all.min.js"></script>
+		<script src="../../dist/lib/webuploader-0.1.5/webuploader.min.js"></script>
+		<script src="../../dist/lib/validator/dist/jquery.validator.min.js"></script>
+		<script src="../../dist/lib/validator/dist/local/zh-CN.js"></script>
+		<script src="../../dist/js/peacock.js"></script>
+		<script src="../../demo/js/worksheet/supportSheet.js"></script>
+	</body>
+</html>

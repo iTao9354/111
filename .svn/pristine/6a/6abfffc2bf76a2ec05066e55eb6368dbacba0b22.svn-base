@@ -1,0 +1,22 @@
+@charset "utf-8";
+.panel {
+	margin-bottom: 10px;
+}
+.panel-body {
+	min-height: auto;
+}
+/* 局部几大块样式在peacock基础上重定义 */
+.cm-block > li {
+  width: calc(20% - 8px);
+}
+.cm-block > li > p > span {
+  margin-right: 10px;
+}
+
+.cm-form-wrap > li {
+	min-height: 20px;
+	width: 50%;
+}
+.cm-form-wrap > li > label {
+	margin-top: 0;
+}

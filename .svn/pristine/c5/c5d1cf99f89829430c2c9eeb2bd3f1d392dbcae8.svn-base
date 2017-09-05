@@ -1,0 +1,832 @@
+@charset "utf-8";
+/*定义变量*/
+@bodyBk: #E8ECF0;               // body默认背景色            
+@mainColor: #e15b52;            // 布局主色调
+@actColor: #c73c37;             // 活动状态的主色调
+@coColor: #ff6e07;              // 辅色
+@partHeadBorderColor:#e0dcdd;
+@watermelonRed:#ff6d5e;
+@watermelonRedHover:#ed5a56;
+
+@HFontColor:#333;//标题颜色
+@mainFontColor:#464646;//内容区域颜色
+
+@btnFontColor:#ffffff;
+@mainFont: 13px;                // 主要内容字号
+@secFont: 12px;                 // 次要内容字号
+@size: 10px;                    
+@percent: 100%;
+
+.mgrPad(@mar:0,@pad:0) {        // margin、padding默认均为0
+  margin: @mar;
+  padding: @pad;
+}
+.mar(@t:0,@r:0,@b:0,@l:0) {        // margin -- 默认四个方向均为0
+    margin: @t @r @b @l;
+}
+.pad(@t:4px,@r:8px,@b:4px,@l:8px) {       // padding -- 默认上下3px，左右8px
+    padding: @t @r @b @l;
+}
+.w(@w:@percent) {               // 宽 -- 默认100%
+    width: @w;
+}
+.minW(@min) {                   // 最小宽度
+    min-width: @min;
+}
+.maxW(@max) {                   // 最大宽度
+    max-width: @max;
+}
+.h(@h:@percent) {               // 高 -- 默认100%
+    height: @h;
+}
+.minH(@min) {                   // 最小高度
+    min-height: @min;
+}
+.maxH(@max) {                   // 最大高度
+    max-height: @max;
+}
+
+.noUnderLine(@line:none) {       // 默认无下划线
+  text-decoration: @line;
+}
+.noOutline(@ol:none) {           // 默认无outline虚线
+    outline: @ol;
+}
+.noBor(@b:none) {                // 默认无边框
+    border: @b;
+}
+.noShadow(@s:none) {             // 默认无阴影
+    box-shadow: @s;
+}
+.color(@c:#464646) {                // 文字颜色color -- 默认#333
+  color: @c;
+}
+.bg(@bc:@mainColor) {            // 背景色 -- 默认主色
+  background-color: @bc;
+}
+.bor(@color:#ccc,@width:1px,@style:solid) {   // 边框border -- 默认1px solid #ccc
+    border: @color @width @style;
+}
+.rgba(@r,@g,@b,@a) {          // 背景透明度
+  background-color: rgba(@r,@g,@b,@a);
+  @c: rgba(@r,@g,@b,@a); 
+  @c2 :argb(@c);                    /*处理IE8兼容*/
+  filter:~"progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='@{c2}', endColorstr='@{c2}')";
+  :root #ie9-filter {               /*在IE9下使用hack去除filter*/
+    filter: none;
+  }
+}
+
+.pos(@pos:relative) {   // 定位 -- 默认relative
+  position: @pos;
+}
+.abs50(@percent) {     // 绝对定位 -- 默认水平、垂直居中
+  .pos(absolute);
+  .pl(@percent / 2);
+  .pt(@percent / 2);
+}
+.pl(@l:0) {            // left -- 默认0
+    left: @l;
+}
+.pr(@r:0) {            // right -- 默认0
+    right: @r;
+}
+.pt(@t:0) {            // top -- 默认0
+    top: @t;
+}
+.pb(@b:0) {            // bottom -- 默认0
+    bottom: @b;
+}
+.overflow(@flow:hidden) {    // overflow -- 默认hidden
+  overflow: @flow;
+}
+.dis(@dis:inline-block) {    // display -- 默认inline-block
+  display: @dis;
+}
+.align(@a:center) {         // text-align -- 默认center
+  text-align: @a;
+}
+.verAlign(@v:middle) {      // vertical-align -- 默认middle  
+    vertical-align: @v;
+}
+.cursor(@cur:pointer) {     // 鼠标光标cursor -- 默认小手
+  cursor: @cur;
+}
+.cm-forbid {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently not supported by any browser */
+}
+
+.radius(@r:50%) {            // 圆角 -- 默认正圆
+  -webkit-border-radius:@r;
+  -moz-border-radius:@r;
+  -ms-border-radius:@r;
+  -o-border-radius:@r;
+  border-radius:@r;
+}
+.rotate(@r) {
+  -webkit-transform:rotate(@r);
+  -moz-transform:rotate(@r);
+  -ms-transform:rotate(@r);
+  -o-transform:rotate(@r);
+  transform:rotate(@r);
+}
+
+@font-face {
+    font-family: "iconfont";
+    src: url('../lib/iconfont/iconfont.eot');
+    /* IE9*/
+    src:/* IE6-IE8 */
+    /* chrome, firefox */
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('../lib/iconfont/iconfont.eot#iefix') format('embedded-opentype'),url('../lib/iconfont/iconfont.woff') format('woff'),url('../lib/iconfont/iconfont.ttf') format('truetype'),url('../lib/iconfont/iconfont.svg#iconfont') format('svg');
+    /* iOS 4.1- */
+}
+* {
+    .mgrPad;
+    font-family: PingFangSC-Light, 'helvetica neue', 'hiragino sans gb', tahoma, 'microsoft yahei ui', 'microsoft yahei', simsun, sans-serif;
+    font-size: @secFont;
+}
+body {
+    .bg(@bodyBk);
+    .color;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    .mgrPad;
+    color:@HFontColor;
+}
+h2 {
+    font-size: @mainFont + 2;
+}
+h3 {
+    font-size: @mainFont;
+    border-bottom: 1px solid @partHeadBorderColor;
+}
+h3 > span{
+    font-size: @mainFont;
+    margin: 10px 13px;
+    padding: 0 8px;
+    line-height: 39px;
+    border-left: 3px solid @mainColor;
+    font-weight: bold;
+}
+h4{
+    font-size: @secFont;
+}
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+    .mgrPad;
+}
+/* 有时不生效，需要再次清除margin和padding */
+li,
+dt,
+dd {
+    list-style: none;
+}
+a {
+    .color;
+    .noUnderLine;
+    
+    &:focus {
+        .noOutline;
+        .color(@mainColor);        
+    }
+    &:link,
+    &:visited {
+        .noUnderLine;
+    }
+    &:hover {
+        .noUnderLine;
+        .color(@mainColor);
+    }
+    &:active {
+        .noUnderLine;
+    }
+    
+}
+/* IE下点击a标签去掉虚线边框 */
+img {
+    .verAlign(top);
+}
+input,
+button,
+textarea {
+    .noOutline;
+}
+button {
+    .noBor;
+    .noOutline;
+}
+label {
+    font-weight: normal;
+}
+i {
+    font-style: normal;
+}
+p{
+    margin: 0;
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: @mainFont;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.cm {
+    /* 浮动 */
+    &-clearfix {
+        &:after {
+            .dis(block);
+            content: '';
+            clear: both;
+        }
+    }
+    &-fl {
+        float: left;
+    }
+    &-fr {
+        float: right;
+    }
+    &-a{
+      color: @mainColor;
+      cursor: pointer;
+    }
+    &-a:hover{
+      text-decoration: underline;
+    }
+    /* 表单 */
+    &-form {
+        &-title {
+            .w;
+            .h(34px);
+            border-bottom: 2px solid #eee;
+            .mar(0,0,20px);
+            
+            span {
+                .pos;
+                .dis;
+                .h;
+                font-size: @mainFont;
+                line-height: 34px;
+                
+                &:before {
+                    content: '';
+                    .w;
+                    .h(2px);
+                    .bg;
+                    .pos(absolute);
+                    .pb(-2px);
+                }
+            }
+        }
+        
+        &-readonly {
+            .h(26px);
+            .bg(#eee);
+            .bor;
+            .radius(0);
+            .pad;
+            .noShadow;
+        }
+        
+        
+        &-area {
+            .w(420px);
+            .h(90px);
+            .color;
+            .bg(#fff);
+            .bor;
+            .pad;
+            resize: none;
+        }
+        &-editDiv {
+            .dis;
+            .w(420px);
+            .minH(90px);
+            .color;
+            .pad;
+            .bg(#fff);
+            .bor;
+            .noOutline;
+        }
+        
+        /* 仅适用于面板头部的搜索区 */
+        &-wrap {
+            .w;
+        
+            > li {
+                float: left;
+                .w(33%);
+                .minH(40px);
+                
+                &.colspan2 {
+                    .w(67%);
+                    .h(auto);
+                    .mar(0,0,10px);
+                }
+                &.colspan3 {
+                    .w(100%);
+                    .h(auto);
+                    .mar(0,0,10px);
+                }
+                
+                > label {
+                    .w(108px);   /* 6个字以内 */
+                    .align(right);
+                    .pad(0,5px);
+                    .mar(3px);        
+                    .verAlign(top);                   
+                }
+                
+                > div {
+                    .dis;
+                }
+            }          
+        }
+        &-md {
+            > li {
+                > label {
+                    .w(143px);  /* 7-8个字 */
+                }
+            }
+        } 
+        &-lg {
+            > li {
+                > label {
+                    .w(200px);  /* 9-12个字 */
+                }
+            }
+        }       
+    }
+    
+    &-radio-label, &-checkbox-label {
+        position: relative;
+        .dis;
+        font-weight: 400;
+        margin-bottom: 4px;
+        margin-right: 10px;
+        padding-left: 20px;
+        line-height: 25px;
+        color: #0c4757;
+        cursor: pointer;
+        font-size: 13px;
+        
+        &.state-disabled {
+            cursor: default!important;
+            opacity: .6!important;
+        }
+        
+        input {  /*add*/
+            position: absolute;
+            left: -9999px;
+            
+            &:checked+i {
+                border-color: #e15b52;
+                
+                &:after {
+                    opacity: 1;
+                }
+            }
+        }
+        
+        i {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            display: block;
+            width: 15px;
+            height: 15px;
+            outline: 0;
+            border-width: 1px;
+            border-style: solid;
+            background: #fff;
+            border-color: #acacac;
+            transition: border-color .3s;
+            -webkit-transition: border-color .3s;
+        }
+        
+        input+i {
+            &:after {
+                position: absolute;
+                opacity: 0;
+                transition: opacity .1s;
+                -webkit-transition: opacity .1s;
+            }
+        }
+    }
+    
+    &-radio {  
+        &-label {            
+            i {
+                border-radius: 50%;
+            }
+            
+            input+i {
+                &:after {
+                    content: '';
+                    top: 2px;
+                    left: 2px;
+                    width: 9px;
+                    height: 9px;
+                    border-radius: 50%;
+                    background-color: #e15b52;
+                }
+            }
+        }
+        
+        .cm-special-radio {
+            input+i {
+                top: -5px;
+                &:after {
+                    content: '\e600';
+                    top: -5px;
+                    left: 0;
+                    font-family: 'iconfont';
+                    font-size: 13px;
+                    color: #fff;
+                    background-color: transparent;
+                } 
+            }
+        }   
+    }
+    &-checkbox {
+        &-label {            
+            input+i {
+                &:after {
+                    content: '\e600';
+                    top: -5px;
+                    left: -1px;
+                    font-family: 'iconfont';
+                    font-size: 14px;
+                    color: #e15b52;
+                }
+            }
+        }
+        
+        .cm-special-checkbox {
+            input+i {
+                &:after {
+                    top: -5px;
+                    left: 0;
+                    font-size: 14px;
+                    color: #fff;
+                }
+            }
+        } 
+    }
+    
+    &-checkbox &-special-checkbox, &-radio &-special-radio { /*特殊单选、复选框*/
+        i{
+            top: -3px;
+            transition: border-color 0;
+            -webkit-transition: border-color 0;
+        }
+        
+        input {
+            &:checked+i {
+                .bg(#e15b52);
+            }
+        }
+    } 
+   
+    
+    
+    /* 必填星号 */
+    &-sign {
+        .color(@mainColor);
+        .pos;
+        .pt(2px);
+    }
+    
+    /* 下拉框 */
+    &-select {
+        .pos;
+        .bor;
+        &-xs {
+            .w(60px);
+        }
+        &-sm {
+            .w(135px);
+        }
+        &-md {
+            .w(200px);
+        }
+        
+        &-form {
+            .w;
+            .h(26px);
+            .bg(#fff);
+            .color;
+            .noBor;
+            .cursor;
+            .pad(3px,24px);
+        }
+        
+        &-btn {
+            .color(#aaa);
+            .pos(absolute);
+            .pr(6px);
+            .pt(@percent / 2);
+            .cursor;
+            .mar(-9px);
+            .cm-forbid;
+            transition: 0.4s all ease;
+            .rotate(0);
+        } 
+        &-btn.active {
+            .rotate(180deg);            
+        }       
+    }
+    &-selectBox {        
+        &-Wrap {
+            .dis(none);
+            .pos(absolute);
+            .pl(-1px);
+            .pt(27px);
+            .maxH(200px);
+            .bg(#fff);
+            .bor;
+            border-top: none;
+            z-index: 9;
+            &.topActive {
+                .bor;
+                border-bottom: none;
+            }
+        
+            > li {
+                .h(30px);
+                line-height: 30px;
+                .pad(0,8px,0);
+                .cursor;
+            
+                &:hover {
+                    .bg(#fce2e2);
+                    .color(#d43f3a);
+                }
+            }
+        }
+        &-md {
+            .w(200px);
+        }
+        &-sm {
+            .w(135px);
+        }
+        &-xs {
+            .w(60px);
+        }
+    }
+    
+    /* 树状菜单 */
+    &-menu-content {
+        .dis(none);
+        .pos(absolute);
+        left: -1px !important;
+        top: 27px;
+        .maxH(300px);
+        .bor;
+        border-top: none;
+        .bg(#fff);
+        z-index: 9;
+        &.topActive {
+            .bor;
+            border-bottom: none;
+        }
+    }
+    &-dialog-wrap {
+        padding: 15px 20px 20px;
+        .dis(none);
+    }
+    
+    &-select{
+        display: inline-block;
+    }
+    
+    /*按钮公共样式*/
+    /*红色背景深红边框的button*/
+    &-redBtn {
+        .bg;
+        .color(#fff);
+        .pad(4px,6px,4px,25px);
+        .h(26px);
+    }
+    &-redBtn {
+        &:hover,
+        &:focus,
+        &:active {
+            .bg(@actColor);
+        }
+        border-radius: 2px;
+    }
+    &-btn-i {
+        .pad;
+    }
+    &-btn-i {
+        > i {
+            .mar(0,4px);
+            font-size: @secFont + 1;
+        }
+    }
+    &-searchWrap {
+        float: left;
+        .pad(0,0,0,15px);
+        .mar(0,0,10px);
+    }
+    /* 提示按钮 */
+    &-tips {
+        font-size: @mainFont + 3;
+        .color(@mainColor);
+        .cursor;
+        font-weight: normal;
+        margin-left: 5px;
+    }
+    &-tips {
+        &:hover {
+            .color(@actColor);
+        }
+    }
+    &-wredBtn-big{
+        background-color: @watermelonRed;
+        padding: 0 20px;
+        height: 28px;
+        line-height: 28px;
+        color: @btnFontColor;
+        display: inline-block;
+        vertical-align: top;
+        border-radius: 2px;
+    }
+    &-wredBtn-big:hover{
+        background-color: @watermelonRedHover;
+    }
+    &-dialog-wrap{
+        display: none;
+    }
+}
+/*================================下面是定义插件的样式修改====================================*/
+/***重写bootstrap的样式*/
+.container-fluid {
+    .mar(10px);
+}
+.panel {
+    .radius(0);
+    .h;
+    box-shadow:none;
+    margin-bottom: 0;
+    &-default {
+        border-color: #fff;
+    }
+    &-heading {
+        .bg(#fff);
+        border-bottom-color: #ddd;
+        padding: 0 3px;
+        line-height: 38px;
+        font-weight: bold;
+    }
+    .cm-saveBtn {
+        .color(@mainColor);
+        .cursor;
+        .cm-forbid;
+        
+        .iconfont {
+            margin-right: 2px;
+        }
+        > span {           
+            .noUnderLine(underline);
+        }        
+    }
+    
+    &-body {
+        .minH(300px);
+        overflow: visible;
+    }
+}
+
+.form-inline {
+    .form-control {
+        .dis;
+        .h(28px);
+        .color;
+        .pad;
+        .bg(#fff);
+        .bor;
+        .radius(0);
+        .noShadow;
+    }  
+    
+    .input-md {
+        .w(200px);
+    } 
+    .input-sm {
+        .w(152px);
+    }
+    .input-xs {
+        .w(50px);
+    } 
+    
+    > .form-group {
+        .dis;
+        .verAlign;
+        .mar(0,20px,10px);
+        width: auto;
+    }
+}
+.form-control:focus,
+.cm-form-area:focus,
+.cm-form-editDiv:focus {
+    border-color: #d43f3a;
+    .bg(#fffdfd);
+    .noShadow;
+}
+/*bootstrap tab切换样式开始*/
+.panel-header, .panel-body{
+    border: none;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+    border-radius: 0;
+    border-width: 0 0 2px 0;
+    border-bottom: 2px solid @mainColor;
+    color: @mainColor;
+}
+.nav-tabs > li > a{
+    border: none;
+}
+.nav-tabs > li > a:hover {
+    border-color: transparent;
+    border-bottom: 2px solid @mainColor;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+}
+/*bootstrap tab切换样式结束*/
+
+/* webuploader插件上传文件 */
+.picker {
+    .mar(0,10px);
+}
+.webuploader-container {
+    .webuploader-pick {
+        .bg;
+        .color(#fff);
+        .pad(4px,6px,4px,6px);
+        .h(26px);
+        .radius(0);
+        
+        .iconfont {
+            .mar(0,3px);
+        }
+    }    
+} 
+
+
+/*ztree树的右键样式*/
+.ztree {
+    .w(198px);
+}
+.dropdown-menu {
+    .minW(112px);
+    
+    > li> a {
+        .pad(3px,16px,3px,12px);
+    }
+
+    .iconfont {
+        .color(@coColor);
+        .pad(0,3px);
+    }
+}
+
+
+
+
+
+/*媒体查询*/
+@media screen and (max-width:1367px) {
+    .cm {
+        &-form {            
+            &-wrap {
+                > li {
+                    .w(50%);
+                }          
+            }
+        }
+    }
+}
+@import '../../dist/css/easyui-ext.less';
+@import '../../dist/css/layer-ext.less';

@@ -1,0 +1,213 @@
+@charset "utf-8";
+.sheet-sprites {
+	display: inline-block;
+	background-image: url(../../img/worksheet/sheetSprites.png);
+}
+.panel {
+	margin-bottom: 10px;
+}
+.panel-body {
+	min-height: auto;
+}
+/* 局部几大块样式在peacock基础上重定义 */
+.cm-block > li {
+  width: 19%;
+}
+.cm-block > li > p > span {
+  margin-right: 10px;
+}
+
+.cm-form-wrap > li {
+	min-height: 20px;
+	width: 50%;
+}
+.cm-form-wrap > li > label {
+	margin-top: 0;
+	font-weight: bold;
+}
+
+/*流转日志*/
+.flowlog {
+	padding: 10px 50px;
+}
+.flow-tab-wrapper {
+	margin-bottom: 10px;
+}
+.flowlog-tab {
+	border-bottom: 2px solid #e0e0e0;
+}
+.log-btn-wrap {
+	width: 1000px;
+	margin: 0 auto;
+}
+.more-log {
+	margin-top: 23px;
+	position: relative;
+	left: -25px;
+}
+.flowlog-btns {
+	width: 800px;
+	margin: 0 auto;
+}
+.flowlog-btns > li {
+	float: left;
+	width: 16.6%;
+}
+.flowlog-btns > li > .sheet-icon {
+	position: relative;
+	top: 10px;
+	left: -10px;	
+}
+.flowlog-btns > li .sheet-sprites {
+	width: 60px;
+	height: 60px;
+}
+.sheet-icon {
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+}
+.flowlog-btns > li.active > .sheet-icon {	
+	top: -3px;
+	left: -20px;
+}
+.flowlog-btns > li.active .sheet-sprites {
+	width: 80px;
+	height: 80px;
+}
+.purple .sheet-sprites {
+	background-position: -14px -17px;
+}
+.darkGreen .sheet-sprites {
+	background-position: -14px -17px;
+}
+.darkBlue .sheet-sprites {
+	background-position: -14px -17px;
+}
+.lightBlue .sheet-sprites {
+	background-position: -14px -17px;
+}
+.red .sheet-sprites {
+	background-position: -14px -17px;
+}
+.lightGreen .sheet-sprites {
+	background-position: -14px -17px;
+}
+.flowlog-btns > .purple.active .sheet-sprites {
+	background-position: -98px -17px;
+}
+.flowlog-btns > .darkGreen.active .sheet-sprites {
+	background-position: -98px -17px;
+}
+.flowlog-btns > .darkBlue.active .sheet-sprites {
+	background-position: -98px -17px;
+}
+.flowlog-btns > .lightBlue.active .sheet-sprites {
+	background-position: -98px -17px;
+}
+.flowlog-btns > .red.active .sheet-sprites {
+	background-position: -98px -17px;
+}
+.flowlog-btns > .lightGreen.active .sheet-sprites {
+	background-position: -98px -17px;
+}
+.flowlog-btns > li > .iconfont {
+	font-size: 18px;
+	color: #C3C3C3;
+	position: relative;
+	top: 28px;
+	right: 40px;
+}
+.flowlog-btns > li.completed {
+	cursor: pointer;
+}
+.flowlog-btns > li.purple.completed > .iconfont {
+	color: #67739b;
+}
+.flowlog-btns > li.darkGreen.completed > .iconfont {
+	color: #6db085;
+}
+.flowlog-btns > li.darkBlue.completed > .iconfont {
+	color: #79a6ff;
+}
+.flowlog-btns > li.lightBlue.completed > .iconfont {
+	color: #97d6f9;
+}
+.flowlog-btns > li.red.completed > .iconfont {
+	color: #ff6d5f;
+}
+
+.flowlog-btns > li .flow-name {
+	position: relative;
+	top: 4px;
+}
+.flowlog-btns > li.active .flow-name {
+	top: 0;
+}
+.flowlog-btns .flow-name > span {
+	display: inline-block;
+	position: relative;
+	padding: 5px 8px;
+}
+.flowlog-btns > li.active > .flow-name > span:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	position: absolute;
+	left: 0;
+	bottom: -2px;	
+}
+.flowlog-btns > li.purple.active > .flow-name > span:after {
+	background: #67739b;
+}
+.flowlog-btns > li.darkGreen.active > .flow-name > span:after {
+	background: #6db085;
+}
+.flowlog-btns > li.darkBlue.active > .flow-name > span:after {
+	background: #79a6ff;
+}
+.flowlog-btns > li.lightBlue.active > .flow-name > span:after {
+	background: #97d6f9;
+}
+.flowlog-btns > li.red.active > .flow-name > span:after {
+	background: #ff6d5f;
+}
+.flowlog-btns > li.lightGreen.active > .flow-name > span:after {
+	background: #85d28e;
+}
+.flowlog-tbl > li,
+.all-flowlog-wrap {
+	display: none;
+}
+.flowlog-tbl > li.active {
+	display: block;
+}
+
+h5.panel-heading {
+	border-bottom: 2px solid #be7667;
+	line-height: 30px;
+	padding: 0 8px;
+}
+.evaluate-wrap .panel-body {
+	padding: 10px 0;	
+}
+.evaluate-content {
+	text-indent: 2em;
+	line-height: 24px;
+	width: 75%;
+}
+.score-list .iconfont {
+	color: #cfcfcf;
+}
+.score-list .iconfont.red {
+	color: #fa5f4b;
+}
+.score-name {
+	display: inline-block;
+	width: 50px;
+	text-align: right;
+}
+.final-score {
+	margin-left: 5px;
+	color: #b02230;
+}

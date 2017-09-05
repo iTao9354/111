@@ -1,0 +1,79 @@
+@charset "utf-8";
+/*定义变量*/
+@bodyBk: #E8ECF0;               // body默认背景色            
+@mainColor: #e9e9e9;            // 布局主色调
+@actColor: #c73c37;             // 活动状态的主色调
+@coColor: #ff6e07;              // 辅色
+@partHeadBorderColor:#e0dcdd;
+@watermelonRed:#ff6d5e;
+@watermelonRedHover:#ed5a56;
+@btnFontColor:#ffffff;
+@titleBkColor:#ffffff;
+@titleFontColor:#333;
+@titleBotrderBtmColor: #eee;
+@cancleBorderColor:#dedede;
+@cancleBkColor:#f1f1f1;
+//弹窗标题样式
+.layui-layer-dialog .layui-layer-title, .layui-layer-ext .layui-layer-title{
+    background-color:@titleBkColor;
+    background: @titleBkColor;
+    color: @titleFontColor;
+    border: none;
+    padding: 0 80px 0 10px;
+    //border-top: 3px solid @mainColor;
+    border-radius: 0;
+    border-bottom: 1px solid @titleBotrderBtmColor;
+}
+//取消按钮的样式
+.layui-layer-ext .layui-layer-btn .layui-layer-btn1,.layui-layer-dialog .layui-layer-btn a {
+    height: 28px;
+    line-height: 28px;
+    margin: 0 6px;
+    padding: 0 15px;
+    border: 1px solid @cancleBorderColor;
+    background-color: @cancleBkColor;
+    color: @titleFontColor;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+    border-radius:0;
+}
+//取消按钮和除了确定按钮的样式
+.layui-layer-dialog .layui-layer-btn .layui-layer-btn0, .layui-layer-ext .layui-layer-btn a {
+    background: @mainColor;
+    border:none;
+    border-radius: 0;
+    color: @btnFontColor;
+}
+
+.layui-layer-ext .layui-layer-setwin .layui-layer-close1{
+	background-position:1px -40px;
+}
+.layui-layer-title >i.iconfont {
+    color: @mainColor;
+}
+//弹窗body的边
+.layui-layer-page .layui-layer-content{
+    padding: 8px;
+}
+/* tips层 */
+.layui-layer-tips .layui-layer-content {
+	background-color: @mainColor;
+}
+.layui-layer-tips .layui-layer-content{
+    top: -7px;
+}
+
+body .layui-layer-ext-msg{
+    border-radius: 0;
+    border: 1px solid @cancleBorderColor;
+}
+.layui-layer-setwin .layui-layer-ico {
+    background: url(../img/layer/icon.png) no-repeat;
+}
+
+.layui-layer-ext .layui-layer-btn {
+    text-align: center;
+}

@@ -1,0 +1,141 @@
+@charset "utf-8";
+/*定义变量*/
+.cm-forbid {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently not supported by any browser */
+}
+@font-face {
+  font-family: "iconfont";
+  src: url('../lib/iconfont/iconfont.eot');
+  src: url('../lib/iconfont/iconfont.eot#iefix') format('embedded-opentype'), url('../lib/iconfont/iconfont.woff') format('woff'), url('../lib/iconfont/iconfont.ttf') format('truetype'), url('../lib/iconfont/iconfont.svg#iconfont') format('svg');
+  
+  /* IE9*/
+  /* iOS 4.1- */
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: PingFangSC-Light, 'helvetica neue', 'hiragino sans gb', tahoma, 'microsoft yahei ui', 'microsoft yahei', simsun, sans-serif;
+  font-size: 12px;
+}
+body {
+  background-color: #e8ecf0;
+  color: #464646;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  color: #333333;
+}
+h2 {
+  font-size: 15px;
+}
+h3 {
+  font-size: 13px;
+  border-bottom: 1px solid #e0dcdd;
+}
+h3 > span {
+  font-size: 13px;
+  margin: 10px 13px;
+  padding: 0 8px;
+  line-height: 39px;
+  border-left: 3px solid #ed5b5a;
+  font-weight: bold;
+}
+h4 {
+  font-size: 12px;
+}
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+/* 有时不生效，需要再次清除margin和padding */
+li,
+dt,
+dd {
+  list-style: none;
+}
+a {
+  color: #464646;
+  text-decoration: none;
+}
+a:focus {
+  outline: none;
+  color: #ed5b5a;
+}
+a:link,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+  color: #ed5b5a;
+}
+a:active {
+  text-decoration: none;
+}
+/* IE下点击a标签去掉虚线边框 */
+img {
+  vertical-align: top;
+}
+input,
+button,
+textarea {
+  outline: none;
+}
+button {
+  border: none;
+  outline: none;
+}
+label {
+  font-weight: normal;
+}
+i {
+  font-style: normal;
+}
+p {
+  margin: 0;
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 13px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cm {
+  /* 浮动 */
+}
+.cm-clearfix:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+.cm-fl {
+  float: left;
+}
+.cm-fr {
+  float: right;
+}
