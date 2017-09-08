@@ -19,12 +19,12 @@
 		<![endif]-->
 	</head>
 	<body>
-		<form id="" class="form-inline" data-validator-option="{theme:'yellow_right_effect',stopOnError:false}">			
+		<form id="supportSheetForm" class="form-inline" data-validator-option="{theme:'yellow_right_effect',stopOnError:true}">			
 			<div class="container-fluid">	
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="panel">
-							<h3 class="clearfix">
+							<h3 class="cm-clearfix">
 								<span>支撑工单</span>
 								<a href="javascript:;" class="cm-fr back-last">返回上一级</a>
 							</h3>
@@ -70,7 +70,7 @@
 										<span>工单内容</span>
 									</h4>
 									<ul class="cm-form-wrap cm-form-lg cm-clearfix">
-										<li class="clearfix">
+										<li class="cm-clearfix">
 											<label for="">工单编码：</label>
 											<span>tom.feng@dfengc.com</span>
 											<div class="cm-fr">
@@ -90,21 +90,25 @@
 										</li>
 										<li>
 											<label for=""><i class="cm-sign">*</i> 工单标题：</label>
-											<input type="text" class="form-control input-lg" name="completeTime" data-rule="required;length(2~16)">
+											<input type="text" class="form-control input-lg" name="worksheetTitle" data-rule="required;length(2~16)">
 										</li>
 										<li>
 											<label for="">主办单位：</label>
-											<input type="text" class="form-control input-lg" name="completeTime" data-rule="required;length(2~16)">
+											<input type="text" class="form-control input-lg" name="hostUnit" data-rule="length(2~16)">
 										</li>
 										<li>
 											<label for="">抄送单位：</label>
-											<input type="text" class="form-control input-lg" name="completeTime" data-rule="required;length(2~16)">
+											<input type="text" class="form-control input-lg" name="copyUnit" data-rule="length(2~16)">
 										</li>
 										<li>
 											<label for=""><i class="cm-sign">*</i> 工单内容：</label>
-											<textarea class="cm-form-area" data-rule="length(0~1000);"></textarea>
+											<textarea class="cm-form-area" name="worksheetContent" data-rule="required;length(0~1000);"></textarea>
 										</li>
 									</ul>
+									<div class="worksheet-btns">
+										<button type="button" class="cm-redBtn cm-btn-i" onclick="sendForm();">发送</button>
+										<button type="button" class="cm-grayBtn cm-btn-i">保存为草稿</button>
+									</div>
 								</div>							
 							</div>
 						</div>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>领导者视图</title>
+		<link rel="stylesheet" href="../dist/lib/jquery-easyui-1.5.1/themes/default/easyui.css">
+		<link rel="stylesheet" href="../dist/lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="../dist/lib/ztree/css/metroStyle/metroStyle.min.css" />
+		<link rel="stylesheet" href="../dist/css/customzTree/customStyle.css">
+		<link rel="stylesheet" href="../dist/css/peacock.css">
+		<link rel="stylesheet" href="css/leaderView.css" />
+	</head>
+	<body>
+		<div class="container-fluid leader-view">
+			<div class="row">
+				<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel panel-table">
+						<div class="panel-body">
+							<form class="form-inline">
+								<div class="form-group">
+									组织机构：
+									<div class="cm-select cm-select-md">
+										<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="请选择内容" />
+										<span class="iconfont cm-select-btn">&#xe6a3;</span>							
+										<div class="cm-menu-content">
+											<ul id="downTree" class="ztree"></ul>
+										</div>
+									</div>
+								</div>									  
+								<div class="form-group">
+									账期：
+									<input type="text" class="form-control input-md" name="usercode" data-rule="required;length(2~16)" />
+								</div>
+								<div class="form-group">
+									人员类型：
+									<input type="text" class="form-control input-md" name="usercode" data-rule="required;length(2~16)" />
+								</div>
+							</form>
+							<div>
+								<table id="basicTbl1"></table>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-bar">
+						<div class="panel-body">
+							<div id="paymentSumChart" style="min-height:300px;"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-body">
+							<div id="paymentSumProportionChart" style="min-height:310px;"></div>
+						</div>
+					</div>
+					<div class="panel">
+						<div class="panel-body">
+							<div id="areaProfessionalLineTrendChart" style="min-height:350px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="../dist/lib/jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/nicescroll/jquery.nicescroll.min.js"></script>
+		<script src="../dist/lib/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/jquery-easyui-1.5.1/locale/easyui-lang-zh_CN.js" ></script>
+		<script src="../dist/lib/ztree/js/jquery.ztree.all.min.js"></script>
+		<script src="../dist/lib/echarts/echarts.min.js"></script>
+		<script src="../dist/js/peacock.js"></script>
+		<script src="js/leaderView.js"></script>
+	</body>
+</html>

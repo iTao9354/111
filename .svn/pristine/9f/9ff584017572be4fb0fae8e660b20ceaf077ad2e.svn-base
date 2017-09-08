@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>表格上下布局-全省重点项目情况</title>
+		<link rel="stylesheet" href="../dist/lib/jquery-easyui-1.5.1/themes/default/easyui.css">
+		<link rel="stylesheet" href="../dist/lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="../dist/lib/layer/skin/layer.css" />
+		<link rel="stylesheet" href="../dist/css/peacock.css">
+
+		<script type="text/javascript" src="../dist/lib/jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/nicescroll/jquery.nicescroll.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../dist/lib/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/jquery-easyui-1.5.1/locale/easyui-lang-zh_CN.js"></script>
+		<script src="../dist/lib/jquery-easyui-1.5.1/jquery.easyui.ext.js"></script>
+		<script src="../dist/lib/layer/layer.js"></script>
+		<script type="text/javascript">
+			//定义全局使用的layer样式
+			layer.config({
+				skin: 'layui-layer-ext'
+			});
+		</script>
+		<script src="../dist/js/peacock.js"></script>
+		<script type="text/javascript" src="js/tableTopBtm.js"></script>
+		<style>
+			.processWrap span {
+				padding: 0 20px;
+				line-height: 26px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel">
+						<h3><span>全省重点项目情况</span></h3>
+						<div class="panel-body">
+							<form class="form-inline">
+								<div class="form-group">
+									<span class="cm-fieldName cm-wauto">项目名称：</span>
+									<input type="text" class="input-md form-control" id="exampleInputName2">
+								</div>
+								<div class="form-group">
+									<span class="cm-fieldName cm-wauto">是否关注：</span>
+									<div class="common-select cm-select cm-select-md">
+										<input id="isConcern" name="selectObj" type="text" hidden="hidden">
+										<span class="cm-select-form"></span>
+										<i class="iconfont cm-select-btn">&#xe6a3;</i>
+										<ul class="cm-selectBox-Wrap cm-selectBox-md">
+											<li>是</li>
+											<li>否</li>
+										</ul>
+									</div>
+								</div>
+								<div class="form-group">
+									<span class="cm-fieldName cm-wauto">进展情况：</span>
+									<div class="common-select cm-select cm-select-md">
+										<input id="cusType" name="selectObj" type="text" hidden="hidden">
+										<span class="cm-select-form"></span>
+										<i class="iconfont cm-select-btn">&#xe6a3;</i>
+										<ul class="cm-selectBox-Wrap cm-selectBox-md">
+											<li>全部</li>
+											<li>222</li>
+											<li>333</li>
+											<li>444</li>
+											<li>555</li>
+											<li>666</li>
+											<li>777</li>
+											<li>888</li>
+											<li>999</li>
+											<li>000</li>
+										</ul>
+									</div>
+								</div>
+								<button type="button" class="cm-wredBtn-big">查询</button>
+							</form>
+							<table id="tbl1"></table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<form class="cm-dialog-wrap form-inline" id="tbl1Info">
+			<div class="form-group">
+				<span class="cm-fieldName"><i class="cm-sign">*</i>商机名称：</span>
+				<input type="text" class="input-md form-control" name="businessName">
+			</div>
+			<div class="form-group">
+				<span class="cm-fieldName">商机名称2：</span>
+				<input type="text" class="input-md form-control" name="businessName2">
+			</div>
+			<div class="form-group">
+				<span class="cm-fieldName">商机名称3：</span>
+				<input type="text" class="input-md form-control" name="businessName3">
+			</div>
+			<div class="form-group">
+				<span class="cm-fieldName">单选框行业类型：</span>
+				<div class="cm-radio">
+					<label class="cm-radio-label">
+			        		<input type="radio" name="industryType" value="0">
+			            	<i></i>类型一
+			        	</label>
+					<label class="cm-radio-label">
+			            	<input type="radio" name="industryType" value="2">
+			            	<i></i>类型二
+			        	</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<span class="cm-fieldName">复选框：</span>
+				<div class="cm-checkbox">
+					<label class="cm-checkbox-label" >
+		            	<input type="checkbox" name="checkboxObj" value="111">
+		            	<i></i>选项一
+		           	</label>
+		          	<label class="cm-checkbox-label">
+		            	<input type="checkbox" name="checkboxObj" value="222">
+		            	<i></i>选项二
+		            </label>
+		          	<label class="cm-checkbox-label">
+		            	<input type="checkbox" name="checkboxObj" value="333">
+		            	<i></i>选项三
+		            </label>		
+				</div>
+			</div>
+			<div class="form-group">
+				<span class="cm-fieldName">下拉框：</span>
+				<div class="common-select cm-select cm-select-md">
+					<input name="selectObj" type="text" hidden="hidden">
+					<span class="cm-select-form"></span>
+					<i class="iconfont cm-select-btn">&#xe6a3;</i>
+					<ul class="cm-selectBox-Wrap cm-selectBox-md">
+					</ul>
+				</div>
+			</div>
+		</form>
+	</body>
+
+</html>

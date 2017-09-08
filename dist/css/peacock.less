@@ -127,7 +127,6 @@
         margin-right: 10px;
         padding-left: 20px;
         line-height: 25px;
-        color: #0c4757;
         cursor: pointer;
         font-size: 13px;
         
@@ -215,7 +214,7 @@
                 &:after {
                     content: '\e600';
                     top: -5px;
-                    left: -1px;
+                    left: 0;
                     font-family: 'iconfont';
                     font-size: 14px;
                     color: #e15b52;
@@ -262,6 +261,7 @@
     &-select {
         .pos;
         .bor;
+        height: 28px;
         &-xs {
             .w(60px);
         }
@@ -279,7 +279,9 @@
             .color;
             .noBor;
             .cursor;
-            .pad(3px,24px);
+            line-height: 26px;
+            padding:0 24px 0 8px;
+            display: inline-block;
         }
         
         &-btn {
@@ -356,7 +358,13 @@
         padding: 15px 20px 20px;
         .dis(none);
     }
-    
+    &-fieldName{
+        width: 120px;
+        text-align: right;
+        display: block;
+        line-height: 28px;
+        float: left;
+    }
     &-select{
         display: inline-block;
     }
@@ -365,20 +373,28 @@
     /*红色背景深红边框的button*/
     &-redBtn {
         .bg;
-        .color(#fff);
         .pad(4px,6px,4px,25px);
-        .h(28px);
-    }
-    &-redBtn {
+    
         &:hover,
         &:focus,
         &:active {
             .bg(@actColor);
         }
-        border-radius: 2px;
+    }
+    &-grayBtn {
+        .bg(#666);
+        
+        &:hover,
+        &:focus,
+        &:active {
+            .bg(#555454);
+        }
     }
     &-btn-i {
+        .h(28px);
+        .color(#fff);
         .pad;
+        .radius(2px);
     }
     &-btn-i {
         > i {
@@ -445,11 +461,19 @@
             }
         }
     }
+    &-wauto{
+        width: auto;
+    }
 }
 /*================================下面是定义插件的样式修改====================================*/
 /***重写bootstrap的样式*/
 .container-fluid {
     .mar(10px);
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-bottom: 8px;
 }
 .panel {
     .radius(0);
@@ -499,11 +523,13 @@
         .bor;
         .radius(0);
         .noShadow;
+        box-sizing: border-box;
     }  
     
-    .input-md {
+    .input-md, .cm-select {
         .w(200px);
-    } 
+    }
+    
     .input-sm {
         .w(152px);
     }
@@ -518,8 +544,11 @@
     > .form-group {
         .dis;
         .verAlign;
-        .mar(0,20px,10px);
+        .mar(0,20px,8px);
         width: auto;
+        .cm-radio, .cm-checkbox {
+            display: inline-block;
+        }
     }
 }
 .form-control:focus,

@@ -2,31 +2,29 @@
 (function($) {
     var initBarObj;
     var navContainer;
-    var onclickFun = function(title, url, id) {
-       // console.log('点击了' + title + '菜单 url:' + url + ' id:' + id);
-    };
+    var onclickFun = function(title, url, id, closable, isRefresh, opentype) {};
     var doNothing = function(){};
-
+	
+	/**
+	 * 给有url的叶子菜单绑定点击函数，调用外部打开点击事件
+	 * 此种方法绑定所有含有hasClickFun的class点击都会触发
+	 */
     var bindOnclickFun = function() {
     	$(document).on("click", ".hasClickFun", function(){ 
 			var $this = $(this);
             var title = $this.find('.menuText').text();
             var url = $this.attr('data-url');
-            var opentype = $this.attr('data-otype');
+            var opentype = $this.attr('data-otype') ;
             var id = $this.attr('id');
             initBarObj.onClick(title, url, id, true, true, opentype);
     	});
-    	$(document).on("click", "#thirdLevWrap > h3", function(){ 
-			var $this = $(this);
-            var title = $this.text();
-            var url = $this.attr('data-url');
-            var opentype = $this.attr('data-otype');
-            var id = $this.attr('idx');
-            initBarObj.onClick(title, url, id, true, true, opentype);
-    	});
-    	
     };
-
+	
+	/**
+	 * 生成菜单初始化html，递归调用最后返回所有html
+	 * @param {Object} navArr 孩子节点object数组
+	 * @param {Object} lev 层级数
+	 */
     var genNavContentHtml = function(navArr, lev) {
         var i = 0,
             html = '<ul class="submenu">';
@@ -113,7 +111,10 @@
             console.log("菜单数据为空！");
         }
     };
-
+	
+	/**
+	 * 计算一级菜单的外层包裹ul的宽度，切换树状菜单时需要调用
+	 */
     var initNavUlWidth = function() {
         if ($('body').attr('class').indexOf('treeNav') < 0) {
             var oneNavWidth = initBarObj.barsWidth.level0Width;
@@ -126,6 +127,9 @@
         }
     }
 	
+	/**
+	 * 根据传入的配置项数据返回左侧菜单的宽度
+	 */
 	function calcLeftBarWidth(){
 		var ww = $(window).width();
         var w2 = initBarObj.barsWidth.ExpandWidth2;
@@ -140,6 +144,9 @@
         }
 	}
 	
+	/**
+	 *给左侧菜单赋宽度值，调用展开收起左侧菜单的回调函数 
+	 */
     var setLevel0SubmenuWidth = function(){
         if ($('body').attr('class').indexOf('normalNav') >= 0 && $('body').attr('class').indexOf('miniMenu') < 0) {
         	var wVal = calcLeftBarWidth();
@@ -179,7 +186,9 @@
     };
 
 
-
+	/**
+	 *当一级菜单展示不开时候出来左右按钮，每次滑动一个菜单宽度，给左右按钮绑定点击事件 
+	 */
     var bindMainNavCtrlBtn = function(tag) {
         var containerDom = $(tag);
         var containerWidth = containerDom.width();
@@ -219,7 +228,9 @@
         });
     };
 
-
+	/**
+	 * 二级菜单点击事件，展开或收起三级菜单，只有在树状菜单时候才做此操作
+	 */
     var bindLBarLevelToggleClick = function() {
         $('.level1 .dropdown-toggle').unbind().click(function() {
             var bodyCls = $('body').attr('class');
@@ -241,7 +252,10 @@
             }
         });
     };
-
+	
+	/**
+	 * 一级菜单点击事件，对二级菜单进行切换
+	 */
     var bindLevel0Click = function() {
         $('#mainNav > .level0 > a').click(function() {
             var thisDom = $(this);
@@ -273,7 +287,10 @@
             }
         });
     };
-
+	
+	/**
+	 * 展开收起左侧菜单
+	 */
     var bindHideOrOpenLeftBarClick = function() {
         function toggleMiniMenu() {
             $('body').toggleClass('miniMenu');
@@ -350,7 +367,7 @@
                 var liTop = $(this).offset().top - level1Top;
                 var thirdLevWrapTop = liTop + $(navContainer).height();
                 var leftVal = calcLeftBarWidth();
-                var h2Txt='', submenuTxt='';
+                var h2Txt='', submenuTxt='', h3MoreHtml = '';
                 
                 if($('.miniMenu').length > 0){
                 	leftVal = parseFloat(initBarObj.barsWidth.minWidth);
@@ -359,7 +376,14 @@
                 _tagAAll.removeClass("active");
                 _tagA.addClass("active");
                 
-                h2Txt = '<h3 idx="'+$(this).attr("id")+'" data-url="'+$(this).attr("data-url")+'">' + $('.menuText',$(this)).text() + '</h3>';
+                if($(this).attr('class').indexOf('hasClickFun')>= 0){
+                	h3MoreHtml = 'class="hasClickFun"';
+                }
+                if($(this).attr('data-otype')){
+                	h3MoreHtml += ' data-otype="'+$(this).attr('data-otype')+'"'; 
+                }
+                
+                h2Txt = '<h3 '+h3MoreHtml+' idx="'+$(this).attr("id")+'" data-url="'+$(this).attr("data-url")+'"><span class="menuText">' + $('.menuText',$(this)).text() + '</span></h3>';
                 if (_tagA.siblings('ul').length > 0) {
                     submenuTxt = '<ul>' + $(this).siblings('ul').html() + '</ul>';
                     $('#thirdLevWrap').removeClass('onlyH2');
@@ -420,9 +444,13 @@
             $('body').removeClass('leftNav');
         }
     }
-
+	
+	/**
+	 * 显示或隐藏控制一级菜单左右滑动按钮的显示隐藏和状态
+	 * @param {Object} tag jquery dom
+	 */
     var showOrHideUlCtrlArrow = function(tag) {
-        var containerDom = $(tag);
+        var containerDom = tag ? $(tag):$(navContainer);
         var containerWidth = containerDom.width();
         var mainNavWidth = $('#mainNav').width();
         var mainNavLeft = -parseInt($('#mainNav').css('left').split('px')[0]);
@@ -450,14 +478,20 @@
             }
         }
     }
-
+	
+	/**
+	 * 打开第一个页面作为首页
+	 */
     var openFirstPage = function() {
         var firstLevel0ADom = $('.level0 > a:first');
         firstLevel0ADom.click();
         $(' > li:eq(0) > a', firstLevel0ADom.siblings('.submenu')).click();
         $('.level0:first .hasClickFun:first').click();
     }
-
+	
+	/**
+	 * 树状菜单点击展开收起的事件
+	 */
     var bindTreeNavToggleBtn = function() {
         $('.treeNav #menuControl1').unbind().click(function() {
         	var mainNavWrapDom = $('.mainNavWrap');
@@ -470,21 +504,16 @@
             $(this).toggleClass('active');
         });
     }
-    
-    var addMainNavNicescroll = function() {
-//  	if($('#mainNav').getNiceScroll().length >= 0){
-         //  $('#mainNav').niceScroll({ cursorcolor: "rgba(0,0,0,.3)", cursorborder: "none",horizrailenabled: false});
-//      }else{
-//         $('#mainNav').getNiceScroll().show().resize();
-//      }
-    }
-
+	
+	/**
+	 * 关闭所有的一级菜单
+	 */
     var closeAllLevel0 = function(){
         $('.level0.active > a > b').removeClass('openArrow').addClass('closeArrow').html('&#xe8cb;');
         $('.level0').removeClass('active');
     }
 
-    //type：normalNav/treeNav
+    //切换菜单类型type：normalNav/treeNav
     function changeNavType(type) {
         if (type == 'normalNav') {
             $('.treeNav #menuControl1').unbind();
@@ -508,13 +537,18 @@
             showOrHideUlCtrlArrow();
             initNavUlWidth();
             bindTreeNavToggleBtn();
-            addMainNavNicescroll();
             $('.mainNavWrap').show();
             closeAllLevel0();
         }
         $(window).resize();
     }
     
+    /**
+     * 递归找跟传入id相同的一级菜单，并设置为激活状态
+     * @param {Object} id 对比的id
+     * @param {Object} objs 菜单对象数组
+     * @param {Object} index 第几个一级菜单
+     */
     var recursionEqId = function(id, objs, index){
     	var hasFind = false;
     	if(objs){
@@ -534,6 +568,12 @@
     	return;
     }
     
+    /**
+     * 反向激活当前tab的一级菜单，id要唯一
+     * @param {Object} title
+     * @param {Object} id
+     * @param {Object} index
+     */
     var tabEchoActiveMenu = function(title,id,index){
     	for(var i=0; i<initBarObj.data.length;i++){
     		if(initBarObj.data[i].id == id){
@@ -545,7 +585,12 @@
     		}
     	}
     }
-		
+	
+	/**
+	 * 初始化菜单
+	 * @param {Object} navWrapDiv
+	 * @param {Object} options
+	 */
     var initBoncNav = function(navWrapDiv, options) {
         if(options.data.length > 0){
             initHtml(navWrapDiv, options);
@@ -559,6 +604,9 @@
             bindOnclickFun();
             if(options.openFirstPage){
             	openFirstPage();
+            }else{
+            	//激活第一个菜单
+            	$('.level0:first-child >a ').click();
             }
             bindLeftBarMouseFun();
             //左侧菜单收起

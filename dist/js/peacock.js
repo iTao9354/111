@@ -1,5 +1,23 @@
 ;(function(window){
 	window.peacock = _peacock = {};
+	/**
+	 * 为请求字符串添加随机码，处理ie中请求只访问一次的问题
+	 * @author 姚林刚
+	 * @param url 需要处理的URL
+	 */
+	function warpRandom(url){
+		if(url){
+			if(/\?+/.test(url)){
+				url = url+"&math="+Math.random();
+			}else{
+				url = url+"?math="+Math.random();
+			}
+			return url;
+		}
+		return null;
+	}
+	_peacock.warpRandom = warpRandom;
+	
 	//获取浏览器类型
 	var browser = function() {
 	    var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
@@ -83,8 +101,10 @@
 	function initCommonSelect(ele,data) {
 		var ele = ele?ele:'.common-select';
 		$(ele).each(function() {
+			var htmlStr = '';
 			var _this = $(this),
-				selectInp = _this.children('.cm-select-form'),
+				selectTxt = _this.children('.cm-select-form'),
+				selectInp = _this.children('input'),
 				selectBtn = _this.children('.cm-select-btn'),
 				selectBoxWrap = _this.children('.cm-selectBox-Wrap'),
 				
@@ -92,12 +112,13 @@
 				allSelectBoxWrap = $('.cm-selectBox-Wrap');
 				
 			// 初始化
-			if(typeof data !== 'undefined') {			
+			if(typeof data !== 'undefined') {	
 				for(var i = 0; i < data.length; i++) {				
-					selectBoxWrap.append('<li>'+data[i].text+'</li>');
+					htmlStr += '<li idx="'+data[i].id+'">'+data[i].text+'</li>';
 				}
+				selectBoxWrap.html(htmlStr);
 			}
-			selectInp.val(selectBoxWrap.children('li:first-child').text());
+			//selectTxt.val(selectBoxWrap.children('li:first-child').text());
 			
 			// 操作
 			$(document).click(function() {
@@ -105,33 +126,34 @@
 				allSelectBtn.removeClass('active');
 			});
 			
-			selectInp.off('click').on('click', function(e) {
+			selectTxt.off('click').on('click', function(e) {
 				preventEvent(e);
 				toggleRotate();
 			})
 			.next().off('click').on('click', function(e) {
 				preventEvent(e);
 				toggleRotate();			
-				selectInp.css({'border-color': '#d43f3a', 'background-color': '#fffdfd'});
+				selectTxt.css({'border-color': '#d43f3a', 'background-color': '#fffdfd'});
 				$(this).css({'color': '#e15b52'});
 			});
 			
 			// 鼠标划入效果
 			_this.children('.cm-select-form, .cm-select-btn').hover(function() {
 				$(this).parent().css({'border-color': '#d43f3a'});
-				selectInp.css({'background-color': '#fcf4f4'});
+				selectTxt.css({'background-color': '#fcf4f4'});
 				selectBtn.css({'color': '#e15b52'});
 				// 添加title
-				selectInp.attr('title', $(this).val());
+				selectTxt.attr('title', $(this).val());
 			}, function() {
 				$(this).parent().css({'border-color': '#ccc'});
-				selectInp.css({'background-color': '#fff'});
+				selectTxt.css({'background-color': '#fff'});
 				selectBtn.css({'color': '#aaa'});
 			})
 			
 			// 下拉操作
 			selectBoxWrap.children('li').off('click').on('click', function() {
-				selectInp.val($(this).text());
+				selectInp.val($(this).attr('idx'));
+				selectTxt.text($(this).text());
 				selectBoxWrap.hide();
 				selectBtn.removeClass('active');
 			})
@@ -149,7 +171,7 @@
 					selectBoxWrap.show();
 					
 					// 判断下拉菜单显示位置					
-					if(selectInp.offset().top + selectInp.height()/2 - $(document).scrollTop() > ($(window).height() - 78)*2/3) {
+					if(selectTxt.offset().top + selectTxt.height()/2 - $(document).scrollTop() > ($(window).height() - 78)*2/3) {
 						selectBoxWrap.css({'top': - selectBoxWrap.outerHeight()-1}).addClass('topActive');
 					}else {
 						selectBoxWrap.css({'top': '27px'}).removeClass('topActive');
@@ -378,7 +400,6 @@
 	    } else {
 	        trans_day = dateString;
 	    }
-	    //澶勭悊
 	    return trans_day;
 	}
 	
@@ -398,7 +419,6 @@
 	    } else {
 	        monthString = (newDate.getMonth() + 1).toString();
 	    }
-	    //濡傛灉澶╂暟闀垮害灏戜簬2锛屽垯鍓嶅姞 0 琛ヤ綅   
 	    if (newDate.getDate().toString().length == 1) {
 	        dayString = 0 + "" + newDate.getDate().toString();
 	    } else {
@@ -409,7 +429,6 @@
 	}
 
 	function reduceByTransDate(dateParameter, num, def) {
-		//鑾峰彇鏃ユ湡鐨勫墠鍑犲ぉ锛屾牴鎹畁um纭畾
 	    var translateDate = "",
 	        dateString = "",
 	        monthString = "",
@@ -419,13 +438,11 @@
 	    newDate = newDate.valueOf();
 	    if(typeof def == 'undefined') newDate = newDate - num * 24 * 60 * 60 * 1000;
 	    newDate = new Date(newDate);
-	    //濡傛灉鏈堜唤闀垮害灏戜簬2锛屽垯鍓嶅姞 0 琛ヤ綅   
 	    if ((newDate.getMonth() + 1).toString().length == 1) {
 	        monthString = 0 + "" + (newDate.getMonth() + 1).toString();
 	    } else {
 	        monthString = (newDate.getMonth() + 1).toString();
 	    }
-	    //濡傛灉澶╂暟闀垮害灏戜簬2锛屽垯鍓嶅姞 0 琛ヤ綅   
 	    if (newDate.getDate().toString().length == 1) {
 	        dayString = 0 + "" + newDate.getDate().toString();
 	    } else {
@@ -436,4 +453,9 @@
 	}
 	_peacock.initDatepicker = initDatepicker;
 	
+	// 补0函数
+	function toDouble(n) {
+		return n < 10 ? '0'+n : '' + n;
+	}
+	_peacock.toDouble = toDouble;
 })(window);

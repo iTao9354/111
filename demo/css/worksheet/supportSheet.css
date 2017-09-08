@@ -43,6 +43,42 @@
 .support-sheet .cm-form-wrap > li > label {
 	margin-top: 3px;
 }
+.support-sheet .cm-btn-i {
+	width: 100px;
+	margin-right: 10px;
+}
+.worksheet-btns {
+	margin-left: 295px;
+}
+.worksheet-subtitle {
+	line-height: 20px;
+	margin-bottom: 10px;
+	position: relative;
+}
+.worksheet-subtitle:after {
+	content: '';
+	width: 100%;
+	height: 1px;
+	background: #e0dcdd;
+	position: relative;
+	top: -15px;
+}
+.worksheet-subtitle > span {
+	display: inline-block;
+	width: 65px;
+	height: 28px;
+	background: #fff;
+	position: relative;
+	top: 3px;
+	z-index: 1;
+	text-align: center;
+	margin-left: 5px;
+}
+.worksheet-title-btns {
+	z-index: 1;
+	position: relative;
+	
+}
 
 /*流转日志*/
 .flowlog {

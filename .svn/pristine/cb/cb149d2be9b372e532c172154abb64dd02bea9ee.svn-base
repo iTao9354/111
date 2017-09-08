@@ -1,0 +1,19 @@
+@charset "utf-8";
+html, body, .container-fluid, .row,
+.col-lg-6,.col-md-6,.col-sm-6, .col-xs-6 {
+	height: 100%;
+}
+.container-fluid {
+	margin: 0;
+	padding-top: 10px;
+}
+.panel {
+	overflow: visible;
+}
+.panel-body {
+	height: auto;
+}
+.map-tips {
+	color: #f8a211;
+	text-align: center;
+}

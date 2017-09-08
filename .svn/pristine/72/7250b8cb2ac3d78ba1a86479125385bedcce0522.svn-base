@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>表格上下布局-全省重点项目情况</title>
+		<link rel="stylesheet" href="../dist/lib/jquery-easyui-1.5.1/themes/default/easyui.css">
+		<link rel="stylesheet" href="../dist/lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="../dist/lib/layer/skin/layer.css" />
+		<link rel="stylesheet" href="../dist/css/peacock.css">
+
+		<script type="text/javascript" src="../dist/lib/jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/nicescroll/jquery.nicescroll.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../dist/lib/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/jquery-easyui-1.5.1/locale/easyui-lang-zh_CN.js"></script>
+		<script src="../dist/lib/jquery-easyui-1.5.1/jquery.easyui.ext.js"></script>
+		<script src="../dist/lib/layer/layer.js"></script>
+		<script type="text/javascript">
+			//定义全局使用的layer样式
+			layer.config({
+				skin: 'layui-layer-ext'
+			});
+		</script>
+		<script src="../dist/js/peacock.js"></script>
+		<script type="text/javascript" src="js/tableTopBtm.js"></script>
+		<style>
+			.processWrap span {
+				padding: 0 20px;
+				line-height: 26px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel">
+						<h3><span>全省重点项目情况</span></h3>
+						<div class="panel-body">
+							<form class="form-inline">
+								<div class="form-group">
+									项目名称：
+									<input type="text" class="input-md form-control" id="exampleInputName2">
+								</div>
+								<div class="form-group">
+									是否关注：
+									<div class="common-select cm-select cm-select-md">
+										<input id="isConcern" type="text" class="cm-select-form" readonly="true">
+										<i class="iconfont cm-select-btn">&#xe6a3;</i>
+										<ul class="cm-selectBox-Wrap cm-selectBox-md">
+											<li>是</li>
+											<li>否</li>
+										</ul>
+									</div>
+								</div>
+								<div class="form-group">
+									进展情况：
+									<div class="common-select cm-select cm-select-md">
+										<input id="cusType" type="text" class="cm-select-form" readonly="true">
+										<i class="iconfont cm-select-btn">&#xe6a3;</i>
+										<ul class="cm-selectBox-Wrap cm-selectBox-md">
+											<li>全部</li>
+											<li>222</li>
+											<li>333</li>
+											<li>444</li>
+											<li>555</li>
+											<li>666</li>
+											<li>777</li>
+											<li>888</li>
+											<li>999</li>
+											<li>000</li>
+										</ul>
+									</div>
+								</div>
+								<button type="button" class="cm-wredBtn-big">查询</button>
+							</form>
+							<table id="tbl1"></table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<form class="cm-dialog-wrap form-inline" id="tbl1Info">
+			<div class="form-group">
+				<span class="cm-fieldName"><i class="cm-sign">*</i>商机名称：</span>
+				<input type="text" class="input-md form-control" name="businessName">
+			</div>
+			<div class="form-group">
+				<span class="cm-fieldName">商机名称2：</span>
+				<input type="text" class="input-md form-control" name="businessName2">
+			</div>
+			<div class="form-group">
+				<span class="cm-fieldName">商机名称3：</span>
+				<input type="text" class="input-md form-control" name="businessName3">
+			</div>
+			<div class="form-group">
+				<span class="cm-fieldName">单选框行业类型：</span>
+				<div class="cm-radio">
+					<label class="cm-radio-label">
+			        		<input type="radio" name="industryType" value="0">
+			            	<i></i>类型一
+			        	</label>
+					<label class="cm-radio-label">
+			            	<input type="radio" name="industryType" value="2">
+			            	<i></i>类型二
+			        	</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<span class="cm-fieldName">复选框：</span>
+				<div class="cm-checkbox">
+					<label class="cm-checkbox-label" >
+		            	<input type="checkbox" name="checkboxObj" value="111">
+		            	<i></i>选项一
+		           	</label>
+		          	<label class="cm-checkbox-label">
+		            	<input type="checkbox" name="checkboxObj" value="222">
+		            	<i></i>选项二
+		            </label>
+		          	<label class="cm-checkbox-label">
+		            	<input type="checkbox" name="checkboxObj" value="333">
+		            	<i></i>选项三
+		            </label>		
+				</div>
+			</div>
+			<div class="form-group">
+				<span class="cm-fieldName">下拉框：</span>
+				<div class="cm-select">
+					<i class="iconfont cm-select-btn">&#xe6a3;</i>
+					<select name="state" style="width:100%;">
+		                <option value="AL">Alabama</option>
+		                <option value="AK">Alaska</option>
+		                <option value="AZ">Arizona</option>
+		                <option value="AR">Arkansas</option>
+		                <option value="CA">California</option>
+		                <option value="CO">Colorado</option>
+		                <option value="CT">Connecticut</option>
+		                <option value="DE">Delaware</option>
+		                <option value="FL">Florida</option>
+		                <option value="GA">Georgia</option>
+		                <option value="HI">Hawaii</option>
+		                <option value="ID">Idaho</option>
+		                <option value="IL">Illinois</option>
+		                <option value="IN">Indiana</option>
+		                <option value="IA">Iowa</option>
+		                <option value="KS">Kansas</option>
+		                <option value="KY">Kentucky</option>
+		                <option value="LA">Louisiana</option>
+		                <option value="ME">Maine</option>
+		                <option value="MD">Maryland</option>
+		                <option value="MA">Massachusetts</option>
+		                <option value="MI">Michigan</option>
+		                <option value="MN">Minnesota</option>
+		                <option value="MS">Mississippi</option>
+		                <option value="MO">Missouri</option>
+		                <option value="MT">Montana</option>
+		                <option value="NE">Nebraska</option>
+		                <option value="NV">Nevada</option>
+		                <option value="NH">New Hampshire</option>
+		                <option value="NJ">New Jersey</option>
+		                <option value="NM">New Mexico</option>
+		                <option value="NY">New York</option>
+		                <option value="NC">North Carolina</option>
+		                <option value="ND">North Dakota</option>
+		                <option value="OH" selected>Ohio</option>
+		                <option value="OK">Oklahoma</option>
+		                <option value="OR">Oregon</option>
+		                <option value="PA">Pennsylvania</option>
+		                <option value="RI">Rhode Island</option>
+		                <option value="SC">South Carolina</option>
+		                <option value="SD">South Dakota</option>
+		                <option value="TN">Tennessee</option>
+		                <option value="TX">Texas</option>
+		                <option value="UT">Utah</option>
+		                <option value="VT">Vermont</option>
+		                <option value="VA">Virginia</option>
+		                <option value="WA">Washington</option>
+		                <option value="WV">West Virginia</option>
+		                <option value="WI">Wisconsin</option>
+		                <option value="WY">Wyoming</option>
+		            </select>
+		        </div>
+			</div>
+		</form>
+	</body>
+
+</html>

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>支撑工单</title>
+		<title>支撑工单详情</title>
 		<link rel="stylesheet" href="../../dist/lib/jquery-easyui-1.5.1/themes/default/easyui.css">
 		<link rel="stylesheet" href="../../dist/lib/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="../../dist/lib/layer/skin/layer.css" />
@@ -63,8 +63,13 @@
 						<div class="panel">								
 							<div class="panel-body">
 								<div>						
-									<h4 class="panel-heading">
+									<h4 class="panel-heading worksheet-subtitle cm-clearfix">
 										<span>工单内容</span>
+										<div class="cm-fr worksheet-title-btns">
+											<button type="button" class="cm-redBtn cm-btn-i">派发</button>
+											<button type="button" class="cm-grayBtn cm-btn-i">反馈</button>
+											<button type="button" class="cm-grayBtn cm-btn-i">发协办支撑单</button>
+										</div>
 									</h4>
 									<ul class="cm-form-wrap cm-form-lg cm-clearfix">
 										<li>
@@ -129,45 +134,45 @@
 									<div class="flowlog">
 										<div class="flow-tab-wrapper">
 											<div class="flowlog-tab">
-												<div class="log-btn-wrap clearfix">	
+												<div class="log-btn-wrap cm-clearfix">	
 													<a href="javascript:;" class="cm-fr more-log" onclick="checkAllFlowLog();">查看全部流转日志</a>
 													<ol class="flowlog-btns">
-														<li class="clearfix purple completed">
+														<li class="cm-clearfix purple completed">
 															<span class="sheet-icon">
 																<i class="sheet-sprites"></i>
 															</span>
 															<i class="iconfont cm-fr">&#xe6b6;</i>
 															<p class="flow-name"><span>起草</span></p>
 														</li>
-														<li class="clearfix darkGreen completed active">
+														<li class="cm-clearfix darkGreen completed active">
 															<span class="sheet-icon">
 																<i class="sheet-sprites"></i>
 															</span>
 															<i class="iconfont cm-fr">&#xe6b6;</i>
 															<p class="flow-name"><span>审批</span></p>
 														</li>
-														<li class="clearfix darkBlue uncompleted">
+														<li class="cm-clearfix darkBlue uncompleted">
 															<span class="sheet-icon">
 																<i class="sheet-sprites"></i>
 															</span>
 															<i class="iconfont cm-fr">&#xe6b6;</i>
 															<p class="flow-name"><span>派发</span></p>
 														</li>
-														<li class="clearfix lightBlue uncompleted">
+														<li class="cm-clearfix lightBlue uncompleted">
 															<span class="sheet-icon">
 																<i class="sheet-sprites"></i>
 															</span>
 															<i class="iconfont cm-fr">&#xe6b6;</i>
 															<p class="flow-name"><span>反馈</span></p>
 														</li>
-														<li class="clearfix red uncompleted">
+														<li class="cm-clearfix red uncompleted">
 															<span class="sheet-icon">
 																<i class="sheet-sprites"></i>
 															</span>
 															<i class="iconfont cm-fr">&#xe6b6;</i>
 															<p class="flow-name"><span>评价</span></p>
 														</li>
-														<li class="clearfix lightGreen uncompleted">
+														<li class="cm-clearfix lightGreen uncompleted">
 															<span class="sheet-icon">
 																<i class="sheet-sprites"></i>
 															</span>
@@ -214,7 +219,7 @@
 											<h5 class="panel-heading">
 												<span>评价信息</span>
 											</h5>
-											<div class="clearfix panel-body">
+											<div class="cm-clearfix panel-body">
 												<p class="cm-fl evaluate-content">环境干净服务周到，环境干净服务周到，环境干净服务周到，环境干净服务周到，环境干净服务周到，环境干净服务周到，环境干净服务周到，环境干净服务周到，环境干净服务周到，环境干净</p>												
 												<ul class="cm-fr score-list">
 													<li>

@@ -36,6 +36,7 @@ var tbl1= {
             collapsible:true,
             rownumbers:true,
             fit:true,
+            pagination:false,
             view:groupview,
             groupField:'productid',
             groupFormatter:function(value,rows){

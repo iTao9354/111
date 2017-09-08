@@ -59,8 +59,12 @@ function formatBusinessName(val,row){
 }
 
 function initBasicTbl1(){
+	//用easyui默认的checkbox，改了样式
+	var checkboxWidth = 29;//默认checkbox列的宽度
+	var lastCalcWidth = $('#basicTbl1').parent().width() * 15 /100 - checkboxWidth;//最后一列的宽度15%-27
 	$('#basicTbl1').datagrid({
 	    data:dataBusinessMgr,
+	    checkOnSelect:true,//选中行checkbox选中
 	    toolbar: [
 	    	{
 	    		text: '<div class="datagrid-addBtn"><i class="iconfont">&#xe696;</i><span>新增</span></div>',
@@ -71,26 +75,7 @@ function initBasicTbl1(){
 	    ],
 	    columns:[[
 	    	{
-	    		field:'chk',
-	    		width:'5%',
-//	    		title: '<div class="cm-checkbox">' +
-//  						'<label class="cm-checkbox-label">'+
-//  							'<input type="checkbox" name="funding">'+
-//  							'<i></i>'+
-//				        	'</label>'+
-//						'</div>',
-//	    		formatter: function(value, row, index) {
-//	    			var html = '';
-//	    			console.log(value);
-//	    			html += '<div class="cm-checkbox"><label class="cm-checkbox-label">';
-//	    			if(value) {
-//	    				html += '<input type="checkbox" name="funding" checked="checked">';
-//	    			}else {
-//	    				html += '<input type="checkbox" name="funding">'
-//	    			}
-//	    			html += '<i></i></label></div>';
-//					return html;
-//	    		}
+	    		field:'',
 				checkbox: true
 	    	},
 	        {field:'id',title:'商机编号',width:'5%',sortable:true},
@@ -102,7 +87,7 @@ function initBasicTbl1(){
 	        {field:'firstIndustry',title:'一级行业',width:'10%'},
 	        {field:'secIndustry',title:'二级行业',width:'10%'},
 	        {field:'progress',title:'周计划进展及问题',width:'10%'},
-	        {field:'info',title:'操作',width:'10%',align:'center',
+	        {field:'info',title:'操作',width:lastCalcWidth+'px',align:'center',
 	        	formatter : function(value, rowData, rowIndex) {
 					return '<span class="iconfont" title="修改" onclick="upd('
 						+ rowData.id
@@ -116,7 +101,18 @@ function initBasicTbl1(){
 						+ ')" title="设置权限">&#xe65c;</span>';					
 				}
 	        }
-	    ]]
+	    ]],
+	    onCheck:function(index,row){
+	    	//此函数在jquery.easyui.ext.js中定义,检查全选checkbox样式
+	    	extCheckChkAllClass();
+	    },
+	    onUncheck:function(index,row){
+	    	extCheckChkAllClass();
+	    },
+	    onLoadSuccess:function(data){
+	    	//此函数在jquery.easyui.ext.js中定义，全选checkbox样式和点击事件
+			extBindChkAllClick();	    	
+	    }
 	});
 }
 

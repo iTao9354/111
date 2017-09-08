@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+.panel {
+	margin-bottom: 10px;
+}
+.perform-contract-pie > div {
+	width: 50%;
+	height: 320px;
+}
+.perform-contract-pie1 {
+	border-right: 1px solid #d7deee;	
+}

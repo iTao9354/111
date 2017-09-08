@@ -264,7 +264,7 @@ var NavArr = [{
 		}]
 	}]
 }];
-var webpath = '/peacock/demo/';
+var webpath = webpath?webpath:'/peacock/demo/';
 /**
  * resize iframe头部和下面的iframe宽度的大小
  */
@@ -278,7 +278,7 @@ var tabResize = function() {
  */
 var barsObj = {
 	"data": NavArr,
-	"openFirstPage":true,
+	"openFirstPage":false,
 	"onClick": function(title, url, id, closable, isRefresh, openType) {
 		addNewTab(title, url, id, closable, isRefresh, openType);
 	},
@@ -299,7 +299,7 @@ var barsObj = {
 //统计菜单函数
 function statistics(title, id) {
 	$.ajax({
-		url: util.warpRandom(webpath + "activeLog?modelName=" + title + "&modelId=" + id),
+		url: peacock.warpRandom(webpath + "activeLog?modelName=" + title + "&modelId=" + id),
 		async: true,
 		type: "POST",
 		error: function() {},
@@ -460,7 +460,7 @@ var initLogMessageTbl = function() {
 		            { "data": "LOGOUT_DATE"}
 		],
       "ajax": {
-      	"url":util.warpRandom(webpath + 'user/userLogEnter'),  
+      	"url":peacock.warpRandom(webpath + 'user/userLogEnter'),  
  	     	"type":'post',
  	     	"dataType":'json',
 		     "dataSrc": function (json) {
@@ -496,7 +496,7 @@ var initLogMessageTbl = function() {
  */
 var initPermissionsTbl = function() {
 	/*$('#queryresourcetreeMain').width("530px").height("360px").treegrid({   
-	    url:util.warpRandom(webpath + 'user/getUserResourceMain?json'),
+	    url:peacock.warpRandom(webpath + 'user/getUserResourceMain?json'),
 	    idField:'RESOURCEID',
 	    treeField:'RESOURCENAME',   
 	    columns:[[{
@@ -571,6 +571,9 @@ function getNavInit() {
 		}
 	}); */
 	$('#nav').boncNav(barsObj);
+	
+	//打开个页面作为首页
+	addNewTab("首页", "workbench.html", new Date(), true, true, 1);	
 }
 
 /*
@@ -737,7 +740,7 @@ var changePasswordClick = function() {
 		layer.open({
 			type: 1,
 			title: '<i class="iconfont">&#xe65c;</i>&nbsp;修改密码',
-			area: ['450px', '280px'],
+			area: ['400px', '280px'],
 			content: $("#updatePasswdDialog"),
 			btn: ['确定', '取消'],
 			btn1: function(index, layero) { //确定按钮回调
@@ -762,7 +765,7 @@ var changePasswordClick = function() {
 				}
 
 				$.ajax({ //请求修改密码
-					"url": util.warpRandom(webpath + "user/updPassword"),
+					"url": peacock.warpRandom(webpath + "user/updPassword"),
 					"data": {
 						/*userId:id,*/ //还没获取？
 						oldPasswd: oldPasswd,
@@ -870,7 +873,6 @@ $(function() {
 	changePasswordClick();
 	moreNoticeClick();
 	checkUserCount();
-
 	/*** 头部的点击出现下拉菜单的js */
 	$('.tipsScrollDiv').niceScroll({
 		cursorcolor: "rgba(99,114,131,.7)",
@@ -878,3 +880,6 @@ $(function() {
 	});
 	bindTipsUserClick();
 });
+window.onload = function(){
+	$('#tabs').tabs('resize');
+}

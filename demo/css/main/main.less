@@ -70,6 +70,7 @@ html {
 body {
     min-width: 900px;
     height: 100%;
+    overflow: hidden;
 }
 
 a:hover {
@@ -349,7 +350,11 @@ i.blue {
     top: -2px;
     position: relative;
 }
-
+@-moz-document url-prefix() { 
+    .tabs li a.tabs-inner {
+        top: -3px;
+    }
+}
 .tabs li.tabs-selected a.tabs-inner,
 .tabs li a.tabs-inner,
 .tabs li.tabs-selected a.tabs-inner:hover,
@@ -574,7 +579,7 @@ body.treeNav .frame-content {
     text-align: right;
     display: block;
     float: left;
-    top: 10px;
+    top: 6px;
     position: relative;
 }
 
@@ -1771,14 +1776,26 @@ hr {
 .thirdLevWrap > h3{
     padding: 18px 27px 0;
     font-size: 16px;
-    line-height: 40px;
+    line-height: 35px;
     border-bottom:none;
+}
+.thirdLevWrap > h3 >span {
+    margin: 0;
+    border: none;
+    font-weight: normal;
+    line-height: 35px;
+    font-size: 16px;
+    padding: 0;
 }
 .thirdLevWrap.onlyH2 > h3 {
     padding: 0 20px;
     cursor: pointer;
     font-size: 14px;
     height: 35px;
+    line-height: 35px;
+}
+.thirdLevWrap.onlyH2 > h3 > span{
+    font-size: 14px;
     line-height: 35px;
 }
 .thirdLevWrap.onlyH2 > h3:hover{

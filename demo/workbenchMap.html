@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>工作台地图</title>
+		<link rel="stylesheet" href="../dist/lib/jquery-easyui-1.5.1/themes/default/easyui.css">
+		<link rel="stylesheet" href="../dist/lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="../dist/css/peacock.css">
+		<link rel="stylesheet" href="css/workbenchMap.css" />
+	</head>
+	<body>					
+		<div class="container-fluid">	
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<div class="panel">
+						<div class="panel-body">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active">
+									<a href="#dailyKey" aria-controls="dailyKey" role="tab" data-toggle="tab">日关键指标</a>
+								</li>
+								<li role="presentation">
+									<a href="#monthlyKey" aria-controls="monthlyKey" role="tab" data-toggle="tab">月关键指标</a>
+								</li>
+								<li role="presentation">
+									<a href="#residentNet" aria-controls="residentNet" role="tab" data-toggle="tab">驻地网指标</a>
+								</li>
+							</ul>
+	
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" id="dailyKey">
+									<table id="basicTbl1" class="cm-table"></table>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="monthlyKey">
+									2
+									<table id="basicTbl2" class="cm-table"></table>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="residentNet">
+									3
+									<table id="basicTbl3" class="cm-table"></table>
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<div class="panel">
+						<div class="panel-body">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active">
+									<a href="#mapShow" aria-controls="mapShow" role="tab" data-toggle="tab">地图展示</a>
+								</li>
+								<li role="presentation">
+									<a href="#tendencyChart" aria-controls="tendencyChart" role="tab" data-toggle="tab">趋势图</a>
+								</li>
+								<li role="presentation">
+									<a href="#regionalRank" aria-controls="regionalRank" role="tab" data-toggle="tab">地域排名</a>
+								</li>
+								<li role="presentation">
+									<a href="#canlendarData" aria-controls="canlendarData" role="tab" data-toggle="tab">日历数据</a>
+								</li>
+							</ul>
+	
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" id="mapShow">
+									<div>										
+										<div id="chartMap" style="height: 500px;"></div>
+										<p class="map-tips">图中红色表示指标增长，绿色表示指标下降，色值越深，增长或下降幅度越大</p>
+									</div>
+									<hr />
+									<div>
+										<div id="chartMap2" style="height: 500px;"></div>
+										<p class="map-tips">图中红色表示指标增长，绿色表示指标下降，色值越深，增长或下降幅度越大</p>
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="tendencyChart">
+									2
+									<table id="basicTbl2" class="cm-table"></table>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="regionalRank">
+									3
+									<table id="basicTbl3" class="cm-table"></table>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="canlendarData">
+									4
+									<div class="fixHeight">
+										<table id="basicTbl4" class="cm-table"></table>
+									</div>
+									<table id="basicTbl5" class="cm-table"></table>
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="../dist/lib/jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../dist/lib/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/jquery-easyui-1.5.1/locale/easyui-lang-zh_CN.js" ></script>
+		<script src="../dist/lib/echarts/echarts.min.js"></script>
+		<script src="../dist/lib/echarts/map/liaoning/liaoning.js"></script>
+		<script src="js/workbenchMap.js"></script>
+	</body>
+</html>

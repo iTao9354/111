@@ -11,3 +11,10 @@ $(function() {
 	peacock.initCommonSelect('.common-select', selectData);
 })
 
+function sendForm() {
+	var formObj = $('#supportSheetForm');
+	if(formObj.isValid()) {
+		alert('校验通过！');
+	}
+}
+

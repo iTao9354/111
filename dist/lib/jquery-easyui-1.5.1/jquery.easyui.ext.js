@@ -741,3 +741,21 @@ $.extend($.fn.tabs.methods, {
         return $(jq[0]).tabs('getTabById',id) != null;
     }
 });
+
+/**
+ * 改变datagrid-header-check 点击样式
+ * 金术静
+ */
+function extCheckChkAllClass(){
+	//检查全选checkbox状态为全选按钮添加样式
+	if($('.datagrid-header-check > input').prop('checked')){
+		$('.datagrid-header-check').addClass('active');
+	}else{
+		$('.datagrid-header-check').removeClass('active');
+	}
+}
+function extBindChkAllClick(){
+	$('.datagrid-header-check > input').click(function(){
+		extCheckChkAllClass();
+	});
+}

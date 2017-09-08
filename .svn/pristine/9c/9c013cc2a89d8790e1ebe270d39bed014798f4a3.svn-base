@@ -1,0 +1,277 @@
+'use strict';
+
+$(function() {
+	initBasicTbl1();
+	
+	// 加载部门下拉框树
+	peacock.initDownTree('downTree', ztreeData, ztreeOption);
+	
+	// 初始化薪酬总额柱状图
+	paymentSumBar();
+	
+	// 初始化“专业线薪酬总额占比图”
+	paymentSumProportionPie();
+	
+	// 初始化地市专业线趋势图
+	areaProfessionalLineTrend();
+})
+
+
+var ztreeData = [
+    {"nodeTypeId":0,"tenantId":"admin","orgId":"root","parentId":null,"path":"/root","ord":1,"orgName":"北京分公司"},
+    {"nodeTypeId":0,"tenantId":"admin","orgId":"xicheng","parentId":"root","path":"/root/xicheng","ord":1,"orgName":"西城区"},
+    	    {"nodeTypeId":1,"tenantId":"admin","orgId":"testOrg003","parentId":"xicheng","path":"/root/xicheng/testOrg003","ord":1,"orgName":"testName003"},
+            {"nodeTypeId":1,"tenantId":"admin","orgId":"xc01","parentId":"xicheng","path":"/root/xicheng/xc01","ord":1,"orgName":"西城区01"},
+            {"nodeTypeId":1,"tenantId":"admin","orgId":"testOrg002","parentId":"xicheng","path":"/root/xicheng/testOrg002","ord":1,"orgName":"testName002"},
+            {"nodeTypeId":1,"tenantId":"admin","orgId":"xc02","parentId":"xicheng","path":"/root/xicheng/xc02","ord":2,"orgName":"西城区02"},
+            {"nodeTypeId":0,"tenantId":"admin","orgId":"dongcheng","parentId":"root","path":"/root/dongcheng","ord":2,"orgName":"东城区"},
+            {"nodeTypeId":1,"tenantId":"admin","orgId":"xc03","parentId":"xicheng","path":"/root/xicheng/xc03","ord":3,"orgName":"西城区03"},
+            {"nodeTypeId":0,"tenantId":"admin","orgId":"haidian","parentId":"root","path":"/root/haidian","ord":3,"orgName":"海淀区"},
+            {"nodeTypeId":0,"tenantId":"admin","orgId":"chaoyang","parentId":"root","path":"/root/chaoyang","ord":4,"orgName":"朝阳区"}
+];
+// 树状下拉框的配置
+var ztreeOption = {
+	id: 'orgId',
+	pId: 'parentId',
+	name: 'orgName',
+	flag: false
+};
+
+
+// 初始化表格
+var dataBusinessMgr = [
+	{"id":"0000","name":"商机一","city":"沈阳","cusId":"9999","cusName":"吉林省高升科技有限公司","industryType":"IT","firstIndustry":"计算机信息业","secIndustry":"互联网服务业","progress":"xxx","info":"宽带业务"},
+	{"id":"0001","name":"商机一","city":"沈阳","cusId":"9999","cusName":"吉林省高升科技有限公司","industryType":"IT","firstIndustry":"计算机信息业","secIndustry":"互联网服务业","progress":"xxx","info":"宽带业务"},
+	{"id":"0002","name":"商机一","city":"沈阳","cusId":"9999","cusName":"吉林省高升科技有限公司","industryType":"IT","firstIndustry":"计算机信息业","secIndustry":"互联网服务业","progress":"xxx","info":"宽带业务"},
+	{"id":"0003","name":"商机一","city":"沈阳","cusId":"9999","cusName":"吉林省高升科技有限公司","industryType":"IT","firstIndustry":"计算机信息业","secIndustry":"互联网服务业","progress":"xxx","info":"宽带业务"},
+	{"id":"0004","name":"商机一","city":"沈阳","cusId":"9999","cusName":"吉林省高升科技有限公司","industryType":"IT","firstIndustry":"计算机信息业","secIndustry":"互联网服务业","progress":"xxx","info":"宽带业务"},
+	{"id":"0005","name":"商机一","city":"沈阳","cusId":"9999","cusName":"吉林省高升科技有限公司","industryType":"IT","firstIndustry":"计算机信息业","secIndustry":"互联网服务业","progress":"xxx","info":"宽带业务"},
+	{"id":"0006","name":"商机一","city":"沈阳","cusId":"9999","cusName":"吉林省高升科技有限公司","industryType":"IT","firstIndustry":"计算机信息业","secIndustry":"互联网服务业","progress":"xxx","info":"宽带业务"},
+	{"id":"0007","name":"商机一","city":"沈阳","cusId":"9999","cusName":"吉林省高升科技有限公司","industryType":"IT","firstIndustry":"计算机信息业","secIndustry":"互联网服务业","progress":"xxx","info":"宽带业务"},
+	{"id":"0008","name":"商机一","city":"沈阳","cusId":"9999","cusName":"吉林省高升科技有限公司","industryType":"IT","firstIndustry":"计算机信息业","secIndustry":"互联网服务业","progress":"xxx","info":"宽带业务"}
+];
+function initBasicTbl1(){
+	$('#basicTbl1').datagrid({
+	    data:dataBusinessMgr,
+	    fit:true,
+	    scrollbarSize:10,
+	    columns:[[
+	        {field:'id',title:'分类统计',width:'30%'},
+	        {field:'name',title:'薪酬总额',width:'30%', align: 'center'},
+	        {field:'city',title:'人数',width:'20%', align: 'center'},
+	        {field:'cusId',title:'平均',width:'20%', align: 'center'}
+	    ]]
+	});
+}
+
+// 初始化薪酬总额柱状图
+function paymentSumBar() {
+	// 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('paymentSumChart'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '薪酬总额',
+            textStyle: {
+            	fontSize: 12,
+            	fontWeight: 'normal'
+            },
+            left: '10%',
+            top: 35
+        },
+        tooltip: {},
+        xAxis: {
+        	axisLine: {
+        		lineStyle: {
+        			color: '#c7c7c7'
+        		}
+        	},
+        	axisLabel: {
+        		rotate: 45
+        	},
+        	axisTick: {
+        		show: false
+        	},
+            data: ["朝阳","阜新","铁岭","沈阳","锦州","葫芦岛", "营口", "鞍山", "辽阳", "本溪", "丹东", "大连", "盘锦"]
+        },
+        yAxis: {
+        	max: 60,
+        	interval: 10,
+        	axisLine: {
+        		lineStyle: {
+        			color: '#c7c7c7',
+        			width: 2
+        		}
+        	},
+        	axisTick: {
+        		show: false
+        	},
+        	splitLine: {
+        		lineStyle: {
+        			opacity: 0.2
+        		}
+        	}
+        },
+        series: [{
+            name: '销量',
+            type: 'bar',
+            barWidth: 20,                
+            itemStyle: {
+            	normal: {
+            		color: '#ffa992'
+            	}
+            },                
+            data: [15, 20, 36, 5, 20, 56, 10, 40, 20, 59, 15, 10, 20]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    // 自适应
+    $(window).resize(function() {
+    	myChart.resize();
+    })
+}
+
+
+// 初始化“专业线薪酬总额占比图”
+function paymentSumProportionPie() {
+	var myChart = echarts.init(document.getElementById('paymentSumProportionChart'));
+
+    // 指定图表的配置项和数据
+    var option = {
+	    title : {
+	        text: '专业线薪酬总额占比情况',
+	        textStyle: {
+            	fontSize: 12,
+            	fontWeight: 'normal'
+            },
+	        x:'center'
+	    },
+	    tooltip : {
+	        trigger: 'item',
+	        formatter: "{a} <br/>{b} : {c} ({d}%)"
+	    },	    
+	    calculable : true,
+	    color: ['#2ec8ca', '#b6a2df', '#5bb0f0', '#ffb880', '#d97a80', '#8d99b3', '#e6cf0d', '#97b553'],
+	    series : [
+	        {
+	            name:'薪酬总额占比',
+	            type:'pie',
+	            radius : [30, 110],
+	            roseType : 'area',
+	            data:[
+	                {value:10, name:'家客'},
+	                {value:5, name:'设备维护'},
+	                {value:15, name:'乡镇'},
+	                {value:25, name:'大客户'},
+	                {value:20, name:'渠道'},
+	                {value:35, name:'客户响应'},
+	                {value:30, name:'商企'},
+	                {value:40, name:'营业'}
+	            ]
+	        }
+	    ]
+	};
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    // 自适应
+    $(window).resize(function() {
+    	myChart.resize();
+    })
+}
+
+// 初始化地市专业线趋势图
+function areaProfessionalLineTrend() {
+	var myChart = echarts.init(document.getElementById('areaProfessionalLineTrendChart'));
+
+    // 指定图表的配置项和数据
+    var option = {
+	    title : {
+	        text: '近一年地市专业线趋势图',
+	        textStyle: {
+            	fontSize: 12,
+            	fontWeight: 'normal'
+            },
+	        x:'center'
+	    },
+	    tooltip: {
+	        trigger: 'axis'
+	    },
+	    legend: {
+	    	right: '10%',
+	    	top: '5%',
+	        data:['薪酬总额']
+	    },
+	    xAxis:  {	    	
+	        type: 'category',
+	        boundaryGap: false,
+	        splitLine: {
+        		show: true,
+        		lineStyle: {
+        			color: '#c7c7c7'
+        		}
+        	},
+        	axisLine: {
+        		lineStyle: {
+        			color: '#c7c7c7'
+        		}
+        	},
+	        data: (function (){
+                var now = new Date();
+                var res = [];
+                var len = 12;
+                while (len--) { 
+                	if((now.getMonth()+1+len)%12 > 0) {       
+                		if((now.getMonth()+1+len)%12 == 1) 
+                			res.unshift('01\n\n'+now.getFullYear()+'年');
+                		else
+	                		res.unshift(peacock.toDouble((now.getMonth()+1+len)%12));                			
+                	}else {      
+                		res.unshift(peacock.toDouble(now.getMonth()+1+len)+'\n\n'+(now.getFullYear()-1)+'年'); 
+                	}                	
+                }
+                return res;
+            })()
+	    },
+	    yAxis: {
+	        type: 'value',
+	        min: 60,
+	        max: 90,
+	        axisLabel: {
+	            formatter: '{value} M'
+	        },
+	        splitLine: {
+        		lineStyle: {
+        			color: '#c7c7c7'
+        		}
+        	},
+        	axisLine: {
+        		lineStyle: {
+        			color: '#c7c7c7'
+        		}
+        	},
+	    },
+	    series: [{
+            name:'薪酬总额',
+            type:'line',
+            symbol: 'image://img/circle.png',
+            symbolSize : 16,
+            itemStyle: {
+            	normal: {
+            		color: '#fe7e4d'
+            	}
+            },
+            data:[81, 88, 85, 73, 62, 73, 78, 60, 80, 70, 60, 80]
+	    }]
+	};
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    // 自适应
+    $(window).resize(function() {
+    	myChart.resize();
+    })
+}
