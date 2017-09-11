@@ -31,7 +31,6 @@
 body {
   background-color: #e8ecf0;
   color: #464646;
-  position: relative;
 }
 h1,
 h2,
@@ -150,7 +149,6 @@ p {
   /* 提示按钮 */
   /* 局部几大块样式 */
   /*select common*/
-  /* 回到顶部 */
 }
 .cm-a {
   color: #ed5b5a;
@@ -633,40 +631,6 @@ p {
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
-}
-.cm-toTop {
-  position: absolute;
-  right: 20px;
-  bottom: 30px;
-  width: 36px;
-  height: 36px;
-  color: #ffffff;
-  background-color: #cccccc;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  cursor: pointer;
-  text-align: center;
-  line-height: 36px;
-  font-size: 20px;
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Chrome/Safari/Opera */
-  -khtml-user-select: none;
-  /* Konqueror */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently not supported by any browser */
-  display: none;
-}
-.cm-toTop:hover {
-  background-color: #9c9a9a;
 }
 /*================================下面是定义插件的样式修改====================================*/
 /***重写bootstrap的样式*/

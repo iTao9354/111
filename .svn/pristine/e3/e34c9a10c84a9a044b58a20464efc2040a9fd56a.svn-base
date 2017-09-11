@@ -171,7 +171,6 @@ html{
 body {
     .bg(@bodyBk);
     .color;
-    .pos;
 }
 h1,
 h2,

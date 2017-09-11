@@ -516,28 +516,6 @@
         top: 3px;
         .rotate(180deg);
     }
-    
-    /* 回到顶部 */
-    &-toTop {
-        .pos(absolute);
-        .pr(20px);
-        .pb(30px);
-        .w(36px);
-        .h(36px);
-        .color(#fff);
-        .bg(#ccc);
-        .radius; 
-        .cursor;
-        .align;
-        line-height: 36px;
-        font-size: 20px;
-        .cm-forbid;
-        .dis(none);
-        
-        &:hover {
-            .bg(#9c9a9a);
-        }
-    }
 }
 
 /*================================下面是定义插件的样式修改====================================*/
