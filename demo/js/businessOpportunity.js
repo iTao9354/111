@@ -7,13 +7,13 @@
 
 'use strict';
 var selectData = [
-	{text: 1111},
-	{text: 2222},
-	{text: 3333}
+	{key:1,text: 1111},
+	{key:2,text: 2222},
+	{key:3,text: 3333}
 ];
 var selectWhetherData = [
-	{text: '是'},
-	{text: '否'}
+	{key:'y',text: '是'},
+	{key:'n',text: '否'}
 ];
 // 树状下拉框数据
 var ztreeData = [
@@ -50,8 +50,13 @@ $(function() {
 	peacock.initDownTree('downTree3', ztreeData, ztreeOption);
 	
 	//	加载下拉框
-	peacock.initCommonSelect('.common-select', selectData);
-	peacock.initCommonSelect('.whether-select', selectWhetherData);
+	$('#infoType').peacock_select({field:"select1",data:selectData});
+	$('#isNameList').peacock_select({field:"select2",data:selectWhetherData});
+	$('#industryType').peacock_select({field:"select3",data:selectData});
+	$('#prvDriving1').peacock_select({field:"prvDriving1",data:selectData});
+	$('#prvDriving2').peacock_select({field:"prvDriving2",data:selectData});
+	$('#infoLev').peacock_select({field:"infoLev",data:selectData});
+	$('#leaderPos').peacock_select({field:"leaderPos",data:selectData});
 })
 
 

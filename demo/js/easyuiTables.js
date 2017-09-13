@@ -49,9 +49,6 @@ var treeData = {
                 {"id":23,"name":"Export Document","persons":1,"begin":"3/9/2010","end":"3/10/2010","progress":100,"_parentId":2},
                 {"id":3,"name":"Coding","persons":2,"begin":"3/11/2010","end":"3/18/2010","progress":80},
                 {"id":4,"name":"Testing","persons":1,"begin":"3/19/2010","end":"3/20/2010","progress":20}
-         ],
-         "footer":[
-                {"name":"Total Persons:","persons":7,"iconCls":"icon-sum"}
          ]
 };
 function formatBusinessName(val,row){

@@ -66,7 +66,7 @@
         /* 仅适用于面板头部的搜索区 */
         &-wrap {
             .w;
-        
+            overflow: hidden;
             > li {
                 float: left;
                 .w(33%);
@@ -140,7 +140,7 @@
             left: -9999px;
             
             &:checked+i {
-                border-color: #e15b52;
+                border-color: @watermelonRed;
                 
                 &:after {
                     opacity: 1;
@@ -243,7 +243,7 @@
         
         input {
             &:checked+i {
-                .bg(#e15b52);
+                .bg(@watermelonRed);
             }
         }
     } 
@@ -377,7 +377,7 @@
         &:hover,
         &:focus,
         &:active {
-            .bg(@actColor);
+            .bg(@watermelonRedHover);
         }
     }
     &-grayBtn {
@@ -389,10 +389,13 @@
             .bg(#555454);
         }
     }
+    &-lightgrayBtn{
+       .bg(#dcdcdc); 
+    }
     &-btn-i {
         .h(28px);
         .color(#fff);
-        .pad;
+        padding:0 15px;
         .radius(2px);
     }
     &-btn-i {
@@ -409,19 +412,19 @@
     /* 提示按钮 */
     &-tips {
         font-size: @mainFont + 3;
-        .color(@mainColor);
+        .color(@watermelonRed);
         .cursor;
         font-weight: normal;
         margin-left: 5px;
     }
     &-tips {
         &:hover {
-            .color(@actColor);
+            .color(@watermelonRedHover);
         }
     }
     &-wredBtn-big{
         background-color: @watermelonRed;
-        padding: 0 20px;
+        padding: 0 15px;
         height: 28px;
         line-height: 28px;
         color: @btnFontColor;
@@ -501,9 +504,7 @@
             }
         }
     } 
-    &-noElement{
-        display: none;
-    }
+    
     &-selectPeacock:hover .cm-selectOption, &-selectPeacock.active .cm-selectOption{
         border-color: @iptActBorderFontColor;
         .bg(@areaDivActBkColor);
@@ -512,14 +513,19 @@
     &-selectPeacock:hover .cm-selectIcon,&-selectPeacock.active .cm-selectIcon{
         color: @mainColor;
     }
-    .active &-selectIcon{
+    .cm-selectPeacock.active &-selectIcon{
         top: 3px;
         .rotate(180deg);
+    }
+
+    /*隐藏元素*/
+    &-noElement{
+        display: none;
     }
     
     /* 回到顶部 */
     &-toTop {
-        .pos(absolute);
+        .pos(fixed);
         .pr(20px);
         .pb(30px);
         .w(36px);
@@ -588,7 +594,7 @@
     }
 }
 
-.form-inline {
+.form-inline,.cm-form {
     .form-control {
         .dis;
         .h(28px);
@@ -611,8 +617,15 @@
     .input-xs {
         .w(50px);
     } 
-    .input-lg {
-        .w(420px);
+    .cm-select-xs {
+        .w(60px);
+    }
+    .cm-select-sm {
+        .w(135px);
+    }
+    
+    .input-lg, .cm-select-lg {
+        .w(418px);
         font-size: @mainFont;
     }
     
@@ -625,6 +638,19 @@
             display: inline-block;
         }
     }
+}
+.form-inline .cm-select-xs .input-md, .cm-select-xs .cm-allOptions{
+    width: 60px;
+}
+.form-inline .cm-select-sm .input-md, .cm-select-sm .cm-allOptions{
+    width: 135px;
+}
+.form-inline .cm-select-lg .input-md, .cm-select-lg .cm-allOptions{
+    width: 420px;
+}
+.cm-form .form-group{
+    margin: 0;
+    display: block;
 }
 .form-control:focus,
 .cm-form-area:focus,
@@ -664,20 +690,23 @@
     .webuploader-pick {
         .bg;
         .color(#fff);
-        .pad(4px,6px,4px,6px);
-        .h(26px);
-        .radius(0);
+        .pad(6px,6px,4px,6px);
+        .h(28px);
+        .radius(2px);
         
         .iconfont {
             .mar(0,3px);
         }
     }    
-} 
+}
 
 
 /*ztree树的右键样式*/
-.ztree {
+.cm-select .ztree {
     .w(198px);
+}
+.cm-select-lg .ztree{
+    .w(420px);
 }
 .dropdown-menu {
     .minW(112px);
@@ -730,3 +759,4 @@
 }
 @import '../../dist/css/easyui-ext.less';
 @import '../../dist/css/layer-ext.less';
+@import '../../dist/css/validator-ext.less';

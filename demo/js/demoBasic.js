@@ -8,13 +8,13 @@
 'use strict';
 // 下拉框数据
 var selectData = [
-	{text: 1111},
-	{text: 2222},
-	{text: 3333}
+	{key:'1',text: 1111},
+	{key:'2',text: 2222},
+	{key:'3',text: 3333,selected:true}
 ];
 var selectWhetherData = [
-	{text: '是'},
-	{text: '否'}
+	{key:'1',text: '是',selected:true},
+	{key:'0',text: '否'}
 ];
 // 树状下拉框数据
 var ztreeData = [
@@ -36,29 +36,6 @@ var ztreeOption = {
 	name: 'orgName',
 	flag: true
 };
-
-$(function(){	
-	// 加载下拉框
-	peacock.initCommonSelect('.common-select', selectData);
-	peacock.initCommonSelect('.whether-select', selectWhetherData);
-	
-	// 加载带checkbox复选框的多选下拉菜单树状结构
-	peacock.initDownTree('downTree', ztreeData, ztreeOption);
-	//初始化zTree树状结构---带右键菜单
-	initTree();
-	
-	//初始化修改图标的zTree树状结构---带右键菜单
-	identityTree();
-	
-	// 初始化文件上传
-	initUploader();
-	
-});
-
-
-
-
-
 
 //初始化zTree默认树状结构
 var initTree = function(){
@@ -182,120 +159,12 @@ var nodeTypeIcon = {
 		"1":"/resources/camel/img/icon/16x16/resorce.png"
 };
 
-
-//初始化文件上传功能
-var initUploader = function(){
-	// 初始化webuploader组件，设置上传等事件监听
-	var $list = $('#thelist');
-	var $btn =$("#ctlBtn");   //开始上传
-	var thumbnailWidth = 100;   //缩略图高度和宽度 （单位是像素），当宽高度是0~1的时候，是按照百分比计算  
-	var thumbnailHeight = 100; 
-	var uploader = WebUploader.create({		
-	    // swf文件路径
-	    swf: '../../dist/lib/webuploader-0.1.5/Uploader.swf',
-	    // 文件接收服务端。
-//	    server: '/file/uploadAll',
-	    // 选择文件的按钮。可选。
-	    pick: '#picker',
-	    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
-	    resize: false,
-	    method:'POST',
-	    // 可重复上传
-	    duplicate: true
-	});
-	$btn.on('click',function(){
-		//添加完需要与图片一起上传的参数之后,就可以手动触发uploader的上传事件了.
-		uploader.upload();
-	});
-	
-	// 上传事件对象
-	var uploaderObj = {
-		'fileQueued': function(file){
-			$list.append( '<div id="' + file.id + '" class="item">' +
-			        '<h4 class="info clearfix" name="'+file.name+'">' + file.name + '<i class="fr iconfont file-delete" title="删除">&#xe61b;</i>'+
-			        												'<i class="fr iconfont file-download" title="下载">&#xe724;</i>'+
-			        '</h4>' +
-			        '<p class="state">等待上传...</p>' +
-			    '</div>' );
-		},
-		'uploadProgress': function( file, percentage ) {
-		    var $li = $( '#'+file.id ),
-		        $percent = $li.find('.progress .progress-bar');
-
-		    // 避免重复创建
-		    if ( !$percent.length ) {
-		        $percent = $('<div class="progress progress-striped active">' +
-		          '<div class="progress-bar" role="progressbar" style="width: 0%">' +
-		          '</div>' +
-		        '</div>').appendTo( $li ).find('.progress-bar');
-		    }
-
-		    $li.find('p.state').text('上传中');
-
-		    $percent.css( 'width', percentage * 100 + '%' );
-		},
-		'uploadSucc': function( file ) {
-		    $( '#'+file.id ).find('p.state').text('已上传');
-		    $('.info .iconfont').show();
-		    // 文件下载
-		    $('.file-download').on('click', function(){
-		    	var name = $(this).parent().attr('name');
-//		    	window.open(webpath+'/file/download?fileName='+name+'&filePath=D\:\\frame\\app\\res\\cruser\\'+name);
-		    })
-		    // 文件删除
-		    $('.file-delete').on('click', function(){
-		    	var name = $(this).parent().attr('name');
-		    	var _this = this;
-		    	layer.confirm('删除该用户？（删除后不可恢复）', {
-		    		icon: 3,
-		    		btn: ['是', '否']   		
-		    	}, function(index, layero){
-//		    		$.ajax({
-//			    		url: webpath + '/file/delete',
-//			    		type: 'POST',
-//			    		data: {
-//			    			filePath: 'D\:\\frame\\app\\res\\cruser\\'+name
-//			    		},
-//			    		success: function(data){			    			
-//			    			if(data){
-//			    				$(_this).parents('.item').remove();
-//			    				layer.msg('删除成功！', {icon: 1});			    				
-//			    			}else{
-//			    				layer.msg('删除失败！', {icon: 1});
-//			    			}
-//			    		}
-//			    	})
-		    	})
-		    	
-		    })
-		},
-		'uploadErr': function( file ) {
-		    $( '#'+file.id ).find('p.state').text('上传出错');
-		},
-		'uploadComp': function( file ) {
-		    $( '#'+file.id ).find('.progress').fadeOut();
-		}
-	};
-	
-	// 当有文件被添加进队列的时候
-	uploader.on( 'fileQueued', uploaderObj.fileQueued);	
-	// 文件上传过程中创建进度条实时显示。
-	uploader.on( 'uploadProgress', uploaderObj.uploadProgress);	
-	// 文件上传成功
-	uploader.on( 'uploadSuccess', uploaderObj.uploadSucc);
-	// 文件上传失败，显示上传出错。
-	uploader.on( 'uploadError', uploaderObj.uploadErr);
-	// 完成上传完了，成功或者失败，先删除进度条。
-	uploader.on( 'uploadComplete', uploaderObj.uploadComp);
-}
-
-
 //显示本页面弹出层
 var showLayer = function(){
 	layer.open({
 		type: 1,
-		title:'<i class="iconfont">&#xe65b;</i>&nbsp;弹出层标题',
-		area: ['900px', '600px'],
+		title:'弹出层标题',
+		area: ['500px', '300px'],
 		content: '<div>此处为弹出层内容区</div>',
 		btn: ['确定','取消'],
 		btn1: function(index, layero){
@@ -332,9 +201,38 @@ function submitValidator() {
 }
 
 var showSuccessMsg = function(){
-	layer.msg('保存成功！', {icon: 1,time:5000});
+	layer.msg('保存成功！', {icon: 1,time:50000});
 }
 
 var showFailMsg = function(){
-	layer.msg('保存失败！', {icon: 2,time:5000});
+	layer.msg('保存失败！', {icon: 2,time:50000});
 }
+
+var showAlertMsg = function(){
+	layer.msg('请核对信息！', {icon: 0,time:50000});
+}
+
+function openPrompt(){
+	/**
+	 * 指引插件的扩展，转换文字
+	 */
+	introJs().setOptions({'prevLabel':'&larr; 上一步','nextLabel':'下一步 &rarr;','skipLabel':'跳过','doneLabel':'完成'}).start();
+}
+
+$(function(){	
+	// 加载下拉框
+	$('#minSelect').peacock_select({field:"minSelect",data:selectWhetherData});
+	$('#select1').peacock_select({field:"select1",data:selectData});
+	$('#selectsm').peacock_select({field:"selectsm",data:selectData});
+	$('#selectlg').peacock_select({field:"selectlg",data:selectData});
+	peacock.initDatepicker();
+	// 加载带checkbox复选框的多选下拉菜单树状结构
+	peacock.initDownTree('downTree', ztreeData, ztreeOption);
+	// 加载带checkbox复选框的多选下拉菜单树状结构
+	peacock.initDownTree('downTree2', ztreeData, ztreeOption);
+	//初始化zTree树状结构---带右键菜单
+	initTree();
+	
+	//初始化修改图标的zTree树状结构---带右键菜单
+	identityTree();
+});

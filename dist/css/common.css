@@ -31,7 +31,6 @@
 body {
   background-color: #e8ecf0;
   color: #464646;
-  position: relative;
 }
 h1,
 h2,
@@ -52,12 +51,13 @@ h3 {
   border-bottom: 1px solid #e0dcdd;
 }
 h3 > span {
-  font-size: 13px;
+  font-size: 14px;
   margin: 10px 13px;
   padding: 0 8px;
   line-height: 39px;
   border-left: 3px solid #ed5b5a;
   font-weight: bold;
+  color: #333;
 }
 h4 {
   font-size: 12px;

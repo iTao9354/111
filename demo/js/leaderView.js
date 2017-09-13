@@ -84,7 +84,7 @@ function initPaymentSumBar() {
         xAxis: {
         	axisLine: {
         		lineStyle: {
-        			color: '#c7c7c7'
+        			color: '#898c92'
         		}
         	},
         	axisLabel: {
@@ -100,8 +100,7 @@ function initPaymentSumBar() {
         	interval: 10,
         	axisLine: {
         		lineStyle: {
-        			color: '#c7c7c7',
-        			width: 2
+        			color: '#898c92'
         		}
         	},
         	axisTick: {
@@ -211,12 +210,12 @@ function initAreaProfessionalLineTrend() {
 	        splitLine: {
         		show: true,
         		lineStyle: {
-        			color: '#c7c7c7'
+        			color: '#898c92'
         		}
         	},
         	axisLine: {
         		lineStyle: {
-        			color: '#c7c7c7'
+        			color: '#898c92'
         		}
         	},
 	        data: (function (){
@@ -245,12 +244,12 @@ function initAreaProfessionalLineTrend() {
 	        },
 	        splitLine: {
         		lineStyle: {
-        			color: '#c7c7c7'
+        			color: '#898c92'
         		}
         	},
         	axisLine: {
         		lineStyle: {
-        			color: '#c7c7c7'
+        			color: '#898c92'
         		}
         	},
 	    },

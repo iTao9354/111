@@ -11,9 +11,9 @@
 		<link rel="stylesheet" href="../dist/lib/layer/skin/layer.css" />
 		<link rel="stylesheet" href="../dist/lib/ztree/css/metroStyle/metroStyle.min.css" />
 		<link rel="stylesheet" href="../dist/lib/My97Date/My97DatePicker/skin/WdatePicker.css" />
-		<link rel="stylesheet" href="../dist/lib/webuploader-0.1.5/webuploader.css">
 		<link rel="stylesheet" href="../dist/lib/validator/dist/jquery.validator.css">
 		<link rel="stylesheet" href="../dist/css/customzTree/customStyle.css">
+		<link rel="stylesheet" href="../dist/lib/introjs/introjs.min.css">
 		<link rel="stylesheet" href="../dist/css/peacock.css">
 		
 		<!--[if lte IE 9]>
@@ -33,14 +33,28 @@
 		<script src="../dist/lib/My97Date/My97DatePicker/WdatePicker.js"></script>
 		<script src="../dist/lib/nicescroll/jquery.nicescroll.min.js"></script>
 		<script src="../dist/lib/ztree/js/jquery.ztree.all.min.js"></script>
-		<script src="../dist/lib/webuploader-0.1.5/webuploader.min.js"></script>
 		<script src="../dist/lib/validator/dist/jquery.validator.min.js"></script>
 		<script src="../dist/lib/validator/dist/local/zh-CN.js"></script>
+		<script src="../dist/lib/introjs/intro.min.js"></script>
 		<script src="../dist/js/peacock.js"></script>
 		<script src="../demo/js/demoBasic.js"></script>
 		<style>
 			.links > a{
 				display: block;
+			}
+			.cm-form-wrap > li{
+				width: 50%;
+			}
+			.prompt{
+				padding-top: 10px;
+			}
+			@media only screen and (max-width: 1360px) {
+				.cm-form-wrap > li{
+					width: 100%;
+				}
+				.cm-form-wrap > li.colspan2{
+					width: 100%;
+				}
 			}
 		</style>
 	</head>
@@ -52,14 +66,26 @@
 					<div class="panel-body">
 						<div class="row">	
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-								<div>						
+								<div data-step="1" data-intro="这是基础表单公共样式" data-position="right">						
 									<h4 class="cm-form-title">
 										<span>基础表单</span>
 									</h4>
 									<ul class="cm-form-wrap cm-clearfix">
 										<li>
-											<label for=""><i class="cm-sign">*</i> 输入框：</label>
+											<label for=""><i class="cm-sign">*</i> 特小输入框：</label>
+											<input type="text" class="form-control input-xs" data-rule="required;" />
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 小输入框：</label>
+											<input type="text" class="form-control input-sm" data-rule="required;" />
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 正常输入框：</label>
 											<input type="text" class="form-control input-md" data-rule="required;" />
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 大输入框：</label>
+											<input type="text" class="form-control input-lg" data-rule="required;" />
 										</li>
 										<li>
 											<label for=""><i class="cm-sign">*</i> 单选框：</label>
@@ -72,37 +98,6 @@
 									            	<input type="radio" name="radio">
 									            	<i></i>否
 									        	</label>
-											</div>
-										</li>
-										<li>
-											<label for=""><i class="cm-sign">*</i> 小下拉框：</label>
-											<div class="whether-select cm-select cm-select-xs">
-												<input type="text" class="cm-select-form" readonly="true">
-												<i class="iconfont cm-select-btn">&#xe6a3;</i>
-												<ul class="cm-selectBox-Wrap cm-selectBox-xs">
-													<!--<li>是</li>
-													<li>否</li>-->
-												</ul>
-											</div>
-										</li>
-										<li>
-											<label for=""><i class="cm-sign">*</i> 下拉框：</label>
-											<div class="common-select cm-select cm-select-md">
-												<input type="text" class="cm-select-form" readonly="true">
-												<i class="iconfont cm-select-btn">&#xe6a3;</i>
-												<ul class="cm-selectBox-Wrap cm-selectBox-md">
-													<!--<li>111</li>-->
-												</ul>
-											</div>
-										</li>
-										<li>
-											<label for=""><i class="cm-sign">*</i> 带树状结构的下拉框：</label>
-											<div class="cm-select cm-select-md">
-												<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="请选择内容" />
-												<span class="iconfont cm-select-btn">&#xe6a3;</span>							
-												<div class="cm-menu-content">
-													<ul id="downTree" class="ztree"></ul>
-												</div>
 											</div>
 										</li>
 										<li>
@@ -122,6 +117,47 @@
 									            </label>		
 											</div>
 										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 特小下拉框：</label>
+											<div id="minSelect" class="cm-select-xs">
+											</div>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 小下拉框：</label>
+											<div id="selectsm" class="cm-select-sm">
+											</div>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 正常下拉框：</label>
+											<div id="select1">
+											</div>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 大下拉框：</label>
+											<div id="selectlg" class="cm-select-lg">
+											</div>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 正常树状结构下拉框：</label>
+											<div class="cm-select cm-select-md">
+												<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="--请选择--" />
+												<span class="iconfont cm-select-btn">&#xe6a3;</span>							
+												<div class="cm-menu-content">
+													<ul id="downTree" class="ztree"></ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label for=""><i class="cm-sign">*</i> 大树状结构下拉框：</label>
+											<div class="cm-select cm-select-lg">
+												<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="--请选择--" />
+												<span class="iconfont cm-select-btn">&#xe6a3;</span>							
+												<div class="cm-menu-content">
+													<ul id="downTree2" class="ztree"></ul>
+												</div>
+											</div>
+										</li>
+										
 										<li class="colspan2">
 											<label for="">信息框：</label>
 											<textarea class="cm-form-area" data-rule="length(0~1000);"></textarea>
@@ -133,10 +169,9 @@
 										</li>
 									</ul>
 								</div>
-							
-								<div>						
+								<div data-step="2" data-intro="这是单选、复选特殊样式，一般不用" data-position="right">						
 									<h4 class="cm-form-title">
-										<span>单选、复选、下拉框</span>
+										<span>单选、复选</span>
 									</h4>
 									<ul class="cm-form-wrap">										
 										<li>
@@ -163,42 +198,36 @@
 						</div>
 						<div class="row">
 							<div class="col-lg-6 col-md-6">
-								<div class="panel">
+								<div class="panel" data-step="3" data-intro="红色按钮是主要按钮，深灰是辅助按钮、浅灰是disable按钮" data-position="right" >
 									<h4 class="panel-heading">按钮</h4>	
 									<div class="panel-body">
 										<div class="btnsWrap">
 											<button type="button" class="cm-redBtn cm-btn-i"><i class="iconfont" title="删除">&#xe614;</i><span>删除</span></button>
 											<button type="button" class="cm-redBtn cm-btn-i" onclick="submitValidator();"><i class="iconfont" title="提交">&#xe611;</i><span>提交</span></button>
 											<button type="button" class="cm-wredBtn-big">查询</button>
-										</div>
-										<br>
-										<div id="uploader" class="wu-example">
-											<!--用来存放文件信息-->
-										    <div id="thelist" class="uploader-list"></div>
-										    <div class="btns clearfix">
-										        <div id="picker" class="cm-fl picker"><i class="iconfont">&#xe696;</i>选择文件</div>
-										        <button id="ctlBtn" class="cm-redBtn cm-btn-i cm-fl">开始上传</button>
-										    </div>
+											<button type="button" class="cm-grayBtn cm-btn-i">反馈</button>
+											<button type="button" class="cm-lightgrayBtn cm-btn-i">失效</button>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6">
-								<div class="panel">
+								<div class="panel" data-step="4" data-intro="点击弹出弹出层" data-position="right" >
 									<h4 class="panel-heading">弹出层</h4>	
 									<div class="panel-body">					
 										<div class="cm-layer">
 											<button type="button" class="cm-redBtn cm-btn-i" onclick="showLayer();"><span>普通弹出层</span></button>
 											<button type="button" class="cm-redBtn cm-btn-i" onclick="showSuccessMsg();"><span>成功提示</span></button>
 											<button type="button" class="cm-redBtn cm-btn-i" onclick="showFailMsg();"><span>失败提示</span></button>
+											<button type="button" class="cm-redBtn cm-btn-i" onclick="showAlertMsg();"><span>警告提示</span></button>
 											<button type="button" class="cm-redBtn cm-btn-i" onclick="showHrefLayer();"><span>带子页面的弹出层</span></button>	
-											<i class="iconfont cm-tips" id="tips" onmouseleave="peacock.hideAllTip();" onmouseover="peacock.showTipsLayer('这是提示信息！！！', 'tips');">&#xe6a8;</i>					
+											<i class="iconfont cm-tips" id="tips" onmouseleave="peacock.hideAllTip();" onmouseover="peacock.showTipsLayer('这是提示信息！！！', 'tips');">&#xe6a8;</i>		
+											<p class="prompt">点击查看提示:<i class="iconfont cm-tips" onclick="openPrompt();" title="点击播放提示">&#xe613;</i></p>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					
 						<div class="row">
 							<div class="col-lg-4 col-md-4">
 								<div class="panel">
@@ -211,7 +240,7 @@
 								</div>
 							</div>
 							
-							<div class="col-lg-4 col-md-4">
+							<div class="col-lg-2 col-md-2">
 								<div class="panel">
 									<h4 class="panel-heading">修改图标的树（带右键菜单）</h4>	
 									<div class="panel-body">
@@ -280,16 +309,21 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-4 col-md-4">
+							<div class="col-lg-6 col-md-6">
 								<div class="panel">
 									<p class="panel-heading">日期控件例子</p>	
 									<div class="panel-body">	
 										<div class="form-inline">
 											<div class="my97Date">
-												<p>my97日历插件：</p>
-												<input id="dStart" class="Wdate form-control input-md" type="text" data-rule="required;" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'dEnd\')||\'2020-10-01\'}'})" placeholder="开始日期" /> 
+												<span class="cm-fieldName cm-wauto">my97日历插件：</span>
+												<input id="dStart" class="Wdate form-control input-md" type="text" data-rule="required;" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'dEnd\')||\'2020-10-01\'}'})" placeholder="开始日期" /> -
 												<input id="dEnd" class="Wdate form-control input-md" type="text" data-rule="required;" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'dStart\')}',maxDate:'2020-10-01'})" placeholder="结束日期" />
 											</div>
+											<div class="cm-datepicker">
+											   	<i class="iconfont cm-forbid">&#xe8ca;</i>
+											    <input name="date" class="cm-input" readonly="true" type="text" />
+											    <i class="iconfont cm-forbid">&#xe605;</i>
+										  </div>
 										</div>										
 									</div>
 								</div>
@@ -303,6 +337,7 @@
 									<div class="panel-body">
 										<div id="links" class="links">
 											<a href="//v3.bootcss.com/css/#grid" target="_blank">Bootstrap栅格化布局</a>
+											<a href="https://www.jeasyui.com/demo/main/index.php" target="_blank">easyui官网</a>
 											<a href="//www.datatables.net/reference/api/"  target="_blank">datatables API 官方网站</a>
 											<a href="//www.treejs.cn/v3/api.php"  target="_blank">zTree API</a>
 											<a href="//jqueryui.com/datepicker/"  target="_blank">JqueryUI datepicker官网</a>

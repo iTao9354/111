@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>工作台</title>
+		<link rel="stylesheet" href="../dist/lib/jquery-easyui-1.5.1/themes/default/easyui.css">
+		<link rel="stylesheet" href="../dist/lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="../dist/lib/layer/skin/layer.css" />
+		<link rel="stylesheet" href="../dist/lib/ztree/css/metroStyle/metroStyle.min.css" />
+		<link rel="stylesheet" href="../dist/lib/My97Date/My97DatePicker/skin/WdatePicker.css" />
+		<link rel="stylesheet" href="../dist/css/customzTree/customStyle.css">
+		<link rel="stylesheet" href="../dist/css/peacock.css">
+		<link rel="stylesheet" type="text/css" href="css/workbench.css" />
+		
+		<script type="text/javascript" src="../dist/lib/jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/nicescroll/jquery.nicescroll.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../dist/lib/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
+		<script src="../dist/lib/layer/layer.js"></script>
+		<script src="../dist/lib/ztree/js/jquery.ztree.all.min.js"></script>
+		<script src="../dist/lib/echarts/echarts.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/jquery-easyui-1.5.1/locale/easyui-lang-zh_CN.js" ></script>
+		<script src="../dist/lib/My97Date/My97DatePicker/WdatePicker.js"></script>
+		<script type="text/javascript" src="../dist/lib/jquery-easyui-1.5.1/datagrid-groupview.js"></script>
+		<script src="../dist/lib/jquery-easyui-1.5.1/jquery.easyui.ext.js"></script>
+		<script type="text/javascript" src="../dist/js/peacock.js"></script>
+		<script type="text/javascript" src="js/workbench.js"></script>
+	</head>
+	<body>
+		<div class="container-fluid">	
+			<div class="row">	
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel">
+						<h3><span>市场营销运营指标</span></h3>
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active">
+								<a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">日关键指标</a>
+							</li>
+							<li role="presentation">
+								<a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">业绩分析</a>
+							</li>
+							<li role="presentation">
+								<a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">业绩合同</a>
+							</li>
+							<li role="presentation">
+								<a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">薪酬分析</a>
+							</li>
+							<li role="presentation">
+								<a href="#tab5" aria-controls="tab5" role="tab" data-toggle="tab">内部工单</a>
+							</li>
+							<li role="presentation">
+								<a href="#tab5" aria-controls="tab6" role="tab" data-toggle="tab">月关键指标</a>
+							</li>
+							<li role="presentation">
+								<a href="#tab7" aria-controls="tab7" role="tab" data-toggle="tab">基础信息</a>
+							</li>
+							<li role="presentation">
+								<a href="#tab8" aria-controls="tab8" role="tab" data-toggle="tab">市基础信息</a>
+							</li>
+							<li role="presentation">
+								<a href="#tab9" aria-controls="tab9" role="tab" data-toggle="tab">驻地指标</a>
+							</li>
+						</ul>
+						<!-- Nav tabs End-->
+						<div class="panel-body">
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" id="tab1">
+									<form class="form-inline">
+									  <div class="form-group">
+									    部门：
+									    <div class="cm-select cm-select-md">
+											<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="请选择内容" />
+											<span class="iconfont cm-select-btn">&#xe6a3;</span>							
+											<div class="cm-menu-content">
+												<ul id="downTree" class="ztree"></ul>
+											</div>
+										</div>
+									  </div>
+									  <div class="form-group">
+									   日期：
+									   <div class="cm-datepicker">
+									   	<i class="iconfont cm-forbid">&#xe8ca;</i>
+									    <input id="date" class="cm-input" readonly="true" type="text" />
+									    <i class="iconfont cm-forbid">&#xe605;</i>
+									   </div>
+									  </div>
+									  <div class="form-group">
+									   客户群类型：
+									    <div id="usertype">
+										</div>
+									  </div>
+									  <button type="button" class="cm-wredBtn-big">查询</button>
+									</form>
+									
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+											<div class="panel">
+												<h4 class="panel-heading"><span>关键指标</span>
+													<i class="iconfont cm-tips" id="tips" onmouseleave="peacock.hideAllTip();" onmouseover="peacock.showTipsLayer('这是关键指标提示信息！！！', 'tips');">&#xe6a8;</i>
+													<span class="cm-fr">
+														<i class="iconfont excl">&#xe61e;</i>
+														<img src="img/edit.png" alt="" class="edit-icon" />
+														<img src="img/column.png" alt="" class="col-icon" />
+													</span>
+												</h4>
+												<div class="tbl1Wrap">
+													<table id="tbl1" class="cm-table"></table>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+											<div class="panel">
+												<h4 class="panel-heading clearfix">指标趋势图（全业务计费收入）
+													<span class="cm-fr">
+														<img src="img/fullScreen.png" alt="" class="fullScreen-icon" />
+														<i class="iconfont close-icon">&#xe6ed;</i>
+													</span>
+												</h4>	
+												<div class="panel-body" id="chart1">
+												</div>		
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+											<div class="panel">
+												<h4 class="panel-heading clearfix">
+													<span>地域分布表（全业务计费收入）</span>
+													<span class="cm-fr table-btn">
+														<i class="iconfont excl">&#xe61e;</i>
+														<img src="img/fullScreen.png" alt="" class="fullScreen-icon" />
+														<i class="iconfont close-icon">&#xe6ed;</i>
+													</span>
+												</h4>	
+												<table id="tbl2" class="cm-table"></table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="tab2">
+								</div>
+								<div role="tabpanel" class="tab-pane" id="tab3">
+								</div>
+								<div role="tabpanel" class="tab-pane" id="tab4">
+								</div>
+								<div role="tabpanel" class="tab-pane" id="tab5">
+								</div>
+								<div role="tabpanel" class="tab-pane" id="tab6">
+								</div>
+								<div role="tabpanel" class="tab-pane" id="tab7">
+								</div>
+								<div role="tabpanel" class="tab-pane" id="tab8">
+								</div>
+								<div role="tabpanel" class="tab-pane" id="tab9">
+								</div>
+							</div>
+							<!-- Tab panes end-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

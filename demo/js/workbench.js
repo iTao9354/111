@@ -201,7 +201,8 @@ $(function(){
 	
 	peacock.initDatepicker();
 	
-	peacock.initCommonSelect();
+	$('#usertype').peacock_select({field:'userType',data:[{key:'0',text:"全部",selected:true},{key:'1',text:"类型一"},{key:'2',text:"类型二"}]});
+	
 	tbl1.init();
 	var chartObj = myChart.init();
 	tbl2.init();

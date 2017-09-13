@@ -278,7 +278,7 @@ var tabResize = function() {
  */
 var barsObj = {
 	"data": NavArr,
-	"openFirstPage":false,
+	"openFirstPage":true,
 	"onClick": function(title, url, id, closable, isRefresh, openType) {
 		addNewTab(title, url, id, closable, isRefresh, openType);
 	},
@@ -573,7 +573,7 @@ function getNavInit() {
 	$('#nav').boncNav(barsObj);
 	
 	//打开个页面作为首页
-	addNewTab("首页", "workbench.html", new Date(), true, true, 1);	
+	//addNewTab("首页", "workbench.html", new Date(), true, true, 1);	
 }
 
 /*

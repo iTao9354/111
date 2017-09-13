@@ -1,0 +1,88 @@
+/*定义变量*/    
+@alertMainColor: #ff6e5e;            // 布局主色调
+@partHeadBorderColor:#e0dcdd;
+@watermelonRed:#ff6d5e;
+@watermelonRedHover:#ed5a56;
+@btnFontColor:#ffffff;
+@titleBkColor:#ffffff;
+@titleFontColor:#ed5b5a;
+@cancleBtnFontColor:#333;//取消按钮文字颜色
+@titleBotrderBtmColor: #ed5b5a;
+@cancleBorderColor:#dedede;
+@cancleBkColor:#f1f1f1;
+body .layui-layer-ext{
+    border-radius: 10px;
+}
+//弹窗标题样式
+.layui-layer-dialog .layui-layer-title, .layui-layer-ext .layui-layer-title{
+    background-color:@titleBkColor;
+    background: @titleBkColor;
+    color: @titleFontColor;
+    border: none;
+    padding: 0 80px 0 10px;
+    //border-top: 3px solid @alertMainColor;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid @titleBotrderBtmColor;
+}
+//取消按钮的样式
+.layui-layer-ext .layui-layer-btn .layui-layer-btn1,.layui-layer-dialog .layui-layer-btn a {
+    height: 28px;
+    line-height: 28px;
+    margin: 0 6px;
+    padding: 0 15px;
+    background-color: @cancleBkColor;
+    color: @cancleBtnFontColor;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+    border-radius:2px;
+}
+//取消按钮和除了确定按钮的样式
+.layui-layer-dialog .layui-layer-btn .layui-layer-btn0, .layui-layer-ext .layui-layer-btn a {
+    background: @alertMainColor;
+    border:none;
+    border-radius: 2px;
+    color: @btnFontColor;
+}
+
+.layui-layer-ext .layui-layer-setwin .layui-layer-close1{
+	background-position:1px -40px;
+}
+.layui-layer-title >i.iconfont {
+    color: @alertMainColor;
+}
+//弹窗body的边
+.layui-layer-page .layui-layer-content{
+    padding: 8px;
+}
+/* tips层 */
+.layui-layer-tips.layui-layer-ext .layui-layer-content {
+	background-color: #fff;
+	border: 1px solid @alertMainColor;
+	color: @alertMainColor;
+    top: -18px;
+}
+.layui-layer-tips.layui-layer-ext i.layui-layer-TipsL, .layui-layer-tips.layui-layer-ext i.layui-layer-TipsR {
+    top: 10px;
+    border-bottom:none;
+    background: #FFF url(../img/layer/tipsArrow.png) no-repeat left center;
+    width: 15px;
+    height: 11px;
+    border: none;
+}
+.layui-layer-tips.layui-layer-ext i.layui-layer-TipsR {
+    left: -7px;
+}
+body .layui-layer-ext-msg{
+    border-radius: 5px;
+    border: 1px solid @cancleBorderColor;
+}
+.layui-layer-setwin .layui-layer-ico {
+    background: url(../img/layer/icon.png) no-repeat;
+}
+
+.layui-layer-ext .layui-layer-btn {
+    text-align: center;
+}

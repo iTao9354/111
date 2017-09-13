@@ -1,0 +1,74 @@
+/*定义变量*/
+body .layui-layer-ext {
+  border-radius: 10px;
+}
+.layui-layer-dialog .layui-layer-title,
+.layui-layer-ext .layui-layer-title {
+  background-color: #ffffff;
+  background: #ffffff;
+  color: #ed5b5a;
+  border: none;
+  padding: 0 80px 0 10px;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid #ed5b5a;
+}
+.layui-layer-ext .layui-layer-btn .layui-layer-btn1,
+.layui-layer-dialog .layui-layer-btn a {
+  height: 28px;
+  line-height: 28px;
+  margin: 0 6px;
+  padding: 0 15px;
+  background-color: #f1f1f1;
+  color: #333333;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 2px;
+}
+.layui-layer-dialog .layui-layer-btn .layui-layer-btn0,
+.layui-layer-ext .layui-layer-btn a {
+  background: #ff6e5e;
+  border: none;
+  border-radius: 2px;
+  color: #ffffff;
+}
+.layui-layer-ext .layui-layer-setwin .layui-layer-close1 {
+  background-position: 1px -40px;
+}
+.layui-layer-title > i.iconfont {
+  color: #ff6e5e;
+}
+.layui-layer-page .layui-layer-content {
+  padding: 8px;
+}
+/* tips层 */
+.layui-layer-tips.layui-layer-ext .layui-layer-content {
+  background-color: #fff;
+  border: 1px solid #ff6e5e;
+  color: #ff6e5e;
+  top: -18px;
+}
+.layui-layer-tips.layui-layer-ext i.layui-layer-TipsL,
+.layui-layer-tips.layui-layer-ext i.layui-layer-TipsR {
+  top: 10px;
+  border-bottom: none;
+  background: #ffffff url(../img/layer/tipsArrow.png) no-repeat left center;
+  width: 15px;
+  height: 11px;
+  border: none;
+}
+.layui-layer-tips.layui-layer-ext i.layui-layer-TipsR {
+  left: -7px;
+}
+body .layui-layer-ext-msg {
+  border-radius: 5px;
+  border: 1px solid #dedede;
+}
+.layui-layer-setwin .layui-layer-ico {
+  background: url(../img/layer/icon.png) no-repeat;
+}
+.layui-layer-ext .layui-layer-btn {
+  text-align: center;
+}

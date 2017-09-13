@@ -1066,7 +1066,7 @@ hr {
 }
 .level1 .menuText {
   max-width: 126px;
-  font-size: 13px;
+  font-size: 12px;
 }
 .level2 .menuText {
   width: 134px;
@@ -1439,7 +1439,7 @@ hr {
   box-shadow: #999999 2px 2px 5px;
 }
 .thirdLevWrap > h3 {
-  padding: 18px 27px 0;
+  padding: 8px 27px 0;
   font-size: 16px;
   line-height: 35px;
   border-bottom: none;
@@ -1449,13 +1449,13 @@ hr {
   border: none;
   font-weight: normal;
   line-height: 35px;
-  font-size: 16px;
+  font-size: 14px;
   padding: 0;
 }
 .thirdLevWrap.onlyH2 > h3 {
   padding: 0 20px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   height: 35px;
   line-height: 35px;
 }
@@ -1470,6 +1470,8 @@ hr {
   padding-right: 14px;
   box-sizing: border-box;
   max-width: 780px;
+  overflow: hidden;
+  margin-bottom: 18px;
 }
 .thirdLevWrap > ul > .level2 {
   float: left;
@@ -1478,7 +1480,7 @@ hr {
   box-sizing: border-box;
 }
 .thirdLevWrap > ul > .level2 > a > span {
-  font-size: 14px;
+  font-size: 12px;
 }
 .thirdLevWrap > ul > .level2 > a {
   line-height: 30px;
@@ -1520,7 +1522,7 @@ hr {
   padding-left: 24px;
 }
 .thirdLevWrap .submenu a {
-  height: 30px;
+  height: 26px;
 }
 .frameFooter {
   position: absolute;

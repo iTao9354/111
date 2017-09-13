@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+html, body,
+.panel,
+.panel-body,
+.complete-chart,
+.scatter-chart {
+	height: 100%;
+}
+.container-fluid {
+	height: 100%;
+	padding-top: 10px;
+	margin-top: 0;
+}
+.col-lg-6, .col-md-12, .col-sm-12, .col-xs-12 {
+	height: 100%;
+	padding-bottom: 15px;
+}
+.row {
+	height: 50%;
+}
+.row3 {
+	display: none;
+}
+.perform-contract-pie > div {
+	width: 50%;
+	height: 100%;
+}
+.perform-contract-pie1 {
+	border-right: 1px solid #d7deee;	
+}

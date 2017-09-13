@@ -1,0 +1,16 @@
+@validatorBorderFontColor:#fd6d5f;
+@validatorBkColor:#fff;
+.n-yellow .msg-wrap .n-arrow b{
+    color: @validatorBorderFontColor;
+}
+.n-yellow .msg-wrap .n-arrow i{
+    color: @validatorBkColor;
+}
+.n-yellow .msg-wrap{
+    border-color: @validatorBorderFontColor;
+    color: @validatorBorderFontColor;
+    background-color: @validatorBkColor;
+}
+.n-yellow .msg-wrap .n-icon {
+    background-image: url(../img/validator_simple.png);
+}

@@ -17,7 +17,7 @@ tr.MTitle >td>div:nth-child(1){
 	display: inline-block;
 }
 .cm-datepicker .cm-input {
-	width: 120px;
+	width: 80px;
 	height: 26px;
 	border: none;
 	text-align: center;

@@ -1,0 +1,885 @@
+//菜单的初始化data对象，用于测试
+var NavArr = [{
+	"id": "level1",
+	"text": "商机管理",
+	"children": [{
+		"id": "level10",
+		"icon": "&#xe65d;",
+		"text": "商机管理",
+		"children": [{
+			"id": "level100",
+			"text": "重点关注项目",
+			"children": [{
+				"id": "level1000",
+				"url": "demoBasic.html",
+				"text": "基本样式"
+			}]
+		}, {
+			"id": "level101",
+			"text": "表格样式",
+			"children": [{
+				"id": "level1001",
+				"url": "businessOpportunity.html",
+				"text": "商机信息录入"
+			}, {
+				"id": "level1002",
+				"url": "workbench.html",
+				"openType":2,
+				"text": "工作台"
+			}, {
+				"id": "level1003",
+				"url": "easyuiTables.html",
+				"text": "表格样式"
+			}, {
+				"id": "level1004",
+				"url": "tableLeftRight.html",
+				"text": "表格左右布局"
+			}, {
+				"id": "level1005",
+				"url": "tableTopBtm.html",
+				"text": "表格上下布局"
+			}]
+		}, {
+			"id": "level11",
+			"icon": "&#xe622;",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "重点关注项目",
+			"children": [{
+				"id": "3333",
+				"text": "四级菜单",
+				"children": [{
+					"id": "4444",
+					"text": "五级菜单",
+					"children": [{
+						"id": "level50",
+						"url": "http://fanyi.baidu.com/#zh/en/",
+						"text": "六级菜单11"
+					}, {
+						"id": "level500",
+						"url": "http://fanyi.baidu.com/#zh/en/",
+						"text": "六级菜单12"
+					}]
+				}]
+			}]
+		}]
+	}, {
+		"id": "level12",
+		"icon": "&#xe64a;",
+		"url": "http://fanyi.baidu.com/#zh/en/",
+		"text": "商机信息维护"
+	}, {
+		"id": "level13",
+		"icon": "&#xe62d;",
+		"url": "http://fanyi.baidu.com/#zh/en/",
+		"text": "创新资源库"
+	}, {
+		"id": "level14",
+		"icon": "&#xe60f;",
+		"url": "http://fanyi.baidu.com/#zh/en/",
+		"text": "信息总览"
+	}]
+}, {
+	"id": "level5",
+	"text": "工作台",
+	"children": [{
+		"id": "level16",
+		"icon": "&#xe654;",
+		"url": "http://www.baidu.com/",
+		"text": "管理者工作台"
+	}, {
+		"id": "level17",
+		"icon": "&#xe654;",
+		"url": "http://fanyi.baidu.com/#zh/en/",
+		"text": "客户经理工作台"
+	}, {
+		"id": "level18",
+		"icon": "&#xe654;",
+		"url": "http://fanyi.baidu.com/#zh/en/",
+		"text": "微信公众号工作台"
+	}]
+}, {
+	"id": "level9",
+	"text": "一级菜单3",
+	"children": [{
+		"id": "level19",
+		"icon": "&#xe654;",
+		"text": "二级菜单0",
+		"children": [{
+			"id": "level190",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "三级菜单00"
+		}, {
+			"id": "level191",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "三级菜单01"
+		}]
+
+	}, {
+		"id": "level10",
+		"url": "demo.html",
+		"text": "工作台子菜单1",
+		"children": [{
+			"id": "level100",
+			"icon": "&#xe654;",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "工作台"
+		}, {
+			"id": "level101",
+			"icon": "&#xe654;",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "登陆页"
+		}]
+	}]
+}, {
+	"id": "level4",
+	"text": "门户管理",
+	"children": [{
+		"id": "level10",
+		"icon": "&#xe654;",
+		"text": "公告管理",
+		"children": [{
+			"id": "level100",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "已接收公告"
+		}]
+	}]
+}, {
+	"id": "level5",
+	"text": "门户管理",
+	"children": [{
+		"id": "level10",
+		"icon": "&#xe654;",
+		"text": "公告管理",
+		"children": [{
+			"id": "level100",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "已接收公告"
+		}]
+	}]
+}, {
+	"id": "level6",
+	"text": "门户管理",
+	"children": [{
+		"id": "level10",
+		"icon": "&#xe654;",
+		"text": "公告管理",
+		"children": [{
+			"id": "level100",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "已接收公告"
+		}]
+	}]
+}, {
+	"id": "level7",
+	"text": "门户管理",
+	"children": [{
+		"id": "level10",
+		"icon": "&#xe654;",
+		"text": "公告管理",
+		"children": [{
+			"id": "level100",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "已接收公告"
+		}]
+	}]
+}, {
+	"id": "level8",
+	"text": "门户管理",
+	"children": [{
+		"id": "level10",
+		"icon": "&#xe654;",
+		"text": "公告管理",
+		"children": [{
+			"id": "level100",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "已接收公告"
+		}]
+	}]
+}, {
+	"id": "level9",
+	"text": "门户管理",
+	"children": [{
+		"id": "level10",
+		"icon": "&#xe654;",
+		"text": "公告管理",
+		"children": [{
+			"id": "level100",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "已接收公告"
+		}]
+	}]
+}, {
+	"id": "level10",
+	"text": "门户管理",
+	"children": [{
+		"id": "level10",
+		"icon": "&#xe654;",
+		"text": "公告管理",
+		"children": [{
+			"id": "level100",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "已接收公告"
+		}]
+	}]
+}, {
+	"id": "level11",
+	"text": "门户管理",
+	"children": [{
+		"id": "level10",
+		"icon": "&#xe654;",
+		"text": "公告管理",
+		"children": [{
+			"id": "level100",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "已接收公告"
+		}]
+	}]
+}, {
+	"id": "level12",
+	"text": "门户管理空",
+}, {
+	"id": "level13",
+	"text": "门户管理",
+	"children": [{
+		"id": "level10",
+		"icon": "&#xe654;",
+		"text": "公告管理",
+		"children": [{
+			"id": "level100",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "已接收公告"
+		}]
+	}]
+}, {
+	"id": "level14",
+	"text": "门户管理",
+	"children": [{
+		"id": "level10",
+		"icon": "&#xe654;",
+		"text": "公告管理",
+		"children": [{
+			"id": "level100",
+			"url": "http://fanyi.baidu.com/#zh/en/",
+			"text": "已接收公告"
+		}]
+	}]
+}];
+var webpath = webpath?webpath:'/peacock/demo/';
+/**
+ * resize iframe头部和下面的iframe宽度的大小
+ */
+var tabResize = function() {
+	$("#tabs").tabs("resize");
+}
+
+/**
+ * 配置生成菜单配置对象：
+ * onClick的函数会返回三个参数title,url,id
+ */
+var barsObj = {
+	"data": NavArr,
+	"openFirstPage":true,
+	"onClick": function(title, url, id, closable, isRefresh, openType) {
+		addNewTab(title, url, id, closable, isRefresh, openType);
+	},
+	"level0AfterClickFun": homePageHideMiniBar,
+	"AfterExpandFun": tabResize,
+	"AfterCollapseFun": tabResize,
+	"AfterSetLevel0SubmenuWidthFun": homePageHideMiniBar,
+	"barsWidth": {
+		"minWidth": "42", //mini菜单宽度
+		"ExpandWidth1": "185", //小于1400展开左侧菜单宽度
+		"ExpandWidth2": "15.7%", //大于等于1400左侧菜单宽度
+		"mediaWidth": "1400", //左侧菜单宽度变化临界值
+		"level0Width": 75, //一级菜单的宽度
+		"treeNavRightVal": -210 //用户相关信息div宽度
+	}
+}
+
+//统计菜单函数
+function statistics(title, id) {
+	$.ajax({
+		url: peacock.warpRandom(webpath + "activeLog?modelName=" + title + "&modelId=" + id),
+		async: true,
+		type: "POST",
+		error: function() {},
+		success: function(data) {
+			//console.log('统计了一次：'+ id + title);
+		}
+	});
+}
+
+// add a new tab panel
+var addNewTab = function(title, url, id, closable, isRefresh, openType) {
+	var nurl = "";
+	if(url == "/") {
+		nurl = ""
+	} else if(url.indexOf("http://") == 0) {
+		nurl = url;
+	} else {
+		nurl = url;
+	}
+	if(url.indexOf('browserTab') >= 0 || openType == 2) {
+		if(url.indexOf("http://") == 0) {
+			window.open(url, "_blank");
+		} else {
+			window.open("http://" + window.location.host + webpath + url, "_blank");
+		}
+		return;
+	}
+	//添加新的tab或者切换页面
+	var $tab = $('#tabs');
+	if($tab.tabs('existsById', id)) {
+		$tab.tabs('selectById', id);
+		if(isRefresh) {
+			var content = '<iframe id="' + id + '" src="' + nurl + '" allowTransparency="true" width="100%" height="100%" frameBorder="0" scrolling="auto"></iframe>';
+			var currTab = $tab.tabs('getTab', title);
+			$tab.tabs('update', {
+				tab: currTab,
+				options: {
+					content: content,
+					closable: closable
+				}
+			});
+		}
+	} else {
+		$tab.tabs('add', {
+			id: id,
+			title: title,
+			content: '<iframe id="' + id + '" src="' + nurl + '" allowTransparency="true" width="100%" height="100%" frameBorder="0" scrolling="auto"></iframe>',
+			closable: closable,
+			tools: [{
+				iconCls: 'icon-refresh',
+				handler: function() {
+					refreshTab({
+						tabTitle: title,
+						url: url
+					});
+				}
+			}]
+		});
+		$tab.tabs('selectById', id);
+		bindTabActiveLiClick();
+	}
+	//statistics(title,id);
+}
+
+//tab回显是那个一级菜单下面的页面
+var bindTabActiveLiClick = function() {
+	$('#tabs').tabs('getSelected').panel('options').tab.unbind().click(function() {
+		var title = $('.tabs-title', $(this)).text();
+		var id = $('#tabs').tabs('getSelected').attr('id');
+		var index = 0;
+		$.fn.boncNav.methods.tabEchoMenu(title, id, index);
+		homePageHideMiniBar();
+	});
+}
+
+/**       
+ * 刷新tab   
+ * @cfg    
+ *example: {tabTitle:'tabTitle',url:'refreshUrl'}   
+ *如果tabTitle为空，则默认刷新当前选中的tab   
+ *如果url为空，则默认以原来的url进行reload   
+ */
+var refreshTab = function(cfg) {
+	var $tab = $('#tabs');
+	var refresh_tab = cfg.tabTitle ? $tab.tabs('getTab', cfg.tabTitle) : $tab.tabs('getSelected');
+	if(refresh_tab && refresh_tab.find('iframe').length > 0) {
+		var _refresh_ifram = refresh_tab.find('iframe')[0];
+		var refresh_url = cfg.url ? cfg.url : _refresh_ifram.src;
+		_refresh_ifram.contentWindow.location.href = $(_refresh_ifram).prop("src");
+	}
+}
+
+/**
+ * 头部的点击出现下拉菜单的js
+ * 给点击链接的a标签添加点击事件
+ */
+var bindTipsUserClick = function() {
+	$(".dropdown-a").unbind().click(function(e) {
+		e = e || window.event;
+		e.stopPropagation();
+
+		var $this = $(this),
+			tipsLeft = 0,
+			tipsTop = 48,
+			downInfo = $this.parent().find(".downInfo");
+		$(".dropdown-a").removeClass('active');
+		if(!downInfo) {
+			return;
+		}
+		if(downInfo.is(':hidden')) {
+			$(this).addClass('active');
+			$(".downInfo").hide();
+			downInfo.show();
+			$(window).resize();
+		} else if(downInfo.is(':visible')) {
+			downInfo.hide();
+		}
+		if($(this).parent().attr('class').indexOf('inform') >= 0) {
+			//checkUserCount();
+		}
+	});
+
+	//窗口点击关闭所有class是dropdownTips的弹窗，如果不是点击了排除类的元素
+	$(window).click(function(event) {
+		$(".downInfo").hide();
+		$(".dropdown-a").removeClass('active');
+	});
+
+};
+
+/*
+ * 首页隐藏左侧菜单操作
+ */
+var homePageHideMiniBar = function() {
+	var activeTitle = $('.tabs-selected .tabs-title').text();
+	var activeLevel0Txt = $('.level0.active>a>.menuText').text();
+	if(activeTitle == "首页" && $('.treeNav').length == 0 && activeLevel0Txt == "首页") {
+		$('.frame-content').css({
+			'left': 0
+		});
+		$('.level0.active>.submenu').hide();
+	} else {
+		$('.frame-content,.level0 > .submenu').removeAttr('style');
+	}
+	$("#tabs").tabs("resize");
+}
+
+/*
+ * 初始化登陆信息表格
+ */
+var initLogMessageTbl = function() {
+	if($.fn.DataTable.isDataTable('#logMessage')) return;
+	/*$('#logMessage').width('98%').height('360px').dataTable( {
+		"columns":[
+		            { "data": "CLIENT_IP"},
+		            { "data": "LOGIN_DATE"},
+		            { "data": "ACTIVE_DATE"},
+		            { "data": "LOGOUT_DATE"}
+		],
+      "ajax": {
+      	"url":peacock.warpRandom(webpath + 'user/userLogEnter'),  
+ 	     	"type":'post',
+ 	     	"dataType":'json',
+		     "dataSrc": function (json) {
+		    	   json.iTotalRecords = json.length;
+		           json.iTotalDisplayRecords = json.length;
+	               return json;
+		      }
+      },
+	 "drawCallback": function( settings ) {},
+	 "autoWidth": false,
+	 "destroy": true,
+	 "paging": false,
+	 "columnDefs":[{
+	 	"width": "19%",
+		"targets" : 0,
+		"data" : null,
+		"render" : function(data, type,row) {
+			  return data?data:"";
+		 }
+	},{
+		"width":"27%",
+		"targets" : [1,2,3],
+		"data" : null,
+		"render" : function(data, type,row) {
+			return data?data:"";
+		 }
+	}]
+  });*/
+}
+
+/*
+ * 加载权限信息列表
+ */
+var initPermissionsTbl = function() {
+	/*$('#queryresourcetreeMain').width("530px").height("360px").treegrid({   
+	    url:peacock.warpRandom(webpath + 'user/getUserResourceMain?json'),
+	    idField:'RESOURCEID',
+	    treeField:'RESOURCENAME',   
+	    columns:[[{
+			title : '资源名',
+			field : 'RESOURCENAME',
+			width:'60%',
+			align:'left'
+		},{
+			field : 'SEL_',
+			title : '使用',
+			width:'20%',
+			align:'center',
+			formatter:function(value){ 
+				if(value==1||value==2){
+					return "是";
+				}else{
+					return "否";
+				}
+            }  
+		},{
+			field : 'GRA_',
+			title : '授权',
+			width:'20%',
+			align:'center',
+			formatter:function(value){ 
+				if(value==1||value==2){
+					return "是";
+				}else{
+					return "否";
+				}
+            }  
+		} ] ]
+	});*/
+}
+
+/**
+ * 登录信息和权限信息表格切换
+ * @param {Object} idStr
+ * @param {Object} thisTag
+ */
+var switchTbl = function(idStr, thisTag) {
+	$(thisTag).siblings().removeClass('active');
+	$(thisTag).addClass('active');
+	var tagDom = $('#' + idStr);
+	tagDom.siblings().hide();
+	tagDom.show();
+	if(idStr == 'queryresourceMain') {
+		$('#queryresourcetreeMain').treegrid('resize');
+	} else {
+		initLogMessageTbl();
+	}
+}
+
+/**
+ * 初始化菜单
+ */
+function getNavInit() {
+	/*$.ajax({
+		url: webpath + "getMenus",
+		async: true,
+		type: "POST",
+		dataType:"json",
+		error:function(){},
+		success:function(data){
+			barsObj.data = data;
+			if(data && data.length > 0){
+				$('#nav').boncNav(barsObj);
+				$('.level0 > .submenu').niceScroll({ cursorcolor: "#ccc", horizrailenabled: false });
+			}else{
+				layer.msg('菜单为空，请找管理员授权',{icon:7});
+			}
+		}
+	}); */
+	$('#nav').boncNav(barsObj);
+	
+	//打开个页面作为首页
+	//addNewTab("首页", "workbench.html", new Date(), true, true, 1);	
+}
+
+/*
+ * 计算leftBar右侧div宽度的js
+ */
+var calcNavWidth = function() {
+	var ww = $(window).width();
+	if(ww < 900) {
+		ww = 900;
+	}
+	var navWidth = ww - 540 - 15;
+	$('#nav').width(navWidth);
+};
+
+//初始化第一个不可关闭的frame
+var initTabs = function() {
+	$("#tabs").tabs({
+		fit: true,
+		border: false,
+		heigt: '34px',
+		tabHeight: '34px',
+		onSelect: function(title, id, index) {
+			var id = $('#tabs').tabs('getSelected').attr('id');
+			$.fn.boncNav.methods.tabEchoMenu(title, id, index);
+			homePageHideMiniBar();
+		}
+	});
+	//窗口resize的时候调用easyui的tabs插件的自适应函数
+	$(window).resize(function() {
+		$("#tabs").tabs("resize");
+	});
+}
+
+//绑定密码强弱校验
+function bindPasswordCheck() {
+	$('#newPassword').keyup(function() {
+		var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+		var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+		var enoughRegex = new RegExp("(?=.{4,}).*", "g");
+
+		if(false == enoughRegex.test($(this).val())) {
+			$('#level').removeClass('pw-weak');
+			$('#level').removeClass('pw-medium');
+			$('#level').removeClass('pw-strong');
+			$('#level').addClass('pw-defule');
+			//密码小于六位的时候，密码强度图片都为灰色 
+		} else if(strongRegex.test($(this).val())) {
+			$('#level').removeClass('pw-weak');
+			$('#level').removeClass('pw-medium');
+			$('#level').removeClass('pw-strong');
+			$('#level').addClass('pw-strong');
+			//密码为八位及以上并且字母数字特殊字符三项都包括,强度最强 
+		} else if(mediumRegex.test($(this).val())) {
+			$('#level').removeClass('pw-weak');
+			$('#level').removeClass('pw-medium');
+			$('#level').removeClass('pw-strong');
+			$('#level').addClass('pw-medium');
+			//密码为七位及以上并且字母、数字、特殊字符三项中有两项，强度是中等 
+		} else {
+			$('#level').removeClass('pw-weak');
+			$('#level').removeClass('pw-medium');
+			$('#level').removeClass('pw-strong');
+			$('#level').addClass('pw-weak');
+			//如果密码为6为及以下，就算字母、数字、特殊字符三项都包括，强度也是弱的 
+		}
+		return true;
+	});
+}
+
+// layer弹出层--内容区为iframe页面或html页面均可
+/**
+ * type可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）。
+ * content可传入的值与type对应：
+ *          type=1, content可传入 1）任意的文本或html；2）$('#id')；3）str
+ *          type=2, content可传入url地址
+ *          type=4, content可传['内容', '#id'] ，数组第二项即吸附元素选择器或者DOM
+ * areaArr定义弹框大小，传入数组形式，如['100px','100px']
+ */
+var openByContent = function(type, content, areaArr) {
+	layer.open({
+		type: type,
+		title: false,
+		closeBtn: false,
+		area: areaArr,
+		content: content,
+		btn: ['关闭'],
+		btn1: function(index, layero) {
+			layer.close(index);
+			noticeTimer();
+		}
+	})
+};
+
+var myInfoClick = function() {
+	//绑定用户信息按钮事件
+	$("#userInfoBtn").bind("click", function() {
+		layer.open({
+			type: 1,
+			title: '<i class="iconfont">&#xe600;</i>&nbsp;我的信息',
+			area: ['800px', '490px'],
+			content: $("#userInfoDialog"),
+			success: function(layero) {
+				initPermissionsTbl();
+			}
+		});
+		//我的信息弹出框加滚动条
+		userInfoDialogScroll = $("#userInfoDialog").parent().niceScroll({
+			cursorcolor: "#ccc",
+			horizrailenabled: false
+		});
+	});
+};
+
+function removeUser(fun) {
+	//count user
+	/*$.ajax({
+		url: webpath + "userCount/remove",
+		async: true,
+		type: "POST",
+		dataType:"json",
+		error:function(){},
+		success:function(data){
+			//统计成功之后回调函数
+			if(fun){
+				fun();
+			}
+			return true;
+		}
+	});*/
+}
+
+var logoutClick = function() {
+	$("#logoutBtn").bind("click", function() {
+		layer.confirm('是否退出系统？', {
+			icon: 3,
+			btn: ['是', '否'] //按钮
+		}, function() {
+			//        	$.ajax({
+			//        		url: webpath + "ssologOut",
+			//        		type: "POST",
+			//        		dataType:"json",
+			//        		error:function(){},
+			//        		success:function(data){
+			//        		}
+			//        	});
+		}, function() {
+			return;
+		});
+	});
+};
+
+var changePasswordClick = function() {
+	//修改密码绑定事件
+	$("#updatePasswdBtn").bind("click", function() {
+		//初始化密码初始化强度。
+		$('#level').removeClass('pw-weak');
+		$('#level').removeClass('pw-medium');
+		$('#level').removeClass('pw-strong');
+		$('#level').addClass('pw-defule');
+		//清空所有input框
+		$("#updatePasswd").find("input").val("");
+		//清空校验信息
+		$("#errorInfo").html("");
+		layer.open({
+			type: 1,
+			title: '<i class="iconfont">&#xe65c;</i>&nbsp;修改密码',
+			area: ['400px', '280px'],
+			content: $("#updatePasswdDialog"),
+			btn: ['确定', '取消'],
+			btn1: function(index, layero) { //确定按钮回调
+				var oldPasswd = $("#updatePasswd").find("input[name='oldPassword']").val(),
+					newPasswd = $("#updatePasswd").find("input[name='newPassword']").val(),
+					reNewPasswd = $("#updatePasswd").find("input[name='reNewPassword']").val();
+				if(oldPasswd == "" || oldPasswd == null) {
+					$("#errorInfo").html("旧密码不能为空！");
+					return;
+				}
+				if(newPasswd == "" || newPasswd == null) {
+					$("#errorInfo").html("新密码不能为空！");
+					return;
+				}
+				if(newPasswd.length > 32 || newPasswd.length < 4) {
+					$("#errorInfo").html("新密码长度需大于4小于32！");
+					return;
+				}
+				if(newPasswd != reNewPasswd) {
+					$("#errorInfo").html("两次密码输入不一致！");
+					return;
+				}
+
+				$.ajax({ //请求修改密码
+					"url": peacock.warpRandom(webpath + "user/updPassword"),
+					"data": {
+						/*userId:id,*/ //还没获取？
+						oldPasswd: oldPasswd,
+						newPasswd: newPasswd
+					},
+					dataType: "json",
+					"type": "POST",
+					success: function(data) {
+						if(data == 1) {
+							layer.msg('密码修改成功', {
+								time: 2000,
+								icon: 1
+							});
+							layer.close(index);
+						} else {
+							$("#errorInfo").html('密码修改失败！');
+						}
+					},
+					error: function(data) {
+						console.log(data);
+					}
+				});
+			},
+			btn2: function(index, layero) { //取消按钮回调
+				layer.close(index);
+			}
+		});
+	});
+};
+
+var moreNoticeClick = function() {
+	//查看更多公告
+
+	/*$("#loadMoreNotice").bind("click", function() {
+	    addNewTab('我的公告', '/cusnotice/index', 'noticeTbl', true);
+	});*/
+};
+
+var changeNavTypeClick = function() {
+	$('#changeNavType').click(function() {
+		var thisDom = $(this);
+		var curType = thisDom.attr('data-curType');
+		var spanDom = $('>span', thisDom);
+		var iconDom = $('>.iconfont', thisDom);
+		if(curType == 'normalNav') {
+			thisDom.attr({
+				'data-curType': 'treeNav'
+			});
+			spanDom.text('切换列表菜单');
+			iconDom.html('&#xe669;');
+			$.fn.boncNav.methods.changeNavType('treeNav');
+			$("#tabs").tabs("resize");
+		} else if(curType == 'treeNav') {
+			thisDom.attr({
+				'data-curType': 'normalNav'
+			});
+			spanDom.text('切换树形菜单');
+			iconDom.html('&#xe66a;');
+			$.fn.boncNav.methods.changeNavType('normalNav');
+			$("#tabs").tabs("resize");
+		}
+	});
+}
+
+//对外提供的显示loading方法, 默认20秒关闭，可以后台传时间值
+function showLoading(time) {
+	var timemer = 20 * 1000;
+	if(time) timemer = time;
+	layer.load(2, {
+		time: timemer,
+		shade: 0.1
+	});
+}
+//关闭所有loading
+function hideLoading() {
+	layer.closeAll('loading');
+}
+
+function checkUserCount() {
+	//调查询当前用户数数函数
+	var count = 1;
+	/*$.ajax({
+		url: webpath + "userCount/count",
+		async: true,
+		type: "POST",
+		dataType:"json",
+		error:function(){},
+		success:function(data){
+			count = data;
+			$('#onlineUserCount').text(count);
+		}
+	});*/
+}
+
+$(function() {
+	$(window).resize(function() {
+		calcNavWidth();
+	}).resize();
+	initTabs();
+	getNavInit();
+	changeNavTypeClick();
+	myInfoClick();
+	logoutClick();
+	bindPasswordCheck();
+	changePasswordClick();
+	moreNoticeClick();
+	checkUserCount();
+	/*** 头部的点击出现下拉菜单的js */
+	$('.tipsScrollDiv').niceScroll({
+		cursorcolor: "rgba(99,114,131,.7)",
+		cursorborder: "none"
+	});
+	bindTipsUserClick();
+});
+window.onload = function(){
+	$('#tabs').tabs('resize');
+}

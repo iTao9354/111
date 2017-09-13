@@ -20,7 +20,7 @@ html, body,
 	height: 50%;
 }
 .row3 {
-	display: none;
+	/*display: none;*/
 }
 .perform-contract-pie > div {
 	width: 50%;
@@ -28,4 +28,144 @@ html, body,
 }
 .perform-contract-pie1 {
 	border-right: 1px solid #d7deee;	
+}
+
+
+/*散点图*/
+.scatter-unit > h5 {
+	color: #fff;
+	border-bottom: 1px solid rgba(255,255,255,.3);
+	padding: 5px 8px;
+}
+.scatter-unit > div {
+	padding: 8px;
+	max-width: 200px;
+}
+.scatter-unit > div > a {
+	color: #fff;
+	margin-right: 5px;
+	float: left;
+}
+
+/*单元业绩分析指标*/
+.report-panel {
+	overflow: visible;
+}
+.report-panel .panel-body {
+	height: auto;
+}
+.report-unit-title {
+	position: relative;
+	height: 26px;
+	line-height: 26px;
+	margin-bottom: 18px;
+}
+.report-unit-title:after {
+	content: '';
+	width: 100%;
+	border-top: 1px dashed #ff6d5e;
+	position: absolute;
+	left: 0;
+	top: 50%;
+}
+.report-unit-title > span{
+	display: inline-block;
+	background: #ff6d5e;
+	color: #fff;
+	padding: 0 4px 0 8px;
+	position: relative;
+	z-index: 1;
+}
+.report-unit-title > span:after {
+	content: '';
+	width: 11px;
+	height: 26px;
+	background: url(../img/chartSprites.png) -3px -2px;
+	position: absolute;
+	top: 0;
+	right: -10px;
+}
+.report-unit-title > a,
+.report-content-wrap > a {
+	position: relative;
+	display: inline-block;
+	height: 22px;
+	line-height: 22px;
+	color: #fff;
+	background: #ff6d5e;
+	padding-left: 4px;
+	z-index: 1;
+	margin-right: 8px;
+}
+.report-content-wrap > a > .iconfont {
+	color: #fff;
+}
+.report-unit-title > a:before,
+.report-content-wrap > a:before {
+	content: '';
+	width: 10px;
+	height: 22px;
+	background: url(../img/chartSprites.png) -24px -4px;
+	position: absolute;
+	top: 0;
+	left: -10px;
+}
+.report-unit-title > a:after,
+.report-content-wrap > a:after {
+	content: '';
+	width: 10px;
+	height: 22px;
+	background: url(../img/chartSprites.png) -38px -4px;
+	position: absolute;
+	top: 0;
+	right: -9px;
+}
+
+.report {
+	width: 33%;
+}
+.report.active {
+	width: 100%;
+}
+.report > h5 {
+	line-height: 27px;
+}
+.report.active > h5 {
+	color: #ff6d5e;
+}
+.report .iconfont {
+	color: #fb918c;
+	margin-right: 5px;
+}
+.report-content-wrap {	
+	background-color: #f9f9f9;
+	padding: 15px;
+}
+.report-content {
+	position: relative;
+	min-height: 40px;
+}
+.report-content > h6 {
+	padding: 10px;
+	border: 1px solid #f8a20f;
+	border-radius: 2px;
+	width: 250px;
+	height: auto;
+	position: absolute;
+	top: 50%;
+	left: 15px;
+	margin-top: -22px;
+}
+.report-list {
+	width: 440px;
+	margin-left: 280px;
+	padding: 10px 0;
+}
+.report-list > li {
+	padding: 6px 8px;
+	border: 1px solid #ff6d5e;
+	float: left;
+	width: 210px;
+	margin-right: 10px;
+	margin-bottom: 10px;
 }

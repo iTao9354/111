@@ -80,7 +80,7 @@ function upd(id){
 	layer.open({
 		type: 1,
 		title: '修改',
-		area: ['500px', '380px'],
+		area: ['500px', '580px'],
 		content: $("#tbl1Info"),
 		btn: ['确定', '取消'],
 		btn1: function(index, layero) { //确定按钮回调

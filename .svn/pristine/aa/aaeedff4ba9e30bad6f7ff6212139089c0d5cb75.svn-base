@@ -1,0 +1,284 @@
+@charset "utf-8";
+/*定义变量*/
+@bodyBk: #E8ECF0;               // body默认背景色            
+@mainColor: #ed5b5a;            // 布局主色调
+@actColor: #c73c37;             // 活动状态的主色调
+@coColor: #ff6e07;              // 辅色
+@partHeadBorderColor:#e0dcdd;
+@watermelonRed:#ff6d5e;
+@watermelonRedHover:#ed5a56;
+
+@HFontColor:#333;//标题颜色
+@mainFontColor:#464646;//内容区域颜色
+
+
+@iptSelActBkColor:#fce2e2;//input、select激活状态背景颜色
+@iptActBorderFontColor:#d43f3a;//select 激活状态文字颜色、area、form-control、激活状态border颜色
+@areaDivActBkColor:#fffdfd;//area、form-control、激活状态背景颜色
+
+@btnFontColor:#ffffff;
+@mainFont: 13px;                // 主要内容字号
+@secFont: 12px;                 // 次要内容字号
+@size: 10px;                    
+@percent: 100%;
+
+.mgrPad(@mar:0,@pad:0) {        // margin、padding默认均为0
+  margin: @mar;
+  padding: @pad;
+}
+.mar(@t:0,@r:0,@b:0,@l:0) {        // margin -- 默认四个方向均为0
+    margin: @t @r @b @l;
+}
+.pad(@t:4px,@r:8px,@b:4px,@l:8px) {       // padding -- 默认上下3px，左右8px
+    padding: @t @r @b @l;
+}
+.w(@w:@percent) {               // 宽 -- 默认100%
+    width: @w;
+}
+.minW(@min) {                   // 最小宽度
+    min-width: @min;
+}
+.maxW(@max) {                   // 最大宽度
+    max-width: @max;
+}
+.h(@h:@percent) {               // 高 -- 默认100%
+    height: @h;
+}
+.minH(@min) {                   // 最小高度
+    min-height: @min;
+}
+.maxH(@max) {                   // 最大高度
+    max-height: @max;
+}
+
+.noUnderLine(@line:none) {       // 默认无下划线
+  text-decoration: @line;
+}
+.noOutline(@ol:none) {           // 默认无outline虚线
+    outline: @ol;
+}
+.noBor(@b:none) {                // 默认无边框
+    border: @b;
+}
+.noShadow(@s:none) {             // 默认无阴影
+    box-shadow: @s;
+}
+.color(@c:#464646) {                // 文字颜色color -- 默认#333
+  color: @c;
+}
+.bg(@bc:@mainColor) {            // 背景色 -- 默认主色
+  background-color: @bc;
+}
+.bor(@color:#ccc,@width:1px,@style:solid) {   // 边框border -- 默认1px solid #ccc
+    border: @color @width @style;
+}
+.rgba(@r,@g,@b,@a) {          // 背景透明度
+  background-color: rgba(@r,@g,@b,@a);
+  @c: rgba(@r,@g,@b,@a); 
+  @c2 :argb(@c);                    /*处理IE8兼容*/
+  filter:~"progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='@{c2}', endColorstr='@{c2}')";
+  :root #ie9-filter {               /*在IE9下使用hack去除filter*/
+    filter: none;
+  }
+}
+
+.pos(@pos:relative) {   // 定位 -- 默认relative
+  position: @pos;
+}
+.abs50(@percent) {     // 绝对定位 -- 默认水平、垂直居中
+  .pos(absolute);
+  .pl(@percent / 2);
+  .pt(@percent / 2);
+}
+.pl(@l:0) {            // left -- 默认0
+    left: @l;
+}
+.pr(@r:0) {            // right -- 默认0
+    right: @r;
+}
+.pt(@t:0) {            // top -- 默认0
+    top: @t;
+}
+.pb(@b:0) {            // bottom -- 默认0
+    bottom: @b;
+}
+.overflow(@flow:hidden) {    // overflow -- 默认hidden
+  overflow: @flow;
+}
+.dis(@dis:inline-block) {    // display -- 默认inline-block
+  display: @dis;
+}
+.align(@a:center) {         // text-align -- 默认center
+  text-align: @a;
+}
+.verAlign(@v:middle) {      // vertical-align -- 默认middle  
+    vertical-align: @v;
+}
+.cursor(@cur:pointer) {     // 鼠标光标cursor -- 默认小手
+  cursor: @cur;
+}
+.cm-forbid {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently not supported by any browser */
+}
+
+.radius(@r:50%) {            // 圆角 -- 默认正圆
+  -webkit-border-radius:@r;
+  -moz-border-radius:@r;
+  -ms-border-radius:@r;
+  -o-border-radius:@r;
+  border-radius:@r;
+}
+.rotate(@r) {
+  -webkit-transform:rotate(@r);
+  -moz-transform:rotate(@r);
+  -ms-transform:rotate(@r);
+  -o-transform:rotate(@r);
+  transform:rotate(@r);
+}
+
+@font-face {
+    font-family: "iconfont";
+    src: url('../lib/iconfont/iconfont.eot');
+    /* IE9*/
+    src:/* IE6-IE8 */
+    /* chrome, firefox */
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('../lib/iconfont/iconfont.eot#iefix') format('embedded-opentype'),url('../lib/iconfont/iconfont.woff') format('woff'),url('../lib/iconfont/iconfont.ttf') format('truetype'),url('../lib/iconfont/iconfont.svg#iconfont') format('svg');
+    /* iOS 4.1- */
+}
+* {
+    .mgrPad;
+    font-family: PingFangSC-Light, 'helvetica neue', 'hiragino sans gb', tahoma, 'microsoft yahei ui', 'microsoft yahei', simsun, sans-serif;
+    font-size: @secFont;
+}
+html{
+//  /*三角箭头的颜色*/
+//  scrollbar-arrow-color: #f00;
+//  /*滚动条滑块按钮的颜色*/
+//  scrollbar-face-color: #ff0;
+//  /*滚动条整体颜色*/
+//  scrollbar-highlight-color: #333;
+//  /*滚动条阴影*/
+//  scrollbar-shadow-color: #ccc;
+//  /*滚动条轨道颜色*/
+//  scrollbar-track-color: #666;
+}
+body {
+    .bg(@bodyBk);
+    .color;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    .mgrPad;
+    color:@HFontColor;
+}
+h2 {
+    font-size: @mainFont + 2;
+}
+h3 {
+    font-size: @mainFont;
+    border-bottom: 1px solid @partHeadBorderColor;
+}
+h3 > span{
+    font-size: @mainFont + 1;
+    margin: 10px 13px;
+    padding: 0 8px;
+    line-height: 39px;
+    border-left: 3px solid @mainColor;
+    font-weight: bold;
+    color: #333;
+}
+h4{
+    font-size: @secFont;
+}
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+    .mgrPad;
+}
+/* 有时不生效，需要再次清除margin和padding */
+li,
+dt,
+dd {
+    list-style: none;
+}
+a {
+    .color;
+    .noUnderLine;
+    
+    &:focus {
+        .noOutline;
+        .color(@mainColor);        
+    }
+    &:link,
+    &:visited {
+        .noUnderLine;
+    }
+    &:hover {
+        .noUnderLine;
+        .color(@mainColor);
+    }
+    &:active {
+        .noUnderLine;
+    }
+    
+}
+/* IE下点击a标签去掉虚线边框 */
+img {
+    .verAlign(top);
+}
+input,
+button,
+textarea {
+    .noOutline;
+}
+button {
+    .noBor;
+    .noOutline;
+}
+label {
+    font-weight: normal;
+}
+i {
+    font-style: normal;
+}
+p{
+    margin: 0;
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: @mainFont;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.cm {
+    /* 浮动 */
+    &-clearfix {
+        &:after {
+            .dis(block);
+            content: '';
+            clear: both;
+        }
+    }
+    &-fl {
+        float: left;
+    }
+    &-fr {
+        float: right;
+    }
+}

@@ -186,7 +186,7 @@
 	// 显示提示弹出层
 	var showTipsLayer = function(msg, id) {
 		layer.tips(msg, '#'+id, {
-			tips: [2, '#ff6d5e'],
+			tips: 2,
 			time:0
 		});
 	};
@@ -552,6 +552,8 @@
 		$.extend(definedOption,option);
 		var _this = this;
 		var li_str = "";
+		var placeHStr = '';
+		var selObj = '';
 		if(!definedOption){
 			return null;
 		}
@@ -559,19 +561,32 @@
 			li_data = definedOption.data;
 			for(var i = 0; i< li_data.length;i++){
 				li_str += '<li value = "'+li_data[i].key+'" title="'+li_data[i].text+'">'+li_data[i].text+'</li>';
+				if(li_data[i].selected){
+					selObj = li_data[i];
+				}
 			}
 		}
 		_this.addClass("cm-selectPeacock");
+		if(_this.attr('class').indexOf('cm-select-xs') < 0) placeHStr=' placeholder="--请选择--"';
+		
 		var idDefineHtml = _this.attr('idxName')?'name="'+_this.attr('idxName')+'"':'name="'+definedOption.field+'"';
 		var txtDefineHtml = _this.attr('txtName')?'name="'+_this.attr('txtName')+'"':'name="'+definedOption.field+'Text"';
 		idDefineHtml += _this.attr('idxId')?'id="'+_this.attr('idName')+'"':'id="'+definedOption.field+'"';
 		txtDefineHtml += _this.attr('txtId')?'id="'+_this.attr('txtId')+'"':'id="'+definedOption.field+'Text"';
+		
 		_this.html('<input class="cm-selectId" '+idDefineHtml+' value="" type="hidden"/>'
-			+'<input class="cm-selectOption input-md form-control" readonly="true" '+txtDefineHtml+' value="--请选择--" />'
+			+'<input class="cm-selectOption input-md form-control" readonly="true" '+txtDefineHtml+placeHStr+'/>'
 			+'<i class="cm-selectIcon iconfont">&#xe6a3;</i>'
 			+'<ul class="cm-allOptions cm-noElement">'
 			+li_str
 			+'</ul>');
+		
+		if(selObj != ''){
+			_this.selectValue = selObj.key;
+	        _this.selectText = selObj.text;
+	        _this.find(".cm-selectOption").val(selObj.text);
+	        _this.find('.cm-selectId').val(selObj.key);
+		}
 		
 		//如果select id的input值变了，改变txt的值，可用于回显form.load
 		_this.find(".cm-selectId").change(function(){

@@ -1,0 +1,14 @@
+.n-yellow .msg-wrap .n-arrow b {
+  color: #fd6d5f;
+}
+.n-yellow .msg-wrap .n-arrow i {
+  color: #ffffff;
+}
+.n-yellow .msg-wrap {
+  border-color: #fd6d5f;
+  color: #fd6d5f;
+  background-color: #ffffff;
+}
+.n-yellow .msg-wrap .n-icon {
+  background-image: url(../img/validator_simple.png);
+}

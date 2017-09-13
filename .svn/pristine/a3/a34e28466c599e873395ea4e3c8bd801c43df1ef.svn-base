@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>领导者视图</title>
+		<link rel="stylesheet" href="../dist/lib/jquery-easyui-1.5.1/themes/default/easyui.css">
+		<link rel="stylesheet" href="../dist/lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="../dist/lib/ztree/css/metroStyle/metroStyle.min.css" />
+		<link rel="stylesheet" href="../dist/css/customzTree/customStyle.css">
+		<link rel="stylesheet" href="../dist/css/peacock.css">
+		<link rel="stylesheet" href="css/performanceContract.css" />
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row row1">
+				<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-body perform-contract-pie cm-clearfix">
+							<div class="cm-fl perform-contract-pie1" id="performContractPie1" ></div>
+							<div class="cm-fl" id="performContractPie2"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-body">
+							<div class="complete-chart" id="completeChart"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-body">
+							<div class="scatter-chart" id="scatterChart"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row row3">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-body">
+							
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+		
+		<i class="iconfont cm-toTop" onclick="backToTop();">&#xe737;</i>
+		
+		<script type="text/javascript" src="../dist/lib/jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/nicescroll/jquery.nicescroll.min.js"></script>
+		<script src="../dist/lib/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../dist/lib/jquery-easyui-1.5.1/locale/easyui-lang-zh_CN.js" ></script>
+		<script src="../dist/lib/ztree/js/jquery.ztree.all.min.js"></script>
+		<script src="../dist/lib/echarts/echarts.min.js"></script>
+		<script src="../dist/js/peacock.js"></script>
+		<script src="js/performanceContract.js"></script>
+	</body>
+</html>

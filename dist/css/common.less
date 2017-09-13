@@ -5,8 +5,8 @@
 @actColor: #c73c37;             // 活动状态的主色调
 @coColor: #ff6e07;              // 辅色
 @partHeadBorderColor:#e0dcdd;
-@watermelonRed:#ff6d5e;
-@watermelonRedHover:#ed5a56;
+@watermelonRed:#fd6d5f;
+@watermelonRedHover:#ff6d5e;//#ed5a56
 
 @HFontColor:#333;//标题颜色
 @mainFontColor:#464646;//内容区域颜色
@@ -66,7 +66,7 @@
 .color(@c:#464646) {                // 文字颜色color -- 默认#333
   color: @c;
 }
-.bg(@bc:@mainColor) {            // 背景色 -- 默认主色
+.bg(@bc:@watermelonRed) {            // 背景色 -- 默认主色
   background-color: @bc;
 }
 .bor(@color:#ccc,@width:1px,@style:solid) {   // 边框border -- 默认1px solid #ccc
@@ -156,22 +156,10 @@
     font-family: PingFangSC-Light, 'helvetica neue', 'hiragino sans gb', tahoma, 'microsoft yahei ui', 'microsoft yahei', simsun, sans-serif;
     font-size: @secFont;
 }
-html{
-//  /*三角箭头的颜色*/
-//  scrollbar-arrow-color: #f00;
-//  /*滚动条滑块按钮的颜色*/
-//  scrollbar-face-color: #ff0;
-//  /*滚动条整体颜色*/
-//  scrollbar-highlight-color: #333;
-//  /*滚动条阴影*/
-//  scrollbar-shadow-color: #ccc;
-//  /*滚动条轨道颜色*/
-//  scrollbar-track-color: #666;
-}
+
 body {
     .bg(@bodyBk);
     .color;
-    .pos;
 }
 h1,
 h2,
@@ -191,12 +179,13 @@ h3 {
     border-bottom: 1px solid @partHeadBorderColor;
 }
 h3 > span{
-    font-size: @mainFont;
+    font-size: @mainFont + 1;
     margin: 10px 13px;
     padding: 0 8px;
     line-height: 39px;
     border-left: 3px solid @mainColor;
     font-weight: bold;
+    color: #333;
 }
 h4{
     font-size: @secFont;

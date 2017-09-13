@@ -72,12 +72,7 @@
 									<ul class="cm-form-wrap cm-form-lg cm-clearfix">
 										<li>
 											<label for=""><i class="cm-sign">*</i> 信息类别：</label>
-											<div class="common-select cm-select cm-select-md">
-												<input type="text" class="cm-select-form" readonly="true">
-												<i class="iconfont cm-select-btn">&#xe6a3;</i>
-												<ul class="cm-selectBox-Wrap cm-selectBox-md">
-													<!--<li>111</li>-->
-												</ul>
+											<div id="infoType">
 											</div>
 										</li>
 										<li>
@@ -86,13 +81,7 @@
 										</li>
 										<li>
 											<label for=""><i class="cm-sign">*</i> 是否名单制：</label>
-											<div class="whether-select cm-select cm-select-xs">
-												<input type="text" class="cm-select-form" readonly="true">
-												<i class="iconfont cm-select-btn">&#xe6a3;</i>
-												<ul class="cm-selectBox-Wrap cm-selectBox-xs">
-													<!--<li>是</li>
-													<li>否</li>-->
-												</ul>
+											<div id="isNameList">
 											</div>
 										</li>
 										<li>
@@ -110,7 +99,7 @@
 										<li>
 											<label for=""><i class="cm-sign">*</i> 一级行业：</label>
 											<div class="cm-select cm-select-md">
-												<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="请选择内容" />
+												<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="--请选择--" />
 												<span class="iconfont cm-select-btn">&#xe6a3;</span>							
 												<div class="cm-menu-content">
 													<ul id="downTree" class="ztree"></ul>
@@ -120,7 +109,7 @@
 										<li>
 											<label for=""><i class="cm-sign">*</i> 二级行业：</label>
 											<div class="cm-select cm-select-md">
-												<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="请选择内容" />
+												<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="--请选择--" />
 												<span class="iconfont cm-select-btn">&#xe6a3;</span>							
 												<div class="cm-menu-content">
 													<ul id="downTree2" class="ztree"></ul>
@@ -130,7 +119,7 @@
 										<li>
 											<label for=""><i class="cm-sign">*</i> 三级行业：</label>
 											<div class="cm-select cm-select-md">
-												<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="请选择内容" />
+												<input type="text" class="cm-select-form" readonly="true" data-rule="required;" placeholder="--请选择--" />
 												<span class="iconfont cm-select-btn">&#xe6a3;</span>							
 												<div class="cm-menu-content">
 													<ul id="downTree3" class="ztree"></ul>
@@ -139,12 +128,7 @@
 										</li>
 										<li>
 											<label for=""><i class="cm-sign">*</i> 行业类型：</label>
-											<div class="common-select cm-select cm-select-md">
-												<input type="text" class="cm-select-form" readonly="true">
-												<i class="iconfont cm-select-btn">&#xe6a3;</i>
-												<ul class="cm-selectBox-Wrap cm-selectBox-md">
-													<!--<li>111</li>-->													
-												</ul>
+											<div id="industryType">
 											</div>
 										</li>
 										<li>
@@ -191,20 +175,9 @@
 										</li>
 										<li>
 											<label for=""><i class="cm-sign">*</i> 省带动：</label>
-											<div class="whether-select cm-select cm-select-xs">
-												<input type="text" class="cm-select-form" readonly="true">
-												<i class="iconfont cm-select-btn">&#xe6a3;</i>
-												<ul class="cm-selectBox-Wrap cm-selectBox-xs">
-													<!--<li>是</li>
-													<li>否</li>-->
-												</ul>
+											<div id="prvDriving1" class="cm-select-xs">
 											</div>
-											<div class="common-select cm-select cm-select-sm">
-												<input type="text" class="cm-select-form" readonly="true">
-												<i class="iconfont cm-select-btn">&#xe6a3;</i>
-												<ul class="cm-selectBox-Wrap cm-selectBox-sm">
-													<!--<li>111</li>-->													
-												</ul>
+											<div id="prvDriving2" class="cm-select-sm">
 											</div>
 										</li>
 										<li>
@@ -239,12 +212,7 @@
 										</li>
 										<li>
 											<label for="">信息等级：</label>
-											<div class="common-select cm-select cm-select-md">
-												<input type="text" class="cm-select-form" readonly="true">
-												<i class="iconfont cm-select-btn">&#xe6a3;</i>
-												<ul class="cm-selectBox-Wrap cm-selectBox-md">
-													<!--<li>111</li>-->													
-												</ul>
+											<div id="infoLev">
 											</div>
 										</li>
 										<li>
@@ -253,12 +221,7 @@
 										</li>
 										<li>
 											<label for="">联通公司领导职务：</label>
-											<div class="common-select cm-select cm-select-md">
-												<input type="text" class="cm-select-form" readonly="true">
-												<i class="iconfont cm-select-btn">&#xe6a3;</i>
-												<ul class="cm-selectBox-Wrap cm-selectBox-md">
-													<!--<li>111</li>-->													
-												</ul>
+											<div id="leaderPos">
 											</div>
 										</li>
 										<li class="colspan3">
